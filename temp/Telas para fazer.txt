@@ -1,0 +1,19 @@
+Telas:
+
+Cadastrar Usuário; 			 "Perfil:Admin"
+Consultar Usuário(com edições); 	 "Perfil:Admin"
+
+Criar Perfil(com edições); 	 	 "Perfil:Admin"
+
+Consultar Produto(com edições); 	 "Perfil:Comprador+Admin"
+
+Consultar Fornecedor(com edições);	 "Perfil:Comprador+Admin"
+
+Consultar TipoFornecimento(com edição);	 "Perfil:Comprador+Admin"
+
+Abrir/Acompanhar solicitação(com edição);	 "Perfil:Todos"
+
+Enviar Cotação p/ Fornecedor;		 "Perfil:Comprador"
+Acompanhar Cotç Fornecedor(c/ edição);	 "Perfil:Comprador"
+
+Add Cotação do Fornecedor;		 "Perfil:Comprador"
