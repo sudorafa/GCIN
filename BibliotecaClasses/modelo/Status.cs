@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BibliotecaClasses.modelo
 {
+    [Serializable]
+    [DataContract()]
     public class Status
     {
         private string detalheStatus, statusSolicitacao, dataStatus;
@@ -16,6 +19,7 @@ namespace BibliotecaClasses.modelo
             this.Solicitacao = new Solicitacao();
         }
 
+        [DataMember(IsRequired = true)]
         public string DataStatus
         {
             get
@@ -29,6 +33,7 @@ namespace BibliotecaClasses.modelo
             }
         }
 
+        [DataMember(IsRequired = true)]
         public string DetalheStatus
         {
             get
@@ -42,6 +47,7 @@ namespace BibliotecaClasses.modelo
             }
         }
 
+        [DataMember(IsRequired = true)]
         public Solicitacao Solicitacao
         {
             get
@@ -55,6 +61,7 @@ namespace BibliotecaClasses.modelo
             }
         }
 
+        [DataMember(IsRequired = true)]
         public string StatusSolicitacao
         {
             get

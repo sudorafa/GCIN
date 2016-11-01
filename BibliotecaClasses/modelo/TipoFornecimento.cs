@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BibliotecaClasses.modelo
 {
+    [Serializable]
+    [DataContract()]
     public class TipoFornecimento
     {
         private int idTipoFornecimento;
@@ -19,6 +22,7 @@ namespace BibliotecaClasses.modelo
             this.produto = new Produto();
         }
 
+        [DataMember(IsRequired = true)]
         public int IdTipoFornecimento
         {
             get
@@ -32,6 +36,7 @@ namespace BibliotecaClasses.modelo
             }
         }
 
+        [DataMember(IsRequired = true)]
         public string DescTipoFornecimento
         {
             get
@@ -45,6 +50,7 @@ namespace BibliotecaClasses.modelo
             }
         }
 
+        [DataMember(IsRequired = true)]
         public Fornecedor Fornecedor
         {
             get
@@ -58,6 +64,7 @@ namespace BibliotecaClasses.modelo
             }
         }
 
+        [DataMember(IsRequired = true)]
         public Produto Produto
         {
             get

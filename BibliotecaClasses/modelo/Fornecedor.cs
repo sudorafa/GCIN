@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BibliotecaClasses.modelo
 {
+    [Serializable]
+    [DataContract()]
     public class Fornecedor
     {
         private int idFornecedor;
@@ -17,6 +20,7 @@ namespace BibliotecaClasses.modelo
             this.tiposFornecimentos = new List<TipoFornecimento>();
         }
 
+        [DataMember(IsRequired = true)]
         public string Bairro
         {
             get
@@ -30,6 +34,7 @@ namespace BibliotecaClasses.modelo
             }
         }
 
+        [DataMember(IsRequired = true)]
         public string Bloqueio
         {
             get
@@ -43,6 +48,7 @@ namespace BibliotecaClasses.modelo
             }
         }
 
+        [DataMember(IsRequired = true)]
         public string Cep
         {
             get
@@ -56,6 +62,7 @@ namespace BibliotecaClasses.modelo
             }
         }
 
+        [DataMember(IsRequired = true)]
         public string Cidade
         {
             get
@@ -69,6 +76,7 @@ namespace BibliotecaClasses.modelo
             }
         }
 
+        [DataMember(IsRequired = true)]
         public string Email
         {
             get
@@ -82,6 +90,7 @@ namespace BibliotecaClasses.modelo
             }
         }
 
+        [DataMember(IsRequired = true)]
         public string Endereco
         {
             get
@@ -95,6 +104,7 @@ namespace BibliotecaClasses.modelo
             }
         }
 
+        [DataMember(IsRequired = true)]
         public int IdFornecedor
         {
             get
@@ -108,6 +118,7 @@ namespace BibliotecaClasses.modelo
             }
         }
 
+        [DataMember(IsRequired = true)]
         public string NomeFornecedor
         {
             get
@@ -121,6 +132,7 @@ namespace BibliotecaClasses.modelo
             }
         }
 
+        [DataMember(IsRequired = true)]
         public string Telefone
         {
             get
@@ -134,6 +146,7 @@ namespace BibliotecaClasses.modelo
             }
         }
 
+        [DataMember(IsRequired = true)]
         public List<TipoFornecimento> TiposFornecimentos
         {
             get
@@ -147,6 +160,7 @@ namespace BibliotecaClasses.modelo
             }
         }
 
+        [DataMember(IsRequired = true)]
         public string Uf
         {
             get
