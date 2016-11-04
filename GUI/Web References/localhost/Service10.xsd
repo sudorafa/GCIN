@@ -35,13 +35,13 @@
   <xs:element name="ArrayOfSolicitacao" nillable="true" type="tns:ArrayOfSolicitacao" />
   <xs:complexType name="Solicitacao">
     <xs:sequence>
-      <xs:element minOccurs="0" name="CotacoesProdutosSolicitacoes" nillable="true" type="tns:ArrayOfCotacaoDoProduto" />
-      <xs:element minOccurs="0" name="DataPrecisa" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DataSolicitacao" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="IdSolicitacao" type="xs:int" />
-      <xs:element minOccurs="0" name="Severidade" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Status" nillable="true" type="tns:ArrayOfStatus" />
-      <xs:element minOccurs="0" name="Usuarios" nillable="true" type="tns:ArrayOfUsuario" />
+      <xs:element name="CotacoesProdutosSolicitacoes" nillable="true" type="tns:ArrayOfCotacaoDoProduto" />
+      <xs:element name="DataPrecisa" nillable="true" type="xs:string" />
+      <xs:element name="DataSolicitacao" nillable="true" type="xs:string" />
+      <xs:element name="IdSolicitacao" type="xs:int" />
+      <xs:element name="Severidade" nillable="true" type="xs:string" />
+      <xs:element name="Status" nillable="true" type="tns:ArrayOfStatus" />
+      <xs:element name="Usuarios" nillable="true" type="tns:ArrayOfUsuario" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Solicitacao" nillable="true" type="tns:Solicitacao" />
@@ -53,30 +53,30 @@
   <xs:element name="ArrayOfCotacaoDoProduto" nillable="true" type="tns:ArrayOfCotacaoDoProduto" />
   <xs:complexType name="CotacaoDoProduto">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Cotacao" nillable="true" type="tns:Cotacao" />
-      <xs:element minOccurs="0" name="Produto" nillable="true" type="tns:Produto" />
-      <xs:element minOccurs="0" name="Solicitacao" nillable="true" type="tns:Solicitacao" />
-      <xs:element minOccurs="0" name="ValorCotado" type="xs:double" />
-      <xs:element minOccurs="0" name="Venceu" nillable="true" type="xs:string" />
+      <xs:element name="Cotacao" nillable="true" type="tns:Cotacao" />
+      <xs:element name="Produto" nillable="true" type="tns:Produto" />
+      <xs:element name="Solicitacao" nillable="true" type="tns:Solicitacao" />
+      <xs:element name="ValorCotado" type="xs:double" />
+      <xs:element name="Venceu" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CotacaoDoProduto" nillable="true" type="tns:CotacaoDoProduto" />
   <xs:complexType name="Cotacao">
     <xs:sequence>
-      <xs:element minOccurs="0" name="CotacaoProdutoSolicitacao" nillable="true" type="tns:ArrayOfCotacaoDoProduto" />
-      <xs:element minOccurs="0" name="DataCotacao" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DataValidadeCotacao" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="IdCotacao" type="xs:int" />
-      <xs:element minOccurs="0" name="StatusCotacao" nillable="true" type="xs:string" />
+      <xs:element name="CotacaoProdutoSolicitacao" nillable="true" type="tns:ArrayOfCotacaoDoProduto" />
+      <xs:element name="DataCotacao" nillable="true" type="xs:string" />
+      <xs:element name="DataValidadeCotacao" nillable="true" type="xs:string" />
+      <xs:element name="IdCotacao" type="xs:int" />
+      <xs:element name="StatusCotacao" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Cotacao" nillable="true" type="tns:Cotacao" />
   <xs:complexType name="Produto">
     <xs:sequence>
-      <xs:element minOccurs="0" name="CotacoesProdutosSolicitacoes" nillable="true" type="tns:ArrayOfCotacaoDoProduto" />
-      <xs:element minOccurs="0" name="DataCadastro" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DescProduto" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="IdProduto" type="xs:int" />
+      <xs:element name="CotacoesProdutosSolicitacoes" nillable="true" type="tns:ArrayOfCotacaoDoProduto" />
+      <xs:element name="DataCadastro" nillable="true" type="xs:string" />
+      <xs:element name="DescProduto" nillable="true" type="xs:string" />
+      <xs:element name="IdProduto" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Produto" nillable="true" type="tns:Produto" />
@@ -88,10 +88,10 @@
   <xs:element name="ArrayOfStatus" nillable="true" type="tns:ArrayOfStatus" />
   <xs:complexType name="Status">
     <xs:sequence>
-      <xs:element minOccurs="0" name="DataStatus" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DetalheStatus" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Solicitacao" nillable="true" type="tns:Solicitacao" />
-      <xs:element minOccurs="0" name="StatusSolicitacao" nillable="true" type="xs:string" />
+      <xs:element name="DataStatus" nillable="true" type="xs:string" />
+      <xs:element name="DetalheStatus" nillable="true" type="xs:string" />
+      <xs:element name="Solicitacao" nillable="true" type="tns:Solicitacao" />
+      <xs:element name="StatusSolicitacao" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Status" nillable="true" type="tns:Status" />

@@ -9,6 +9,8 @@ namespace BibliotecaClasses.faixada
 {
     interface IPerfil
     {
-        List<Perfil> ListarPerfil();
+        List<Perfil> DListarPerfil();
+        void DCadastrarPerfil(Perfil perfil);
+        void DAlterarPerfil(Perfil perfil);
     }
 }

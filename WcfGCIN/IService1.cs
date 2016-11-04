@@ -26,5 +26,7 @@ namespace WcfGCIN
         [OperationContract]
         List<Perfil> PerfilListar();
 
+        [OperationContract]
+        void PerfilCadastrar(Perfil perfil);
     }
 }

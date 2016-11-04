@@ -29,15 +29,17 @@
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listViewPerfil = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.textBoxDescricao = new System.Windows.Forms.TextBox();
+            this.buttonDeletar = new System.Windows.Forms.Button();
+            this.buttonSalvar = new System.Windows.Forms.Button();
+            this.buttonCancelar = new System.Windows.Forms.Button();
+            this.textBoxId = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label2
@@ -50,13 +52,29 @@
             this.label2.TabIndex = 16;
             this.label2.Text = "Perfil";
             // 
-            // listView1
+            // listViewPerfil
             // 
-            this.listView1.Location = new System.Drawing.Point(70, 60);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(243, 171);
-            this.listView1.TabIndex = 17;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listViewPerfil.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.listViewPerfil.FullRowSelect = true;
+            this.listViewPerfil.Location = new System.Drawing.Point(70, 60);
+            this.listViewPerfil.Name = "listViewPerfil";
+            this.listViewPerfil.Size = new System.Drawing.Size(243, 171);
+            this.listViewPerfil.TabIndex = 22;
+            this.listViewPerfil.UseCompatibleStateImageBehavior = false;
+            this.listViewPerfil.View = System.Windows.Forms.View.Details;
+            this.listViewPerfil.SelectedIndexChanged += new System.EventHandler(this.listViewPerfil_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ID";
+            this.columnHeader1.Width = 70;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Desc Perfil";
+            this.columnHeader2.Width = 170;
             // 
             // label1
             // 
@@ -85,62 +103,64 @@
             this.label4.TabIndex = 20;
             this.label4.Text = "Descrição";
             // 
-            // textBox1
+            // textBoxDescricao
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(70, 250);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(52, 20);
-            this.textBox1.TabIndex = 21;
+            this.textBoxDescricao.Location = new System.Drawing.Point(70, 276);
+            this.textBoxDescricao.Name = "textBoxDescricao";
+            this.textBoxDescricao.Size = new System.Drawing.Size(127, 20);
+            this.textBoxDescricao.TabIndex = 17;
             // 
-            // textBox2
+            // buttonDeletar
             // 
-            this.textBox2.Location = new System.Drawing.Point(70, 276);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(127, 20);
-            this.textBox2.TabIndex = 22;
+            this.buttonDeletar.Location = new System.Drawing.Point(76, 332);
+            this.buttonDeletar.Name = "buttonDeletar";
+            this.buttonDeletar.Size = new System.Drawing.Size(75, 23);
+            this.buttonDeletar.TabIndex = 37;
+            this.buttonDeletar.Text = "Deletar";
+            this.buttonDeletar.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // buttonSalvar
             // 
-            this.button4.Location = new System.Drawing.Point(76, 332);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 37;
-            this.button4.Text = "Deletar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonSalvar.Location = new System.Drawing.Point(157, 332);
+            this.buttonSalvar.Name = "buttonSalvar";
+            this.buttonSalvar.Size = new System.Drawing.Size(75, 23);
+            this.buttonSalvar.TabIndex = 35;
+            this.buttonSalvar.Text = "Salvar";
+            this.buttonSalvar.UseVisualStyleBackColor = true;
+            this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             // 
-            // button2
+            // buttonCancelar
             // 
-            this.button2.Location = new System.Drawing.Point(157, 332);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 35;
-            this.button2.Text = "Salvar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Location = new System.Drawing.Point(238, 332);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancelar.TabIndex = 34;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
-            // button1
+            // textBoxId
             // 
-            this.button1.Location = new System.Drawing.Point(238, 332);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 34;
-            this.button1.Text = "Cancelar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.textBoxId.Enabled = false;
+            this.textBoxId.Location = new System.Drawing.Point(70, 246);
+            this.textBoxId.Name = "textBoxId";
+            this.textBoxId.Size = new System.Drawing.Size(66, 20);
+            this.textBoxId.TabIndex = 38;
             // 
             // FormPerfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(367, 382);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxId);
+            this.Controls.Add(this.buttonDeletar);
+            this.Controls.Add(this.buttonSalvar);
+            this.Controls.Add(this.buttonCancelar);
+            this.Controls.Add(this.textBoxDescricao);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.listViewPerfil);
             this.Controls.Add(this.label2);
             this.Name = "FormPerfil";
             this.Text = "Perfil";
@@ -152,14 +172,16 @@
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listViewPerfil;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBoxDescricao;
+        private System.Windows.Forms.Button buttonDeletar;
+        private System.Windows.Forms.Button buttonSalvar;
+        private System.Windows.Forms.Button buttonCancelar;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.TextBox textBoxId;
     }
 }

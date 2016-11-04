@@ -304,12 +304,12 @@
             // 
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Items.AddRange(new object[] {
-            "Cancelar",
-            "Aprovar",
-            "Reprovar",
-            "Em Cotação",
-            "Aguardando Compra",
-            "Comprado"});
+            "Cancelar - Ficará \"Cancelado\"",
+            "Aprovar para Cotação - Ficará \"Em Cotação\"",
+            "Reprovar - Ficará \"Solicitação Reprovada\"",
+            "",
+            "Quando escolher a cotação vendedora - \"Aguardando Compra\"",
+            "Quando Comprado - \"Comprado\""});
             this.comboBox4.Location = new System.Drawing.Point(553, 258);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(179, 21);

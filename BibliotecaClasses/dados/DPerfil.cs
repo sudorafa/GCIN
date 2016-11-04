@@ -13,7 +13,17 @@ namespace BibliotecaClasses.dados
     {
         ConexaoBanco conexao = new ConexaoBanco();
 
-        public List<Perfil> ListarPerfil()
+        public void DAlterarPerfil(Perfil perfil)
+        {
+            
+        }
+
+        public void DCadastrarPerfil(Perfil perfil)
+        {
+            
+        }
+
+        public List<Perfil> DListarPerfil()
         {
             List<Perfil> perfis = new List<Perfil>();
             try

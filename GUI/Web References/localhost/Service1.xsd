@@ -39,4 +39,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="PerfilCadastrar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="perfil" nillable="true" type="q5:Perfil" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PerfilCadastrarResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

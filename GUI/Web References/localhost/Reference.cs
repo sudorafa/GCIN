@@ -35,6 +35,8 @@ namespace GUI.localhost {
         
         private System.Threading.SendOrPostCallback PerfilListarOperationCompleted;
         
+        private System.Threading.SendOrPostCallback PerfilCadastrarOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -81,6 +83,9 @@ namespace GUI.localhost {
         
         /// <remarks/>
         public event PerfilListarCompletedEventHandler PerfilListarCompleted;
+        
+        /// <remarks/>
+        public event PerfilCadastrarCompletedEventHandler PerfilCadastrarCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/UsuarioCadastrar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -166,6 +171,34 @@ namespace GUI.localhost {
             if ((this.PerfilListarCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.PerfilListarCompleted(this, new PerfilListarCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/PerfilCadastrar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void PerfilCadastrar([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Perfil perfil) {
+            this.Invoke("PerfilCadastrar", new object[] {
+                        perfil});
+        }
+        
+        /// <remarks/>
+        public void PerfilCadastrarAsync(Perfil perfil) {
+            this.PerfilCadastrarAsync(perfil, null);
+        }
+        
+        /// <remarks/>
+        public void PerfilCadastrarAsync(Perfil perfil, object userState) {
+            if ((this.PerfilCadastrarOperationCompleted == null)) {
+                this.PerfilCadastrarOperationCompleted = new System.Threading.SendOrPostCallback(this.OnPerfilCadastrarOperationCompleted);
+            }
+            this.InvokeAsync("PerfilCadastrar", new object[] {
+                        perfil}, this.PerfilCadastrarOperationCompleted, userState);
+        }
+        
+        private void OnPerfilCadastrarOperationCompleted(object arg) {
+            if ((this.PerfilCadastrarCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.PerfilCadastrarCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -424,8 +457,6 @@ namespace GUI.localhost {
         
         private int idSolicitacaoField;
         
-        private bool idSolicitacaoFieldSpecified;
-        
         private string severidadeField;
         
         private Status[] statusField;
@@ -472,17 +503,6 @@ namespace GUI.localhost {
             }
             set {
                 this.idSolicitacaoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool IdSolicitacaoSpecified {
-            get {
-                return this.idSolicitacaoFieldSpecified;
-            }
-            set {
-                this.idSolicitacaoFieldSpecified = value;
             }
         }
         
@@ -536,8 +556,6 @@ namespace GUI.localhost {
         
         private double valorCotadoField;
         
-        private bool valorCotadoFieldSpecified;
-        
         private string venceuField;
         
         /// <remarks/>
@@ -584,17 +602,6 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool ValorCotadoSpecified {
-            get {
-                return this.valorCotadoFieldSpecified;
-            }
-            set {
-                this.valorCotadoFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public string Venceu {
             get {
@@ -621,8 +628,6 @@ namespace GUI.localhost {
         private string dataValidadeCotacaoField;
         
         private int idCotacaoField;
-        
-        private bool idCotacaoFieldSpecified;
         
         private string statusCotacaoField;
         
@@ -670,17 +675,6 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool IdCotacaoSpecified {
-            get {
-                return this.idCotacaoFieldSpecified;
-            }
-            set {
-                this.idCotacaoFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public string StatusCotacao {
             get {
@@ -707,8 +701,6 @@ namespace GUI.localhost {
         private string descProdutoField;
         
         private int idProdutoField;
-        
-        private bool idProdutoFieldSpecified;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
@@ -750,17 +742,6 @@ namespace GUI.localhost {
             }
             set {
                 this.idProdutoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool IdProdutoSpecified {
-            get {
-                return this.idProdutoFieldSpecified;
-            }
-            set {
-                this.idProdutoFieldSpecified = value;
             }
         }
     }
@@ -820,6 +801,10 @@ namespace GUI.localhost {
             }
         }
     }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void PerfilCadastrarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591

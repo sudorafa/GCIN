@@ -1,5 +1,6 @@
 ﻿using BibliotecaClasses.dados;
 using BibliotecaClasses.modelo;
+using BibliotecaClasses.negocio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,27 +19,11 @@ namespace WcfGCIN
 
         public void UsuarioCadastrar(Usuario usuario)
         {
-            try
-            {
-                new DUsuario().CadastrarUsuario(usuario);
-            }
-            catch (Exception e)
-            {
-                throw new Exception("Erro ao Cadastrar Usuário " + e.Message);
-            }
+            
         }
 
         public Usuario UsuarioBuscar(Usuario usuario)
         {
-            try
-            {
-                DUsuario du = new DUsuario();
-                usuario = du.BuscarUsuario(usuario);
-            }
-            catch (Exception e)
-            {
-                throw new Exception("Erro ao Buscar Usuário " + e.Message);
-            }
             return usuario;
         }
 
@@ -47,10 +32,21 @@ namespace WcfGCIN
         public List<Perfil> PerfilListar()
         {
             DPerfil dp = new DPerfil();
-            List<Perfil> perfis = dp.ListarPerfil();
+            List<Perfil> perfis = dp.DListarPerfil();
                         
             return perfis;
         }
-        
+
+        public void PerfilCadastrar(Perfil perfil)
+        {
+            try
+            {
+                new NPerfil().NCadastrarPerfil(perfil);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Erro ao Cadastrar Perfil \n\n" + e.Message);
+            }
+        }
     }
 }
