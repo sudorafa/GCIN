@@ -11,6 +11,7 @@ namespace BibliotecaClasses.negocio
 {
     public class NUsuario
     {
+
         DUsuario du = new DUsuario();
         
         public void NCadastrarUsuario(Usuario usuario)
