@@ -35,12 +35,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxNome = new System.Windows.Forms.TextBox();
-            this.textBoxCpf = new System.Windows.Forms.TextBox();
             this.comboBoxPerfil = new System.Windows.Forms.ComboBox();
             this.textBoxLogin = new System.Windows.Forms.TextBox();
             this.textBoxSenha = new System.Windows.Forms.TextBox();
             this.buttonSalvar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
+            this.maskedTextBoxCpf = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -106,13 +106,6 @@
             this.textBoxNome.Size = new System.Drawing.Size(428, 20);
             this.textBoxNome.TabIndex = 7;
             // 
-            // textBoxCpf
-            // 
-            this.textBoxCpf.Location = new System.Drawing.Point(67, 84);
-            this.textBoxCpf.Name = "textBoxCpf";
-            this.textBoxCpf.Size = new System.Drawing.Size(189, 20);
-            this.textBoxCpf.TabIndex = 8;
-            // 
             // comboBoxPerfil
             // 
             this.comboBoxPerfil.FormattingEnabled = true;
@@ -154,17 +147,25 @@
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             // 
+            // maskedTextBoxCpf
+            // 
+            this.maskedTextBoxCpf.Location = new System.Drawing.Point(67, 80);
+            this.maskedTextBoxCpf.Mask = "999,999,999-99";
+            this.maskedTextBoxCpf.Name = "maskedTextBoxCpf";
+            this.maskedTextBoxCpf.Size = new System.Drawing.Size(189, 20);
+            this.maskedTextBoxCpf.TabIndex = 8;
+            // 
             // FormUsuarioCadastrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(524, 205);
+            this.Controls.Add(this.maskedTextBoxCpf);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonSalvar);
             this.Controls.Add(this.textBoxSenha);
             this.Controls.Add(this.textBoxLogin);
             this.Controls.Add(this.comboBoxPerfil);
-            this.Controls.Add(this.textBoxCpf);
             this.Controls.Add(this.textBoxNome);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -188,11 +189,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxNome;
-        private System.Windows.Forms.TextBox textBoxCpf;
         private System.Windows.Forms.ComboBox comboBoxPerfil;
         private System.Windows.Forms.TextBox textBoxLogin;
         private System.Windows.Forms.TextBox textBoxSenha;
         private System.Windows.Forms.Button buttonSalvar;
         private System.Windows.Forms.Button buttonCancelar;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxCpf;
     }
 }

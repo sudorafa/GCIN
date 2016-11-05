@@ -15,19 +15,19 @@ namespace WcfGCIN
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
     {
-        //Usuario
-
+        /*------------------------------- Usuario ------------------------------------------- */
         public void UsuarioCadastrar(Usuario usuario)
         {
-            
+            new NUsuario().NCadastrarUsuario(usuario);
         }
 
         public Usuario UsuarioBuscar(Usuario usuario)
         {
             return usuario;
         }
+        /*------------------------------- Usuario ------------------------------------------- */
 
-        /*-------------------------------  Perfil -------------------------------------------- */
+        /*------------------------------- Perfil -------------------------------------------- */
         public List<Perfil> PerfilListar()
         {
             DPerfil dp = new DPerfil();
@@ -45,6 +45,6 @@ namespace WcfGCIN
         {
             new NPerfil().NDeletarPerfil(perfil);
         }
-        /*-------------------------------  Perfil -------------------------------------------- */
+        /*------------------------------- Perfil -------------------------------------------- */
     }
 }

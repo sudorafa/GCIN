@@ -18,9 +18,14 @@ namespace GUI
         public FormUsuarioCadastrar()
         {
             InitializeComponent();
+            ListarPerfil();
+        }
+
+        private void ListarPerfil()
+        {
             localhost.Service1 service1 = new localhost.Service1();
             listPerfis = service1.PerfilListar().ToList();
-            
+
             comboBoxPerfil.Items.Clear();
             foreach (Perfil pf in listPerfis)
             {
@@ -28,43 +33,81 @@ namespace GUI
             }
             comboBoxPerfil.SelectedIndex = 0;
         }
-        
+
+        private void LimparTela()
+        {
+            textBoxNome.Text = "";
+            maskedTextBoxCpf.Text = "";
+            comboBoxPerfil.SelectedIndex = 0;
+            textBoxLogin.Text = "";
+            textBoxSenha.Text = "";
+            textBoxNome.Focus();
+        }
+
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
             String nome, cpf, perfil, login, senha, bloqueio;
             int idPerfil, index;
 
+            //get tela
             nome = textBoxNome.Text;
-            cpf = textBoxCpf.Text;
+            cpf = maskedTextBoxCpf.Text;
             perfil = comboBoxPerfil.Text;
             login = textBoxLogin.Text;
             senha = textBoxSenha.Text;
-            bloqueio = "sim";
-
+            bloqueio = "nao";
             Perfil perfilEscolhido;
             index = comboBoxPerfil.SelectedIndex;
             perfilEscolhido = listPerfis.ElementAt(index);
             idPerfil = perfilEscolhido.IdPerfil;
 
-            Usuario usuario = new Usuario();
-            usuario.Perfil = new Perfil();
-
-            usuario.IdUsuario = 32;
-            usuario.Nome = nome;
-            usuario.Cpf = cpf;
-            usuario.Login = login;
-            usuario.Senha = senha;
-            usuario.Bloqueio = bloqueio;
-            usuario.Perfil.IdPerfil = idPerfil;
-
-            try
+            //validação campos
+            if (nome.Equals("") || nome.Length == 0 || nome == null)
             {
-                localhost.Service1 service1 = new localhost.Service1();
-                service1.UsuarioCadastrar(usuario);
+                MessageBox.Show("Por Favor, Informe Nome ! ", "Ateção", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                textBoxNome.Focus();
             }
-            catch (Exception ex)
+            else if (cpf.Equals("   .   .   -"))
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Por Favor, Informe CPF ! ", "Ateção", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                maskedTextBoxCpf.Focus();
+            }
+            else if (login.Equals("") || login.Length == 0 || login == null)
+            {
+                MessageBox.Show("Por Favor, Informe Login ! ", "Ateção", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                textBoxLogin.Focus();
+            }
+            else if (senha.Equals("") || senha.Length == 0 || senha == null)
+            {
+                MessageBox.Show("Por Favor, Informe Senha ! ", "Ateção", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                textBoxSenha.Focus();
+            }
+            else
+            {
+                //obj
+                Usuario usuario = new Usuario();
+                usuario.Perfil = new Perfil();
+
+                //set obj
+                usuario.Nome = nome;
+                usuario.Cpf = cpf;
+                usuario.Login = login;
+                usuario.Senha = senha;
+                usuario.Bloqueio = bloqueio;
+                usuario.Perfil.IdPerfil = idPerfil;
+
+                try
+                {
+                    localhost.Service1 service1 = new localhost.Service1();
+                    service1.UsuarioCadastrar(usuario);
+                    MessageBox.Show("Usuario Salvo com Sucesso !", "Ateção", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    ListarPerfil();
+                    LimparTela();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
 
         }

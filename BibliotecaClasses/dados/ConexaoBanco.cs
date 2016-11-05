@@ -11,18 +11,18 @@ namespace BibliotecaClasses.dados
     {
         public SqlConnection sqlConn;
         //Meu Note
-        /*
         private const string local = "LAPTOP-J74C8P11\\RAFAEL";
         private const string banco = "GCIN";
         private const string usuario = "rafa";
         private const string senha = "2016";
-        */
-
+        
         //Unibratec
+        /*
         private const string local = "PC-099";
         private const string banco = "GCIN";
         private const string usuario = "aluno";
         private const string senha = "aluno";
+        */
 
         string connectionStringSqlServer = @"Data Source=" + local + ";Initial Catalog=" + banco + ";UId=" + usuario + ";Password=" + senha + ";";
 

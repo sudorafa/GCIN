@@ -53,7 +53,7 @@ namespace GUI
             }
             if (descricao.Equals("") || descricao.Length == 0 || descricao == null)
             {
-                MessageBox.Show("Por Favor, Informar Descrição do Perfil !");
+                MessageBox.Show("Por Favor, Informar Descrição do Perfil !", "Ateção", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 textBoxDescricao.Focus();
             } else
             {
@@ -120,7 +120,7 @@ namespace GUI
                     localhost.Service1 service1 = new localhost.Service1();
                     service1.PerfilDeletar(perfil);
 
-                    MessageBox.Show("Perfil Deletado com Sucesso !");
+                    MessageBox.Show("Perfil Deletado com Sucesso !", "Ateção", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     ListarPerfil();
                     LimparTela();
                 }
@@ -131,7 +131,7 @@ namespace GUI
             }
             else
             {
-                MessageBox.Show("Escolha um Perfil da Lista Para Deletar !");
+                MessageBox.Show("Escolha um Perfil da Lista Para Deletar !", "Ateção", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
     }
