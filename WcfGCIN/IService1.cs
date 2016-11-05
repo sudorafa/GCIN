@@ -22,11 +22,15 @@ namespace WcfGCIN
         [OperationContract]
         Usuario UsuarioBuscar(Usuario usuario);
 
-        //PERFIL
+        /*-------------------------------  Perfil -------------------------------------------- */
         [OperationContract]
         List<Perfil> PerfilListar();
 
         [OperationContract]
-        void PerfilCadastrar(Perfil perfil);
+        void PerfilCadastrarAlterar(Perfil perfil);
+
+        [OperationContract]
+        void PerfilDeletar(Perfil perfil);
+        /*-------------------------------  Perfil -------------------------------------------- */
     }
 }

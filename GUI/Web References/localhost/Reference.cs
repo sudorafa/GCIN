@@ -23,7 +23,7 @@ namespace GUI.localhost {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="BasicHttpBinding_IService1", Namespace="http://tempuri.org/")]
@@ -35,7 +35,9 @@ namespace GUI.localhost {
         
         private System.Threading.SendOrPostCallback PerfilListarOperationCompleted;
         
-        private System.Threading.SendOrPostCallback PerfilCadastrarOperationCompleted;
+        private System.Threading.SendOrPostCallback PerfilCadastrarAlterarOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback PerfilDeletarOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -85,7 +87,10 @@ namespace GUI.localhost {
         public event PerfilListarCompletedEventHandler PerfilListarCompleted;
         
         /// <remarks/>
-        public event PerfilCadastrarCompletedEventHandler PerfilCadastrarCompleted;
+        public event PerfilCadastrarAlterarCompletedEventHandler PerfilCadastrarAlterarCompleted;
+        
+        /// <remarks/>
+        public event PerfilDeletarCompletedEventHandler PerfilDeletarCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/UsuarioCadastrar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -175,30 +180,58 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/PerfilCadastrar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void PerfilCadastrar([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Perfil perfil) {
-            this.Invoke("PerfilCadastrar", new object[] {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/PerfilCadastrarAlterar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void PerfilCadastrarAlterar([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Perfil perfil) {
+            this.Invoke("PerfilCadastrarAlterar", new object[] {
                         perfil});
         }
         
         /// <remarks/>
-        public void PerfilCadastrarAsync(Perfil perfil) {
-            this.PerfilCadastrarAsync(perfil, null);
+        public void PerfilCadastrarAlterarAsync(Perfil perfil) {
+            this.PerfilCadastrarAlterarAsync(perfil, null);
         }
         
         /// <remarks/>
-        public void PerfilCadastrarAsync(Perfil perfil, object userState) {
-            if ((this.PerfilCadastrarOperationCompleted == null)) {
-                this.PerfilCadastrarOperationCompleted = new System.Threading.SendOrPostCallback(this.OnPerfilCadastrarOperationCompleted);
+        public void PerfilCadastrarAlterarAsync(Perfil perfil, object userState) {
+            if ((this.PerfilCadastrarAlterarOperationCompleted == null)) {
+                this.PerfilCadastrarAlterarOperationCompleted = new System.Threading.SendOrPostCallback(this.OnPerfilCadastrarAlterarOperationCompleted);
             }
-            this.InvokeAsync("PerfilCadastrar", new object[] {
-                        perfil}, this.PerfilCadastrarOperationCompleted, userState);
+            this.InvokeAsync("PerfilCadastrarAlterar", new object[] {
+                        perfil}, this.PerfilCadastrarAlterarOperationCompleted, userState);
         }
         
-        private void OnPerfilCadastrarOperationCompleted(object arg) {
-            if ((this.PerfilCadastrarCompleted != null)) {
+        private void OnPerfilCadastrarAlterarOperationCompleted(object arg) {
+            if ((this.PerfilCadastrarAlterarCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.PerfilCadastrarCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.PerfilCadastrarAlterarCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/PerfilDeletar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void PerfilDeletar([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Perfil perfil) {
+            this.Invoke("PerfilDeletar", new object[] {
+                        perfil});
+        }
+        
+        /// <remarks/>
+        public void PerfilDeletarAsync(Perfil perfil) {
+            this.PerfilDeletarAsync(perfil, null);
+        }
+        
+        /// <remarks/>
+        public void PerfilDeletarAsync(Perfil perfil, object userState) {
+            if ((this.PerfilDeletarOperationCompleted == null)) {
+                this.PerfilDeletarOperationCompleted = new System.Threading.SendOrPostCallback(this.OnPerfilDeletarOperationCompleted);
+            }
+            this.InvokeAsync("PerfilDeletar", new object[] {
+                        perfil}, this.PerfilDeletarOperationCompleted, userState);
+        }
+        
+        private void OnPerfilDeletarOperationCompleted(object arg) {
+            if ((this.PerfilDeletarCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.PerfilDeletarCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -222,7 +255,7 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -334,7 +367,7 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -381,7 +414,7 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -442,7 +475,7 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -541,7 +574,7 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -614,7 +647,7 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -687,7 +720,7 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -747,15 +780,15 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     public delegate void UsuarioCadastrarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     public delegate void UsuarioBuscarCompletedEventHandler(object sender, UsuarioBuscarCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class UsuarioBuscarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -777,11 +810,11 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     public delegate void PerfilListarCompletedEventHandler(object sender, PerfilListarCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class PerfilListarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -803,8 +836,12 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
-    public delegate void PerfilCadastrarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void PerfilCadastrarAlterarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void PerfilDeletarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591

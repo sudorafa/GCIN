@@ -27,8 +27,7 @@ namespace WcfGCIN
             return usuario;
         }
 
-        //Perfil
-
+        /*-------------------------------  Perfil -------------------------------------------- */
         public List<Perfil> PerfilListar()
         {
             DPerfil dp = new DPerfil();
@@ -37,16 +36,15 @@ namespace WcfGCIN
             return perfis;
         }
 
-        public void PerfilCadastrar(Perfil perfil)
+        public void PerfilCadastrarAlterar(Perfil perfil)
         {
-            try
-            {
-                new NPerfil().NCadastrarPerfil(perfil);
-            }
-            catch (Exception e)
-            {
-                throw new Exception("Erro ao Cadastrar Perfil \n\n" + e.Message);
-            }
+            new NPerfil().NCadastrarAlterarPerfil(perfil);
         }
+
+        public void PerfilDeletar(Perfil perfil)
+        {
+            new NPerfil().NDeletarPerfil(perfil);
+        }
+        /*-------------------------------  Perfil -------------------------------------------- */
     }
 }

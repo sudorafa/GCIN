@@ -25,11 +25,17 @@
   <wsdl:message name="IService1_PerfilListar_OutputMessage">
     <wsdl:part name="parameters" element="tns:PerfilListarResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_PerfilCadastrar_InputMessage">
-    <wsdl:part name="parameters" element="tns:PerfilCadastrar" />
+  <wsdl:message name="IService1_PerfilCadastrarAlterar_InputMessage">
+    <wsdl:part name="parameters" element="tns:PerfilCadastrarAlterar" />
   </wsdl:message>
-  <wsdl:message name="IService1_PerfilCadastrar_OutputMessage">
-    <wsdl:part name="parameters" element="tns:PerfilCadastrarResponse" />
+  <wsdl:message name="IService1_PerfilCadastrarAlterar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PerfilCadastrarAlterarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PerfilDeletar_InputMessage">
+    <wsdl:part name="parameters" element="tns:PerfilDeletar" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PerfilDeletar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PerfilDeletarResponse" />
   </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="UsuarioCadastrar">
@@ -44,9 +50,13 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/PerfilListar" message="tns:IService1_PerfilListar_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/PerfilListarResponse" message="tns:IService1_PerfilListar_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="PerfilCadastrar">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/PerfilCadastrar" message="tns:IService1_PerfilCadastrar_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/PerfilCadastrarResponse" message="tns:IService1_PerfilCadastrar_OutputMessage" />
+    <wsdl:operation name="PerfilCadastrarAlterar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/PerfilCadastrarAlterar" message="tns:IService1_PerfilCadastrarAlterar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/PerfilCadastrarAlterarResponse" message="tns:IService1_PerfilCadastrarAlterar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PerfilDeletar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/PerfilDeletar" message="tns:IService1_PerfilDeletar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/PerfilDeletarResponse" message="tns:IService1_PerfilDeletar_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -78,8 +88,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="PerfilCadastrar">
-      <soap:operation soapAction="http://tempuri.org/IService1/PerfilCadastrar" style="document" />
+    <wsdl:operation name="PerfilCadastrarAlterar">
+      <soap:operation soapAction="http://tempuri.org/IService1/PerfilCadastrarAlterar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PerfilDeletar">
+      <soap:operation soapAction="http://tempuri.org/IService1/PerfilDeletar" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

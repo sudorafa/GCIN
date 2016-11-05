@@ -12,5 +12,6 @@ namespace BibliotecaClasses.faixada
         List<Perfil> DListarPerfil();
         void DCadastrarPerfil(Perfil perfil);
         void DAlterarPerfil(Perfil perfil);
+        void DDeletarPerfil(Perfil perfil);
     }
 }

@@ -18,10 +18,14 @@ namespace GUI
         public FormPerfil()
         {
             InitializeComponent();
+            ListarPerfil();
+        }
 
+        private void ListarPerfil()
+        {
             localhost.Service1 service1 = new localhost.Service1();
             listPerfis = service1.PerfilListar().ToList();
-            
+
             listViewPerfil.Items.Clear();
             foreach (var pf in listPerfis)
             {
@@ -30,25 +34,47 @@ namespace GUI
             }
         }
 
+        private void LimparTela()
+        {
+            textBoxId.Text = "";
+            textBoxDescricao.Text = "";
+            textBoxDescricao.Focus();
+        }
+
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
             int id = 0;
             string descricao;
+            descricao = textBoxDescricao.Text;
 
             if (textBoxId.Text.Length > 0)
             {
                 id = Int32.Parse(textBoxId.Text);
             }
-            
-            descricao = textBoxDescricao.Text;
+            if (descricao.Equals("") || descricao.Length == 0 || descricao == null)
+            {
+                MessageBox.Show("Por Favor, Informar Descrição do Perfil !");
+                textBoxDescricao.Focus();
+            } else
+            {
+                Perfil perfil = new Perfil();
 
-            Perfil perfil = new Perfil();
+                perfil.IdPerfil = id;
+                perfil.DescPerfil = descricao;
 
-            perfil.IdPerfil = id;
-            perfil.DescPerfil = descricao;
-
-            localhost.Service1 service1 = new localhost.Service1();
-            service1.PerfilCadastrar(perfil);
+                try
+                {
+                    localhost.Service1 service1 = new localhost.Service1();
+                    service1.PerfilCadastrarAlterar(perfil);
+                    MessageBox.Show("Perfil Salvo com Sucesso !");
+                    ListarPerfil();
+                    LimparTela();
+                } catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                
+            }
         }
         
         private void listViewPerfil_SelectedIndexChanged(object sender, EventArgs e)
@@ -70,9 +96,42 @@ namespace GUI
                 MessageBox.Show("Feche");
             } else
             {
-                textBoxId.Text = "";
-                textBoxDescricao.Text = "";
-                textBoxDescricao.Focus();
+                LimparTela();
+            }
+        }
+
+        private void buttonDeletar_Click(object sender, EventArgs e)
+        {
+            int id = 0;
+            string descricao;
+            descricao = textBoxDescricao.Text;
+
+            if (textBoxId.Text.Length > 0)
+            {
+                id = Int32.Parse(textBoxId.Text);
+
+                Perfil perfil = new Perfil();
+
+                perfil.IdPerfil = id;
+                perfil.DescPerfil = descricao;
+
+                try
+                {
+                    localhost.Service1 service1 = new localhost.Service1();
+                    service1.PerfilDeletar(perfil);
+
+                    MessageBox.Show("Perfil Deletado com Sucesso !");
+                    ListarPerfil();
+                    LimparTela();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Escolha um Perfil da Lista Para Deletar !");
             }
         }
     }

@@ -10,14 +10,14 @@ namespace BibliotecaClasses.negocio
 {
     public class NPerfil
     {
-        public void NCadastrarPerfil(Perfil perfil)
+        public void NCadastrarAlterarPerfil(Perfil perfil)
         {
             DPerfil dp = new DPerfil();
             if (perfil.IdPerfil == 0)
             {
                 if (perfil.DescPerfil.Length == 0)
                 {
-                    throw new Exception("Por favor, Informar Perfil !");
+                    throw new Exception("Por Favor, Informar Descrição do Perfil !");
                 }else
                 {
                     dp.DCadastrarPerfil(perfil);
@@ -28,7 +28,7 @@ namespace BibliotecaClasses.negocio
             {
                 if (perfil.DescPerfil.Length == 0)
                 {
-                    throw new Exception("Por favor, Informar Perfil !");
+                    throw new Exception("Por Favor, Informar Descrição do Perfil !");
                 }
                 else
                 {
@@ -36,5 +36,19 @@ namespace BibliotecaClasses.negocio
                 }
             }
         }
+
+        public void NDeletarPerfil(Perfil perfil)
+        {
+            DPerfil dp = new DPerfil();
+            if (perfil.IdPerfil == 0)
+            {
+                throw new Exception("Por Favor, Escolha um Perfil da Lista Para Deletar !");
+            } else
+            {
+                dp.DDeletarPerfil(perfil);
+            }
+        }
+
+        
     }
 }

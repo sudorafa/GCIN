@@ -38,8 +38,7 @@ namespace BibliotecaClasses.dados
                 comando.Parameters["@bloqueio"].Value = usuario.Bloqueio;
 
                 comando.Parameters.Add("@idPerfil", SqlDbType.Int);
-                //comando.Parameters["@idPerfil"].Value = usuario.Perfil.IdPerfil;
-                comando.Parameters["@idPerfil"].Value = 1000;
+                comando.Parameters["@idPerfil"].Value = usuario.Perfil.IdPerfil;
 
                 comando.ExecuteNonQuery();
                 conexao.fecharConexao();

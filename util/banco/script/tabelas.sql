@@ -1,8 +1,5 @@
-IF DB_Id('GCIN') IS NOT NULL
-	BEGIN
-		CREATE DATABASE GCIN;
-	END
-
+CREATE DATABASE GCIN;
+GO
 USE GCIN;
 GO
 
@@ -19,10 +16,15 @@ CREATE TABLE Usuario(idUsuario integer identity(1000,1) PRIMARY KEY ,
 					 idPerfil integer references Perfil(idPerfil)
 );
 
+CREATE TABLE Produto( idProduto integer identity(1000,1) PRIMARY KEY ,
+					  dataCadastro date,
+					  descProduto varchar(50)
+);
+
 CREATE TABLE Solicitacao(idSolicitacao integer identity(1000,1) PRIMARY KEY ,
 					 dataSolicitacao date,
 					 dataPrecisa date,
-					 severidade varchar(50)
+					 severidade varchar(50),
 					 detalhe varchar(50),
 					 dataPrevistaFim date,
 					 idProduto integer references Produto(idProduto)
@@ -33,11 +35,6 @@ CREATE TABLE Stat( detalheStatus varchar(50),
 				   statusSolicitacao varchar(50),
 				   idSolicitacao integer references Solicitacao(idSolicitacao),
 				   idUsuario integer references Usuario(idUsuario)
-);
-
-CREATE TABLE Produto( idProduto integer identity(1000,1) PRIMARY KEY ,
-					  dataCadastro date,
-					  descProduto varchar(50)
 );
 
 CREATE TABLE Fornecedor(idFornecedor integer identity(1000,1) PRIMARY KEY ,
