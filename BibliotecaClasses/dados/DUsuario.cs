@@ -3,7 +3,8 @@ using BibliotecaClasses.modelo;
 using System;
 using System.Data;
 using System.Data.SqlClient;
-            
+using System.Collections.Generic;
+
 namespace BibliotecaClasses.dados
 {
     public class DUsuario : IUsuario
@@ -59,14 +60,15 @@ namespace BibliotecaClasses.dados
                 sql += "inner join Perfil as p on ";
                 sql += "u.idPerfil = p.idPerfil ";
                 
-                //temp
-                sql += "where u.idUsuario = 1006";
-                
                 if (usuario.IdUsuario > 0)
                 {
-                    //sql += "where u.idUsuario = " + usuario.IdUsuario;
+                    sql += "where u.idUsuario = " + usuario.IdUsuario;
                 }
-                
+                if (!usuario.Nome.Equals("") && usuario.Nome.Length > 0 && usuario.Nome != null)
+                {
+                    sql += "where u.nome like '%" + usuario.Nome + "%'";
+                }
+
                 try
                 {
                     SqlCommand comando = new SqlCommand(sql, conexao.sqlConn);
@@ -95,6 +97,11 @@ namespace BibliotecaClasses.dados
             }
 
             return usuario;
+        }
+
+        public List<Usuario> ListarUsuario()
+        {
+            throw new NotImplementedException();
         }
     }
 }

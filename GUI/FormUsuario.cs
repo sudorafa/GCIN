@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.localhost;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,7 +26,21 @@ namespace GUI
 
         private void buttonVai_Click(object sender, EventArgs e)
         {
+            string buscar = textBoxBuscar.Text;
+            try
+            {
+                Usuario usuario = new Usuario();
+                usuario.Perfil = new Perfil();
 
+                usuario.Nome = buscar;
+
+                localhost.Service1 service1 = new localhost.Service1();
+                service1.UsuarioListar(usuario);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -23,17 +23,23 @@ namespace WcfGCIN
 
         public Usuario UsuarioBuscar(Usuario usuario)
         {
-            return usuario;
+            return new NUsuario().NBuscarUsuario(usuario);
         }
+
+        public Usuario UsuarioListar(Usuario usuario)
+        {
+            return new NUsuario().NL(usuario);
+        }
+        
         /*------------------------------- Usuario ------------------------------------------- */
 
         /*------------------------------- Perfil -------------------------------------------- */
         public List<Perfil> PerfilListar()
         {
-            DPerfil dp = new DPerfil();
-            List<Perfil> perfis = dp.DListarPerfil();
+            //DPerfil dp = new DPerfil();
+            //List<Perfil> perfis = dp.DListarPerfil();
                         
-            return perfis;
+            return new  perfis;
         }
 
         public void PerfilCadastrarAlterar(Perfil perfil)

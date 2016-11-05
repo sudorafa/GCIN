@@ -22,6 +22,11 @@ namespace BibliotecaClasses.negocio
             }
         }
 
+        public Usuario NBuscarUsuario(Usuario usuario)
+        {
+            return du.BuscarUsuario(usuario);
+        }
+
         private static bool NCadastro(Usuario usuario)
         {
             if (usuario.Nome.Equals("") || usuario.Nome.Length == 0 || usuario.Nome == null)

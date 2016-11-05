@@ -22,6 +22,9 @@ namespace WcfGCIN
         [OperationContract]
         Usuario UsuarioBuscar(Usuario usuario);
 
+        [OperationContract]
+        List<Usuario> UsuarioListar();
+
         /*-------------------------------  Perfil -------------------------------------------- */
         [OperationContract]
         List<Perfil> PerfilListar();
