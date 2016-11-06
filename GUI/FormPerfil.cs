@@ -66,7 +66,7 @@ namespace GUI
                 {
                     localhost.Service1 service1 = new localhost.Service1();
                     service1.PerfilCadastrarAlterar(perfil);
-                    MessageBox.Show("Perfil Salvo com Sucesso !");
+                    MessageBox.Show("Perfil Salvo com Sucesso !", "Ateção", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     ListarPerfil();
                     LimparTela();
                 } catch (Exception ex)

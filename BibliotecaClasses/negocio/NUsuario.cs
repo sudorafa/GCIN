@@ -12,22 +12,33 @@ namespace BibliotecaClasses.negocio
     public class NUsuario
     {
 
-        DUsuario du = new DUsuario();
-        
         public void NCadastrarUsuario(Usuario usuario)
         {
-            if (NCadastro(usuario) == true)
+            if (NSalvarUsuario(usuario) == true && NCpfBanco(usuario.Cpf) == true)
             {
-                du.CadastrarUsuario(usuario);
+                new DUsuario().CadastrarUsuario(usuario);
             }
         }
 
-        public Usuario NBuscarUsuario(Usuario usuario)
+        public List<Usuario> NListarUsuario(Usuario usuario)
         {
-            return du.BuscarUsuario(usuario);
+            return new DUsuario().ListarUsuario(usuario);
         }
 
-        private static bool NCadastro(Usuario usuario)
+        public void NAlterarUsuario(Usuario usuario)
+        {
+            if (NSalvarUsuario(usuario) == true)
+            {
+                new DUsuario().AlterarUsuario(usuario);
+            }
+        }
+
+        public void NDeletarUsuario(Usuario usuario)
+        {
+            new DUsuario().DeletarUsuario(usuario);
+        }
+
+        private static bool NSalvarUsuario(Usuario usuario)
         {
             if (usuario.Nome.Equals("") || usuario.Nome.Length == 0 || usuario.Nome == null)
             {
@@ -36,10 +47,6 @@ namespace BibliotecaClasses.negocio
             else if (ValidaCPF(usuario.Cpf) == false)
             {
                 throw new Exception("Por Favor, Informe Cpf Válido ! ");
-            }
-            else if (NCpfBanco(usuario.Cpf) == false)
-            {
-                throw new Exception("Cpf Já Cadastrado ! ");
             }
             else if (usuario.Login.Equals("") || usuario.Login.Length == 0 || usuario.Login == null)
             {
@@ -110,13 +117,13 @@ namespace BibliotecaClasses.negocio
                 cpfAqui = DbReader.GetString(DbReader.GetOrdinal("cpf"));
             }
 
-            if(cpfAqui.Equals("") || cpfAqui.Length == 0 || cpfAqui == null)
+            if(cpf == cpfAqui)
             {
-                return true;
+                throw new Exception("Cpf Já Cadastrado ! ");
             }
                
             conexao.fecharConexao();
-            return false; 
+            return true;
         }
 
     }

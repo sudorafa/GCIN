@@ -13,18 +13,42 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="UsuarioBuscar">
+  <xs:element name="UsuarioListar">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="usuario" nillable="true" type="q2:Usuario" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="UsuarioBuscarResponse">
+  <xs:element name="UsuarioListarResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="UsuarioBuscarResult" nillable="true" type="q3:Usuario" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="UsuarioListarResult" nillable="true" type="q3:ArrayOfUsuario" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UsuarioAlterar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="usuario" nillable="true" type="q4:Usuario" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UsuarioAlterarResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UsuarioDeletar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="usuario" nillable="true" type="q5:Usuario" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UsuarioDeletarResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="PerfilListar">
@@ -35,14 +59,14 @@
   <xs:element name="PerfilListarResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="PerfilListarResult" nillable="true" type="q4:ArrayOfPerfil" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="PerfilListarResult" nillable="true" type="q6:ArrayOfPerfil" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="PerfilCadastrarAlterar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="perfil" nillable="true" type="q5:Perfil" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="perfil" nillable="true" type="q7:Perfil" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -54,7 +78,7 @@
   <xs:element name="PerfilDeletar">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="perfil" nillable="true" type="q6:Perfil" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="perfil" nillable="true" type="q8:Perfil" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

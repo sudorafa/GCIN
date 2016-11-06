@@ -13,11 +13,23 @@
   <wsdl:message name="IService1_UsuarioCadastrar_OutputMessage">
     <wsdl:part name="parameters" element="tns:UsuarioCadastrarResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_UsuarioBuscar_InputMessage">
-    <wsdl:part name="parameters" element="tns:UsuarioBuscar" />
+  <wsdl:message name="IService1_UsuarioListar_InputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioListar" />
   </wsdl:message>
-  <wsdl:message name="IService1_UsuarioBuscar_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UsuarioBuscarResponse" />
+  <wsdl:message name="IService1_UsuarioListar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioListarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsuarioAlterar_InputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioAlterar" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsuarioAlterar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioAlterarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsuarioDeletar_InputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioDeletar" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsuarioDeletar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioDeletarResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_PerfilListar_InputMessage">
     <wsdl:part name="parameters" element="tns:PerfilListar" />
@@ -42,9 +54,17 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsuarioCadastrar" message="tns:IService1_UsuarioCadastrar_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/UsuarioCadastrarResponse" message="tns:IService1_UsuarioCadastrar_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="UsuarioBuscar">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsuarioBuscar" message="tns:IService1_UsuarioBuscar_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UsuarioBuscarResponse" message="tns:IService1_UsuarioBuscar_OutputMessage" />
+    <wsdl:operation name="UsuarioListar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsuarioListar" message="tns:IService1_UsuarioListar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UsuarioListarResponse" message="tns:IService1_UsuarioListar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioAlterar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsuarioAlterar" message="tns:IService1_UsuarioAlterar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UsuarioAlterarResponse" message="tns:IService1_UsuarioAlterar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioDeletar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsuarioDeletar" message="tns:IService1_UsuarioDeletar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UsuarioDeletarResponse" message="tns:IService1_UsuarioDeletar_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="PerfilListar">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/PerfilListar" message="tns:IService1_PerfilListar_InputMessage" />
@@ -70,8 +90,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UsuarioBuscar">
-      <soap:operation soapAction="http://tempuri.org/IService1/UsuarioBuscar" style="document" />
+    <wsdl:operation name="UsuarioListar">
+      <soap:operation soapAction="http://tempuri.org/IService1/UsuarioListar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioAlterar">
+      <soap:operation soapAction="http://tempuri.org/IService1/UsuarioAlterar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioDeletar">
+      <soap:operation soapAction="http://tempuri.org/IService1/UsuarioDeletar" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

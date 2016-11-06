@@ -46,12 +46,13 @@ namespace BibliotecaClasses.dados
             }
             catch (Exception E)
             {
-                throw new Exception("Erro ao Cadastrar Usuário " + E.Message);
+                throw new Exception("Erro ao Cadastrar Usuário \n\n" + E.Message);
             }
         }
 
-        public Usuario BuscarUsuario(Usuario usuario)
+        public List<Usuario> ListarUsuario(Usuario usuario)
         {
+            List<Usuario> usuarios = new List<Usuario>();
             try
             {
                 conexao.abrirConexao();
@@ -59,14 +60,15 @@ namespace BibliotecaClasses.dados
                 sql += "from Usuario as u ";
                 sql += "inner join Perfil as p on ";
                 sql += "u.idPerfil = p.idPerfil ";
-                
+                sql += "where u.idPerfil = p.idPerfil ";
+
                 if (usuario.IdUsuario > 0)
                 {
-                    sql += "where u.idUsuario = " + usuario.IdUsuario;
+                    sql += "and u.idUsuario = " + usuario.IdUsuario;
                 }
-                if (!usuario.Nome.Equals("") && usuario.Nome.Length > 0 && usuario.Nome != null)
+                if (usuario.Nome != null && usuario.Nome.Trim().Equals("") == false)
                 {
-                    sql += "where u.nome like '%" + usuario.Nome + "%'";
+                    sql += "and u.nome like '%" + usuario.Nome + "%'";
                 }
 
                 try
@@ -76,32 +78,89 @@ namespace BibliotecaClasses.dados
 
                     while (DbReader.Read())
                     {
-                        usuario.IdUsuario = DbReader.GetInt32(DbReader.GetOrdinal("idUsuario"));
-                        usuario.Nome = DbReader.GetString(DbReader.GetOrdinal("nome"));
-                        usuario.Cpf = DbReader.GetString(DbReader.GetOrdinal("cpf"));
-                        usuario.Login = DbReader.GetString(DbReader.GetOrdinal("usuario"));
-                        usuario.Senha = DbReader.GetString(DbReader.GetOrdinal("senha"));
-                        usuario.Bloqueio = DbReader.GetString(DbReader.GetOrdinal("bloqueio"));
-                        usuario.Perfil.DescPerfil = DbReader.GetString(DbReader.GetOrdinal("descPerfil"));
+                        Usuario user = new Usuario();
+                        user.IdUsuario = DbReader.GetInt32(DbReader.GetOrdinal("idUsuario"));
+                        user.Nome = DbReader.GetString(DbReader.GetOrdinal("nome"));
+                        user.Cpf = DbReader.GetString(DbReader.GetOrdinal("cpf"));
+                        user.Login = DbReader.GetString(DbReader.GetOrdinal("usuario"));
+                        user.Senha = DbReader.GetString(DbReader.GetOrdinal("senha"));
+                        user.Bloqueio = DbReader.GetString(DbReader.GetOrdinal("bloqueio"));
+                        user.Perfil.DescPerfil = DbReader.GetString(DbReader.GetOrdinal("descPerfil"));
+                        usuarios.Add(user);
                     }
                     conexao.fecharConexao();
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("Pesquisa BuscaUsuario sem resultado" + ex.Message);
+                    throw new Exception("Pesquisa BuscaUsuario sem resultado \n\n" + ex.Message);
                 }
             }
             catch (Exception E)
             {
-                throw new Exception("Erro ao Buscar Usuário " + E.Message);
+                throw new Exception("Erro ao Buscar Usuário \n\n" + E.Message);
             }
 
-            return usuario;
+            return usuarios;
         }
 
-        public List<Usuario> ListarUsuario()
+        public void AlterarUsuario(Usuario usuario)
         {
-            throw new NotImplementedException();
+            try
+            {
+                conexao.abrirConexao();
+                string sql = "update Usuario set nome = @nome, cpf = @cpf, usuario = @usuario, senha = @senha, bloqueio = @bloqueio, idPerfil = @idPerfil where idUsuario = @idUsuario";
+
+                SqlCommand comando = new SqlCommand(sql, conexao.sqlConn);
+
+                comando.Parameters.Add("@nome", SqlDbType.VarChar);
+                comando.Parameters["@nome"].Value = usuario.Nome;
+
+                comando.Parameters.Add("@cpf", SqlDbType.VarChar);
+                comando.Parameters["@cpf"].Value = usuario.Cpf;
+
+                comando.Parameters.Add("@usuario", SqlDbType.VarChar);
+                comando.Parameters["@usuario"].Value = usuario.Login;
+
+                comando.Parameters.Add("@senha", SqlDbType.VarChar);
+                comando.Parameters["@senha"].Value = usuario.Senha;
+
+                comando.Parameters.Add("@bloqueio", SqlDbType.VarChar);
+                comando.Parameters["@bloqueio"].Value = usuario.Bloqueio;
+
+                comando.Parameters.Add("@idPerfil", SqlDbType.Int);
+                comando.Parameters["@idPerfil"].Value = usuario.Perfil.IdPerfil;
+
+                comando.Parameters.Add("@idUsuario", SqlDbType.Int);
+                comando.Parameters["@idUsuario"].Value = usuario.IdUsuario;
+
+                comando.ExecuteNonQuery();
+                conexao.fecharConexao();
+            }
+            catch (Exception E)
+            {
+                throw new Exception("Erro ao Atualizar Usuário \n\n" + E.Message);
+            }
+        }
+
+        public void DeletarUsuario(Usuario usuario)
+        {
+            try
+            {
+                conexao.abrirConexao();
+                string sql = "delete Usuario where idUsuario = @idUsuario";
+
+                SqlCommand comando = new SqlCommand(sql, conexao.sqlConn);
+
+                comando.Parameters.Add("@idUsuario", SqlDbType.Int);
+                comando.Parameters["@idUsuario"].Value = usuario.IdUsuario;
+
+                comando.ExecuteNonQuery();
+                conexao.fecharConexao();
+            }
+            catch (Exception E)
+            {
+                throw new Exception("Erro ao Deletar Usu´rio \n\n" + E.Message);
+            }
         }
     }
 }

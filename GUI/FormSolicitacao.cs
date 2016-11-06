@@ -13,25 +13,33 @@ namespace GUI
 {
     public partial class FormSolicitacao : Form
     {
+        List<Usuario> listUsuario = new List<Usuario>();
+
         public FormSolicitacao()
         {
             InitializeComponent();
+            CarregarUsuarioTela();
+        }
 
+        private void CarregarUsuarioTela()
+        {
             try
             {
                 localhost.Service1 service1 = new localhost.Service1();
                 Usuario usuario = new Usuario();
-                usuario.IdUsuario = 1000;
-                service1.UsuarioBuscar(usuario);
-                
-                textBoxNome.Text = usuario.Nome;
-                textBoxPerfil.Text = usuario.Perfil.DescPerfil;
+                usuario.IdUsuario = 1010;
+                listUsuario = service1.UsuarioListar(usuario).ToList();
+
+                foreach (var user in listUsuario)
+                {
+                    textBoxNome.Text = user.Nome;
+                    textBoxPerfil.Text = user.Perfil.DescPerfil;
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Erro ao carregar dados do usuário na tela \n\n" + ex.Message);
             }
         }
-        
     }
 }

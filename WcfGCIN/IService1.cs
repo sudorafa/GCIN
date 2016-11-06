@@ -18,12 +18,15 @@ namespace WcfGCIN
         //USUARIO
         [OperationContract]
         void UsuarioCadastrar(Usuario usuario);
+        
+        [OperationContract]
+        List<Usuario> UsuarioListar(Usuario usuario);
 
         [OperationContract]
-        Usuario UsuarioBuscar(Usuario usuario);
+        void UsuarioAlterar(Usuario usuario);
 
         [OperationContract]
-        List<Usuario> UsuarioListar();
+        void UsuarioDeletar(Usuario usuario);
 
         /*-------------------------------  Perfil -------------------------------------------- */
         [OperationContract]

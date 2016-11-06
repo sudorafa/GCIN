@@ -9,8 +9,9 @@ namespace BibliotecaClasses.faixada
 {
     interface IUsuario
     {
-        List<Usuario> ListarUsuario();
-        Usuario BuscarUsuario(Usuario usuario);
         void CadastrarUsuario(Usuario usuario);
+        List<Usuario> ListarUsuario(Usuario usuario);
+        void AlterarUsuario(Usuario usuario);
+        void DeletarUsuario(Usuario usuario);
     }
 }

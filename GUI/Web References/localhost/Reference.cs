@@ -31,7 +31,11 @@ namespace GUI.localhost {
         
         private System.Threading.SendOrPostCallback UsuarioCadastrarOperationCompleted;
         
-        private System.Threading.SendOrPostCallback UsuarioBuscarOperationCompleted;
+        private System.Threading.SendOrPostCallback UsuarioListarOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback UsuarioAlterarOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback UsuarioDeletarOperationCompleted;
         
         private System.Threading.SendOrPostCallback PerfilListarOperationCompleted;
         
@@ -81,7 +85,13 @@ namespace GUI.localhost {
         public event UsuarioCadastrarCompletedEventHandler UsuarioCadastrarCompleted;
         
         /// <remarks/>
-        public event UsuarioBuscarCompletedEventHandler UsuarioBuscarCompleted;
+        public event UsuarioListarCompletedEventHandler UsuarioListarCompleted;
+        
+        /// <remarks/>
+        public event UsuarioAlterarCompletedEventHandler UsuarioAlterarCompleted;
+        
+        /// <remarks/>
+        public event UsuarioDeletarCompletedEventHandler UsuarioDeletarCompleted;
         
         /// <remarks/>
         public event PerfilListarCompletedEventHandler PerfilListarCompleted;
@@ -121,32 +131,89 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/UsuarioBuscar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public Usuario UsuarioBuscar([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Usuario usuario) {
-            object[] results = this.Invoke("UsuarioBuscar", new object[] {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/UsuarioListar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo")]
+        public Usuario[] UsuarioListar([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Usuario usuario) {
+            object[] results = this.Invoke("UsuarioListar", new object[] {
                         usuario});
-            return ((Usuario)(results[0]));
+            return ((Usuario[])(results[0]));
         }
         
         /// <remarks/>
-        public void UsuarioBuscarAsync(Usuario usuario) {
-            this.UsuarioBuscarAsync(usuario, null);
+        public void UsuarioListarAsync(Usuario usuario) {
+            this.UsuarioListarAsync(usuario, null);
         }
         
         /// <remarks/>
-        public void UsuarioBuscarAsync(Usuario usuario, object userState) {
-            if ((this.UsuarioBuscarOperationCompleted == null)) {
-                this.UsuarioBuscarOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUsuarioBuscarOperationCompleted);
+        public void UsuarioListarAsync(Usuario usuario, object userState) {
+            if ((this.UsuarioListarOperationCompleted == null)) {
+                this.UsuarioListarOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUsuarioListarOperationCompleted);
             }
-            this.InvokeAsync("UsuarioBuscar", new object[] {
-                        usuario}, this.UsuarioBuscarOperationCompleted, userState);
+            this.InvokeAsync("UsuarioListar", new object[] {
+                        usuario}, this.UsuarioListarOperationCompleted, userState);
         }
         
-        private void OnUsuarioBuscarOperationCompleted(object arg) {
-            if ((this.UsuarioBuscarCompleted != null)) {
+        private void OnUsuarioListarOperationCompleted(object arg) {
+            if ((this.UsuarioListarCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.UsuarioBuscarCompleted(this, new UsuarioBuscarCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.UsuarioListarCompleted(this, new UsuarioListarCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/UsuarioAlterar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void UsuarioAlterar([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Usuario usuario) {
+            this.Invoke("UsuarioAlterar", new object[] {
+                        usuario});
+        }
+        
+        /// <remarks/>
+        public void UsuarioAlterarAsync(Usuario usuario) {
+            this.UsuarioAlterarAsync(usuario, null);
+        }
+        
+        /// <remarks/>
+        public void UsuarioAlterarAsync(Usuario usuario, object userState) {
+            if ((this.UsuarioAlterarOperationCompleted == null)) {
+                this.UsuarioAlterarOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUsuarioAlterarOperationCompleted);
+            }
+            this.InvokeAsync("UsuarioAlterar", new object[] {
+                        usuario}, this.UsuarioAlterarOperationCompleted, userState);
+        }
+        
+        private void OnUsuarioAlterarOperationCompleted(object arg) {
+            if ((this.UsuarioAlterarCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UsuarioAlterarCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/UsuarioDeletar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void UsuarioDeletar([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Usuario usuario) {
+            this.Invoke("UsuarioDeletar", new object[] {
+                        usuario});
+        }
+        
+        /// <remarks/>
+        public void UsuarioDeletarAsync(Usuario usuario) {
+            this.UsuarioDeletarAsync(usuario, null);
+        }
+        
+        /// <remarks/>
+        public void UsuarioDeletarAsync(Usuario usuario, object userState) {
+            if ((this.UsuarioDeletarOperationCompleted == null)) {
+                this.UsuarioDeletarOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUsuarioDeletarOperationCompleted);
+            }
+            this.InvokeAsync("UsuarioDeletar", new object[] {
+                        usuario}, this.UsuarioDeletarOperationCompleted, userState);
+        }
+        
+        private void OnUsuarioDeletarOperationCompleted(object arg) {
+            if ((this.UsuarioDeletarCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UsuarioDeletarCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -785,29 +852,37 @@ namespace GUI.localhost {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
-    public delegate void UsuarioBuscarCompletedEventHandler(object sender, UsuarioBuscarCompletedEventArgs e);
+    public delegate void UsuarioListarCompletedEventHandler(object sender, UsuarioListarCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class UsuarioBuscarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class UsuarioListarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal UsuarioBuscarCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal UsuarioListarCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
         
         /// <remarks/>
-        public Usuario Result {
+        public Usuario[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((Usuario)(this.results[0]));
+                return ((Usuario[])(this.results[0]));
             }
         }
     }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void UsuarioAlterarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void UsuarioDeletarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]

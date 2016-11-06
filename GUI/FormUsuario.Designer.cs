@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxBloqueio = new System.Windows.Forms.GroupBox();
             this.radioButtonBloqueioNao = new System.Windows.Forms.RadioButton();
             this.radioButtonBloqueioSim = new System.Windows.Forms.RadioButton();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelSenha = new System.Windows.Forms.Label();
+            this.labelLogin = new System.Windows.Forms.Label();
+            this.labelNome = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelCpf = new System.Windows.Forms.Label();
             this.buttonSalvar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.textBoxSenha = new System.Windows.Forms.TextBox();
             this.textBoxLogin = new System.Windows.Forms.TextBox();
             this.comboBoxPerfil = new System.Windows.Forms.ComboBox();
             this.textBoxNome = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.labelPerfil = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxBuscar = new System.Windows.Forms.TextBox();
             this.listViewUsuario = new System.Windows.Forms.ListView();
@@ -51,19 +51,25 @@
             this.buttonDeletar = new System.Windows.Forms.Button();
             this.maskedTextBoxCpf = new System.Windows.Forms.MaskedTextBox();
             this.buttonVai = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.labelIdUser = new System.Windows.Forms.Label();
+            this.groupBoxBloqueio.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // groupBoxBloqueio
             // 
-            this.groupBox1.Controls.Add(this.radioButtonBloqueioNao);
-            this.groupBox1.Controls.Add(this.radioButtonBloqueioSim);
-            this.groupBox1.Location = new System.Drawing.Point(63, 377);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(187, 43);
-            this.groupBox1.TabIndex = 19;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Bloqueio";
+            this.groupBoxBloqueio.Controls.Add(this.radioButtonBloqueioNao);
+            this.groupBoxBloqueio.Controls.Add(this.radioButtonBloqueioSim);
+            this.groupBoxBloqueio.Enabled = false;
+            this.groupBoxBloqueio.Location = new System.Drawing.Point(63, 377);
+            this.groupBoxBloqueio.Name = "groupBoxBloqueio";
+            this.groupBoxBloqueio.Size = new System.Drawing.Size(187, 43);
+            this.groupBoxBloqueio.TabIndex = 19;
+            this.groupBoxBloqueio.TabStop = false;
+            this.groupBoxBloqueio.Text = "Bloqueio";
             // 
             // radioButtonBloqueioNao
             // 
@@ -87,32 +93,35 @@
             this.radioButtonBloqueioSim.Text = "Sim";
             this.radioButtonBloqueioSim.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // labelSenha
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(263, 348);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 13);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "Senha";
+            this.labelSenha.AutoSize = true;
+            this.labelSenha.Enabled = false;
+            this.labelSenha.Location = new System.Drawing.Point(263, 348);
+            this.labelSenha.Name = "labelSenha";
+            this.labelSenha.Size = new System.Drawing.Size(38, 13);
+            this.labelSenha.TabIndex = 18;
+            this.labelSenha.Text = "Senha";
             // 
-            // label4
+            // labelLogin
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 348);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(33, 13);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "Login";
+            this.labelLogin.AutoSize = true;
+            this.labelLogin.Enabled = false;
+            this.labelLogin.Location = new System.Drawing.Point(24, 348);
+            this.labelLogin.Name = "labelLogin";
+            this.labelLogin.Size = new System.Drawing.Size(33, 13);
+            this.labelLogin.TabIndex = 17;
+            this.labelLogin.Text = "Login";
             // 
-            // label3
+            // labelNome
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 284);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "Nome";
+            this.labelNome.AutoSize = true;
+            this.labelNome.Enabled = false;
+            this.labelNome.Location = new System.Drawing.Point(22, 284);
+            this.labelNome.Name = "labelNome";
+            this.labelNome.Size = new System.Drawing.Size(35, 13);
+            this.labelNome.TabIndex = 16;
+            this.labelNome.Text = "Nome";
             // 
             // label2
             // 
@@ -124,24 +133,27 @@
             this.label2.TabIndex = 15;
             this.label2.Text = "Usuário";
             // 
-            // label1
+            // labelCpf
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label1.Location = new System.Drawing.Point(30, 316);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(27, 13);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "CPF";
+            this.labelCpf.AutoSize = true;
+            this.labelCpf.Enabled = false;
+            this.labelCpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.labelCpf.Location = new System.Drawing.Point(30, 316);
+            this.labelCpf.Name = "labelCpf";
+            this.labelCpf.Size = new System.Drawing.Size(27, 13);
+            this.labelCpf.TabIndex = 14;
+            this.labelCpf.Text = "CPF";
             // 
             // buttonSalvar
             // 
+            this.buttonSalvar.Enabled = false;
             this.buttonSalvar.Location = new System.Drawing.Point(335, 438);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(75, 23);
             this.buttonSalvar.TabIndex = 8;
             this.buttonSalvar.Text = "Salvar";
             this.buttonSalvar.UseVisualStyleBackColor = true;
+            this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             // 
             // buttonCancelar
             // 
@@ -151,9 +163,11 @@
             this.buttonCancelar.TabIndex = 9;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // textBoxSenha
             // 
+            this.textBoxSenha.Enabled = false;
             this.textBoxSenha.Location = new System.Drawing.Point(307, 345);
             this.textBoxSenha.Name = "textBoxSenha";
             this.textBoxSenha.Size = new System.Drawing.Size(184, 20);
@@ -161,6 +175,7 @@
             // 
             // textBoxLogin
             // 
+            this.textBoxLogin.Enabled = false;
             this.textBoxLogin.Location = new System.Drawing.Point(63, 345);
             this.textBoxLogin.Name = "textBoxLogin";
             this.textBoxLogin.Size = new System.Drawing.Size(189, 20);
@@ -168,6 +183,7 @@
             // 
             // comboBoxPerfil
             // 
+            this.comboBoxPerfil.Enabled = false;
             this.comboBoxPerfil.FormattingEnabled = true;
             this.comboBoxPerfil.Location = new System.Drawing.Point(307, 312);
             this.comboBoxPerfil.Name = "comboBoxPerfil";
@@ -176,19 +192,21 @@
             // 
             // textBoxNome
             // 
+            this.textBoxNome.Enabled = false;
             this.textBoxNome.Location = new System.Drawing.Point(63, 281);
             this.textBoxNome.Name = "textBoxNome";
             this.textBoxNome.Size = new System.Drawing.Size(428, 20);
             this.textBoxNome.TabIndex = 1;
             // 
-            // label6
+            // labelPerfil
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(271, 316);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(30, 13);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Perfil";
+            this.labelPerfil.AutoSize = true;
+            this.labelPerfil.Enabled = false;
+            this.labelPerfil.Location = new System.Drawing.Point(271, 316);
+            this.labelPerfil.Name = "labelPerfil";
+            this.labelPerfil.Size = new System.Drawing.Size(30, 13);
+            this.labelPerfil.TabIndex = 20;
+            this.labelPerfil.Text = "Perfil";
             // 
             // label7
             // 
@@ -208,11 +226,19 @@
             // 
             // listViewUsuario
             // 
+            this.listViewUsuario.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader4,
+            this.columnHeader6});
+            this.listViewUsuario.FullRowSelect = true;
             this.listViewUsuario.Location = new System.Drawing.Point(63, 94);
             this.listViewUsuario.Name = "listViewUsuario";
             this.listViewUsuario.Size = new System.Drawing.Size(428, 150);
             this.listViewUsuario.TabIndex = 30;
             this.listViewUsuario.UseCompatibleStateImageBehavior = false;
+            this.listViewUsuario.View = System.Windows.Forms.View.Details;
+            this.listViewUsuario.SelectedIndexChanged += new System.EventHandler(this.listViewUsuario_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -235,15 +261,18 @@
             // 
             // buttonDeletar
             // 
+            this.buttonDeletar.Enabled = false;
             this.buttonDeletar.Location = new System.Drawing.Point(254, 438);
             this.buttonDeletar.Name = "buttonDeletar";
             this.buttonDeletar.Size = new System.Drawing.Size(75, 23);
             this.buttonDeletar.TabIndex = 11;
             this.buttonDeletar.Text = "Deletar";
             this.buttonDeletar.UseVisualStyleBackColor = true;
+            this.buttonDeletar.Click += new System.EventHandler(this.buttonDeletar_Click);
             // 
             // maskedTextBoxCpf
             // 
+            this.maskedTextBoxCpf.Enabled = false;
             this.maskedTextBoxCpf.Location = new System.Drawing.Point(63, 312);
             this.maskedTextBoxCpf.Mask = "999,999,999-99";
             this.maskedTextBoxCpf.Name = "maskedTextBoxCpf";
@@ -252,19 +281,51 @@
             // 
             // buttonVai
             // 
-            this.buttonVai.Location = new System.Drawing.Point(447, 49);
+            this.buttonVai.Location = new System.Drawing.Point(447, 46);
             this.buttonVai.Name = "buttonVai";
             this.buttonVai.Size = new System.Drawing.Size(44, 23);
-            this.buttonVai.TabIndex = 32;
+            this.buttonVai.TabIndex = 1;
             this.buttonVai.Text = "VAI";
             this.buttonVai.UseVisualStyleBackColor = true;
             this.buttonVai.Click += new System.EventHandler(this.buttonVai_Click);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ID";
+            this.columnHeader1.Width = 40;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Nome";
+            this.columnHeader2.Width = 180;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Usuário";
+            this.columnHeader4.Width = 90;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Perfil";
+            this.columnHeader6.Width = 110;
+            // 
+            // labelIdUser
+            // 
+            this.labelIdUser.AutoSize = true;
+            this.labelIdUser.Location = new System.Drawing.Point(76, 256);
+            this.labelIdUser.Name = "labelIdUser";
+            this.labelIdUser.Size = new System.Drawing.Size(60, 13);
+            this.labelIdUser.TabIndex = 32;
+            this.labelIdUser.Text = "labelIdUser";
+            this.labelIdUser.Visible = false;
             // 
             // FormUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(524, 470);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(524, 477);
+            this.Controls.Add(this.labelIdUser);
             this.Controls.Add(this.buttonVai);
             this.Controls.Add(this.maskedTextBoxCpf);
             this.Controls.Add(this.buttonDeletar);
@@ -273,23 +334,24 @@
             this.Controls.Add(this.listViewUsuario);
             this.Controls.Add(this.textBoxBuscar);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.groupBoxBloqueio);
+            this.Controls.Add(this.labelSenha);
+            this.Controls.Add(this.labelLogin);
+            this.Controls.Add(this.labelNome);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelCpf);
             this.Controls.Add(this.buttonSalvar);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.textBoxSenha);
             this.Controls.Add(this.textBoxLogin);
             this.Controls.Add(this.comboBoxPerfil);
             this.Controls.Add(this.textBoxNome);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.labelPerfil);
+            this.MaximizeBox = false;
             this.Name = "FormUsuario";
             this.Text = "Usuario";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBoxBloqueio.ResumeLayout(false);
+            this.groupBoxBloqueio.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -297,21 +359,21 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxBloqueio;
         private System.Windows.Forms.RadioButton radioButtonBloqueioNao;
         private System.Windows.Forms.RadioButton radioButtonBloqueioSim;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelSenha;
+        private System.Windows.Forms.Label labelLogin;
+        private System.Windows.Forms.Label labelNome;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelCpf;
         private System.Windows.Forms.Button buttonSalvar;
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.TextBox textBoxSenha;
         private System.Windows.Forms.TextBox textBoxLogin;
         private System.Windows.Forms.ComboBox comboBoxPerfil;
         private System.Windows.Forms.TextBox textBoxNome;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelPerfil;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBoxBuscar;
         private System.Windows.Forms.ListView listViewUsuario;
@@ -320,5 +382,10 @@
         private System.Windows.Forms.Button buttonDeletar;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxCpf;
         private System.Windows.Forms.Button buttonVai;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.Label labelIdUser;
     }
 }
