@@ -55,6 +55,7 @@
     <Compile Include="modelo\Fornecedor.cs" />
     <Compile Include="modelo\Perfil.cs" />
     <Compile Include="modelo\Produto.cs" />
+    <Compile Include="modelo\Rafa.cs" />
     <Compile Include="modelo\Solicitacao.cs" />
     <Compile Include="modelo\Status.cs" />
     <Compile Include="modelo\TipoFornecimento.cs" />

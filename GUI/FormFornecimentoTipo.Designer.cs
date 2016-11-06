@@ -28,59 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.buttonDeletar = new System.Windows.Forms.Button();
+            this.buttonSalvar = new System.Windows.Forms.Button();
+            this.buttonCancelar = new System.Windows.Forms.Button();
+            this.textBoxDescricao = new System.Windows.Forms.TextBox();
+            this.textBoxId = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listViewTipoFornecimento = new System.Windows.Forms.ListView();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button4
+            // buttonDeletar
             // 
-            this.button4.Location = new System.Drawing.Point(103, 338);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 47;
-            this.button4.Text = "Deletar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonDeletar.Location = new System.Drawing.Point(103, 338);
+            this.buttonDeletar.Name = "buttonDeletar";
+            this.buttonDeletar.Size = new System.Drawing.Size(75, 23);
+            this.buttonDeletar.TabIndex = 2;
+            this.buttonDeletar.Text = "Deletar";
+            this.buttonDeletar.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // buttonSalvar
             // 
-            this.button2.Location = new System.Drawing.Point(184, 338);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 46;
-            this.button2.Text = "Salvar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonSalvar.Location = new System.Drawing.Point(184, 338);
+            this.buttonSalvar.Name = "buttonSalvar";
+            this.buttonSalvar.Size = new System.Drawing.Size(75, 23);
+            this.buttonSalvar.TabIndex = 3;
+            this.buttonSalvar.Text = "Salvar";
+            this.buttonSalvar.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // buttonCancelar
             // 
-            this.button1.Location = new System.Drawing.Point(265, 338);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 45;
-            this.button1.Text = "Cancelar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Location = new System.Drawing.Point(265, 338);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancelar.TabIndex = 4;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // textBoxDescricao
             // 
-            this.textBox2.Location = new System.Drawing.Point(85, 289);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(127, 20);
-            this.textBox2.TabIndex = 44;
+            this.textBoxDescricao.Location = new System.Drawing.Point(85, 289);
+            this.textBoxDescricao.Name = "textBoxDescricao";
+            this.textBoxDescricao.Size = new System.Drawing.Size(127, 20);
+            this.textBoxDescricao.TabIndex = 1;
             // 
-            // textBox1
+            // textBoxId
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(85, 263);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(52, 20);
-            this.textBox1.TabIndex = 43;
+            this.textBoxId.Enabled = false;
+            this.textBoxId.Location = new System.Drawing.Point(85, 263);
+            this.textBoxId.Name = "textBoxId";
+            this.textBoxId.Size = new System.Drawing.Size(52, 20);
+            this.textBoxId.TabIndex = 43;
             // 
             // label4
             // 
@@ -109,13 +109,15 @@
             this.label1.TabIndex = 40;
             this.label1.Text = "Existentes";
             // 
-            // listView1
+            // listViewTipoFornecimento
             // 
-            this.listView1.Location = new System.Drawing.Point(85, 73);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(243, 171);
-            this.listView1.TabIndex = 39;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listViewTipoFornecimento.FullRowSelect = true;
+            this.listViewTipoFornecimento.Location = new System.Drawing.Point(85, 73);
+            this.listViewTipoFornecimento.Name = "listViewTipoFornecimento";
+            this.listViewTipoFornecimento.Size = new System.Drawing.Size(243, 171);
+            this.listViewTipoFornecimento.TabIndex = 39;
+            this.listViewTipoFornecimento.UseCompatibleStateImageBehavior = false;
+            this.listViewTipoFornecimento.View = System.Windows.Forms.View.Details;
             // 
             // label2
             // 
@@ -132,15 +134,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(385, 378);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.buttonDeletar);
+            this.Controls.Add(this.buttonSalvar);
+            this.Controls.Add(this.buttonCancelar);
+            this.Controls.Add(this.textBoxDescricao);
+            this.Controls.Add(this.textBoxId);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.listViewTipoFornecimento);
             this.Controls.Add(this.label2);
             this.Name = "FormFornecimentoTipo";
             this.Text = "Tipo de Fornecimento";
@@ -151,15 +153,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button buttonDeletar;
+        private System.Windows.Forms.Button buttonSalvar;
+        private System.Windows.Forms.Button buttonCancelar;
+        private System.Windows.Forms.TextBox textBoxDescricao;
+        private System.Windows.Forms.TextBox textBoxId;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listViewTipoFornecimento;
         private System.Windows.Forms.Label label2;
     }
 }

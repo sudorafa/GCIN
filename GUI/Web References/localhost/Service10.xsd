@@ -107,4 +107,35 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfProduto" nillable="true" type="tns:ArrayOfProduto" />
+  <xs:complexType name="TipoFornecimento">
+    <xs:sequence>
+      <xs:element name="DescTipoFornecimento" nillable="true" type="xs:string" />
+      <xs:element name="Fornecedor" nillable="true" type="tns:Fornecedor" />
+      <xs:element name="IdTipoFornecimento" type="xs:int" />
+      <xs:element name="Produto" nillable="true" type="tns:Produto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TipoFornecimento" nillable="true" type="tns:TipoFornecimento" />
+  <xs:complexType name="Fornecedor">
+    <xs:sequence>
+      <xs:element name="Bairro" nillable="true" type="xs:string" />
+      <xs:element name="Bloqueio" nillable="true" type="xs:string" />
+      <xs:element name="Cep" nillable="true" type="xs:string" />
+      <xs:element name="Cidade" nillable="true" type="xs:string" />
+      <xs:element name="Email" nillable="true" type="xs:string" />
+      <xs:element name="Endereco" nillable="true" type="xs:string" />
+      <xs:element name="IdFornecedor" type="xs:int" />
+      <xs:element name="NomeFornecedor" nillable="true" type="xs:string" />
+      <xs:element name="Telefone" nillable="true" type="xs:string" />
+      <xs:element name="TiposFornecimentos" nillable="true" type="tns:ArrayOfTipoFornecimento" />
+      <xs:element name="Uf" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Fornecedor" nillable="true" type="tns:Fornecedor" />
+  <xs:complexType name="ArrayOfTipoFornecimento">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TipoFornecimento" nillable="true" type="tns:TipoFornecimento" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTipoFornecimento" nillable="true" type="tns:ArrayOfTipoFornecimento" />
 </xs:schema>

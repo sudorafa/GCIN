@@ -45,5 +45,14 @@ namespace WcfGCIN
 
         [OperationContract]
         void ProdutoDeletar(Produto produto);
+        /* ------------------------------- Tipo de Fornecimento ------------------------------ */
+        [OperationContract]
+        List<TipoFornecimento> TipoFornecimentoListar();
+
+        [OperationContract]
+        void TipoFornecimentoCadastrarAlterar(TipoFornecimento tipoFornecimento);
+
+        [OperationContract]
+        void TipoFornecimentoDeletar(TipoFornecimento tipoFornecimento);
     }
 }

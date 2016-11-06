@@ -18,8 +18,8 @@ namespace BibliotecaClasses.modelo
 
         public TipoFornecimento()
         {
-            this.fornecedor = new Fornecedor();
-            this.produto = new Produto();
+            this.Fornecedor = new Fornecedor();
+            this.Produto = new Produto();
         }
 
         [DataMember(IsRequired = true)]

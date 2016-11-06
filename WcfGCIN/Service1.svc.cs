@@ -65,6 +65,20 @@ namespace WcfGCIN
         {
             new NProduto().NDeletarProduto(produto);
         }
-        /* ------------------------------- xxxxxxx ------------------------------------------- */
+        /* ------------------------------- Tipo de Fornecimento ------------------------------ */
+        public List<TipoFornecimento> TipoFornecimentoListar()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TipoFornecimentoCadastrarAlterar(TipoFornecimento tipoFornecimento)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TipoFornecimentoDeletar(TipoFornecimento tipoFornecimento)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

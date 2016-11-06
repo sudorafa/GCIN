@@ -49,6 +49,8 @@ namespace GUI.localhost {
         
         private System.Threading.SendOrPostCallback ProdutoDeletarOperationCompleted;
         
+        private System.Threading.SendOrPostCallback TipoFornecimentoCadastrarOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -116,6 +118,9 @@ namespace GUI.localhost {
         
         /// <remarks/>
         public event ProdutoDeletarCompletedEventHandler ProdutoDeletarCompleted;
+        
+        /// <remarks/>
+        public event TipoFornecimentoCadastrarCompletedEventHandler TipoFornecimentoCadastrarCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/UsuarioCadastrar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -405,6 +410,34 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/TipoFornecimentoCadastrar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void TipoFornecimentoCadastrar([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] TipoFornecimento tipoFornecimento) {
+            this.Invoke("TipoFornecimentoCadastrar", new object[] {
+                        tipoFornecimento});
+        }
+        
+        /// <remarks/>
+        public void TipoFornecimentoCadastrarAsync(TipoFornecimento tipoFornecimento) {
+            this.TipoFornecimentoCadastrarAsync(tipoFornecimento, null);
+        }
+        
+        /// <remarks/>
+        public void TipoFornecimentoCadastrarAsync(TipoFornecimento tipoFornecimento, object userState) {
+            if ((this.TipoFornecimentoCadastrarOperationCompleted == null)) {
+                this.TipoFornecimentoCadastrarOperationCompleted = new System.Threading.SendOrPostCallback(this.OnTipoFornecimentoCadastrarOperationCompleted);
+            }
+            this.InvokeAsync("TipoFornecimentoCadastrar", new object[] {
+                        tipoFornecimento}, this.TipoFornecimentoCadastrarOperationCompleted, userState);
+        }
+        
+        private void OnTipoFornecimentoCadastrarOperationCompleted(object arg) {
+            if ((this.TipoFornecimentoCadastrarCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.TipoFornecimentoCadastrarCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -588,57 +621,147 @@ namespace GUI.localhost {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo")]
-    public partial class Status {
+    public partial class Fornecedor {
         
-        private string dataStatusField;
+        private string bairroField;
         
-        private string detalheStatusField;
+        private string bloqueioField;
         
-        private Solicitacao solicitacaoField;
+        private string cepField;
         
-        private string statusSolicitacaoField;
+        private string cidadeField;
+        
+        private string emailField;
+        
+        private string enderecoField;
+        
+        private int idFornecedorField;
+        
+        private string nomeFornecedorField;
+        
+        private string telefoneField;
+        
+        private TipoFornecimento[] tiposFornecimentosField;
+        
+        private string ufField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string DataStatus {
+        public string Bairro {
             get {
-                return this.dataStatusField;
+                return this.bairroField;
             }
             set {
-                this.dataStatusField = value;
+                this.bairroField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string DetalheStatus {
+        public string Bloqueio {
             get {
-                return this.detalheStatusField;
+                return this.bloqueioField;
             }
             set {
-                this.detalheStatusField = value;
+                this.bloqueioField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public Solicitacao Solicitacao {
+        public string Cep {
             get {
-                return this.solicitacaoField;
+                return this.cepField;
             }
             set {
-                this.solicitacaoField = value;
+                this.cepField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string StatusSolicitacao {
+        public string Cidade {
             get {
-                return this.statusSolicitacaoField;
+                return this.cidadeField;
             }
             set {
-                this.statusSolicitacaoField = value;
+                this.cidadeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Email {
+            get {
+                return this.emailField;
+            }
+            set {
+                this.emailField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Endereco {
+            get {
+                return this.enderecoField;
+            }
+            set {
+                this.enderecoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int IdFornecedor {
+            get {
+                return this.idFornecedorField;
+            }
+            set {
+                this.idFornecedorField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string NomeFornecedor {
+            get {
+                return this.nomeFornecedorField;
+            }
+            set {
+                this.nomeFornecedorField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Telefone {
+            get {
+                return this.telefoneField;
+            }
+            set {
+                this.telefoneField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        public TipoFornecimento[] TiposFornecimentos {
+            get {
+                return this.tiposFornecimentosField;
+            }
+            set {
+                this.tiposFornecimentosField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Uf {
+            get {
+                return this.ufField;
+            }
+            set {
+                this.ufField = value;
             }
         }
     }
@@ -649,21 +772,75 @@ namespace GUI.localhost {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo")]
-    public partial class Solicitacao {
+    public partial class TipoFornecimento {
+        
+        private string descTipoFornecimentoField;
+        
+        private Fornecedor fornecedorField;
+        
+        private int idTipoFornecimentoField;
+        
+        private Produto produtoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string DescTipoFornecimento {
+            get {
+                return this.descTipoFornecimentoField;
+            }
+            set {
+                this.descTipoFornecimentoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Fornecedor Fornecedor {
+            get {
+                return this.fornecedorField;
+            }
+            set {
+                this.fornecedorField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int IdTipoFornecimento {
+            get {
+                return this.idTipoFornecimentoField;
+            }
+            set {
+                this.idTipoFornecimentoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Produto Produto {
+            get {
+                return this.produtoField;
+            }
+            set {
+                this.produtoField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo")]
+    public partial class Produto {
         
         private CotacaoDoProduto[] cotacoesProdutosSolicitacoesField;
         
-        private string dataPrecisaField;
+        private string dataCadastroField;
         
-        private string dataSolicitacaoField;
+        private string descProdutoField;
         
-        private int idSolicitacaoField;
-        
-        private string severidadeField;
-        
-        private Status[] statusField;
-        
-        private Usuario[] usuariosField;
+        private int idProdutoField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
@@ -678,66 +855,33 @@ namespace GUI.localhost {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string DataPrecisa {
+        public string DataCadastro {
             get {
-                return this.dataPrecisaField;
+                return this.dataCadastroField;
             }
             set {
-                this.dataPrecisaField = value;
+                this.dataCadastroField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string DataSolicitacao {
+        public string DescProduto {
             get {
-                return this.dataSolicitacaoField;
+                return this.descProdutoField;
             }
             set {
-                this.dataSolicitacaoField = value;
+                this.descProdutoField = value;
             }
         }
         
         /// <remarks/>
-        public int IdSolicitacao {
+        public int IdProduto {
             get {
-                return this.idSolicitacaoField;
+                return this.idProdutoField;
             }
             set {
-                this.idSolicitacaoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string Severidade {
-            get {
-                return this.severidadeField;
-            }
-            set {
-                this.severidadeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        public Status[] Status {
-            get {
-                return this.statusField;
-            }
-            set {
-                this.statusField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        public Usuario[] Usuarios {
-            get {
-                return this.usuariosField;
-            }
-            set {
-                this.usuariosField = value;
+                this.idProdutoField = value;
             }
         }
     }
@@ -894,15 +1038,21 @@ namespace GUI.localhost {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo")]
-    public partial class Produto {
+    public partial class Solicitacao {
         
         private CotacaoDoProduto[] cotacoesProdutosSolicitacoesField;
         
-        private string dataCadastroField;
+        private string dataPrecisaField;
         
-        private string descProdutoField;
+        private string dataSolicitacaoField;
         
-        private int idProdutoField;
+        private int idSolicitacaoField;
+        
+        private string severidadeField;
+        
+        private Status[] statusField;
+        
+        private Usuario[] usuariosField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
@@ -917,33 +1067,127 @@ namespace GUI.localhost {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string DataCadastro {
+        public string DataPrecisa {
             get {
-                return this.dataCadastroField;
+                return this.dataPrecisaField;
             }
             set {
-                this.dataCadastroField = value;
+                this.dataPrecisaField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string DescProduto {
+        public string DataSolicitacao {
             get {
-                return this.descProdutoField;
+                return this.dataSolicitacaoField;
             }
             set {
-                this.descProdutoField = value;
+                this.dataSolicitacaoField = value;
             }
         }
         
         /// <remarks/>
-        public int IdProduto {
+        public int IdSolicitacao {
             get {
-                return this.idProdutoField;
+                return this.idSolicitacaoField;
             }
             set {
-                this.idProdutoField = value;
+                this.idSolicitacaoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Severidade {
+            get {
+                return this.severidadeField;
+            }
+            set {
+                this.severidadeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        public Status[] Status {
+            get {
+                return this.statusField;
+            }
+            set {
+                this.statusField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        public Usuario[] Usuarios {
+            get {
+                return this.usuariosField;
+            }
+            set {
+                this.usuariosField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo")]
+    public partial class Status {
+        
+        private string dataStatusField;
+        
+        private string detalheStatusField;
+        
+        private Solicitacao solicitacaoField;
+        
+        private string statusSolicitacaoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string DataStatus {
+            get {
+                return this.dataStatusField;
+            }
+            set {
+                this.dataStatusField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string DetalheStatus {
+            get {
+                return this.detalheStatusField;
+            }
+            set {
+                this.detalheStatusField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Solicitacao Solicitacao {
+            get {
+                return this.solicitacaoField;
+            }
+            set {
+                this.solicitacaoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string StatusSolicitacao {
+            get {
+                return this.statusSolicitacaoField;
+            }
+            set {
+                this.statusSolicitacaoField = value;
             }
         }
     }
@@ -1053,6 +1297,10 @@ namespace GUI.localhost {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     public delegate void ProdutoDeletarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void TipoFornecimentoCadastrarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591

@@ -14,7 +14,6 @@ namespace GUI
     public partial class FormProduto : Form
     {
         List<Produto> listprodutos = new List<Produto>();
-
         public FormProduto()
         {
             InitializeComponent();

@@ -14,7 +14,7 @@ namespace GUI
     public partial class FormPerfil : Form
     {
         List<Perfil> listPerfis = new List<Perfil>();
-
+        
         public FormPerfil()
         {
             InitializeComponent();
