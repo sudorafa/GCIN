@@ -358,7 +358,6 @@
         }
 
         #endregion
-
         private System.Windows.Forms.GroupBox groupBoxBloqueio;
         private System.Windows.Forms.RadioButton radioButtonBloqueioNao;
         private System.Windows.Forms.RadioButton radioButtonBloqueioSim;

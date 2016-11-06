@@ -41,5 +41,6 @@ namespace GUI
                 MessageBox.Show("Erro ao carregar dados do usuário na tela \n\n" + ex.Message);
             }
         }
+        
     }
 }

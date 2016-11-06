@@ -9,9 +9,7 @@ namespace BibliotecaClasses.dados
 {
     public class DUsuario : IUsuario
     {
-
         ConexaoBanco conexao = new ConexaoBanco();
-
         public void CadastrarUsuario(Usuario usuario)
         {
             try
