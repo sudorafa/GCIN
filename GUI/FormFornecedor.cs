@@ -16,5 +16,11 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void buttonCriar_Click(object sender, EventArgs e)
+        {
+            FormFornecedorCadastrar formFornecedorCadastrar = new FormFornecedorCadastrar();
+            formFornecedorCadastrar.Show();
+        }
     }
 }

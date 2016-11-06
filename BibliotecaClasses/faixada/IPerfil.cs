@@ -10,8 +10,8 @@ namespace BibliotecaClasses.faixada
     interface IPerfil
     {
         List<Perfil> DListarPerfil();
+        void DDeletarPerfil(Perfil perfil);
         void DCadastrarPerfil(Perfil perfil);
         void DAlterarPerfil(Perfil perfil);
-        void DDeletarPerfil(Perfil perfil);
     }
 }

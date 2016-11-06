@@ -56,6 +56,12 @@
     <Compile Include="FormFornecedor.Designer.cs">
       <DependentUpon>FormFornecedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormFornecedorCadastrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFornecedorCadastrar.Designer.cs">
+      <DependentUpon>FormFornecedorCadastrar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormFornecimentoTipo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     </Compile>
     <EmbeddedResource Include="FormFornecedor.resx">
       <DependentUpon>FormFornecedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFornecedorCadastrar.resx">
+      <DependentUpon>FormFornecedorCadastrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormFornecimentoTipo.resx">
       <DependentUpon>FormFornecimentoTipo.cs</DependentUpon>

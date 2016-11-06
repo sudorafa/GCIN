@@ -15,7 +15,7 @@ namespace WcfGCIN
     {
         // TODO: Add your service operations here
 
-        //USUARIO
+        /* -------------------------------  Usuário -------------------------------------------- */
         [OperationContract]
         void UsuarioCadastrar(Usuario usuario);
         
@@ -27,8 +27,7 @@ namespace WcfGCIN
 
         [OperationContract]
         void UsuarioDeletar(Usuario usuario);
-
-        /*-------------------------------  Perfil -------------------------------------------- */
+        /* -------------------------------  Perfil -------------------------------------------- */
         [OperationContract]
         List<Perfil> PerfilListar();
 
@@ -37,6 +36,14 @@ namespace WcfGCIN
 
         [OperationContract]
         void PerfilDeletar(Perfil perfil);
-        /*-------------------------------  Perfil -------------------------------------------- */
+        /* -------------------------------  Produto ------------------------------------------- */
+        [OperationContract]
+        List<Produto> ProdutoListar(Produto produto);
+
+        [OperationContract]
+        void ProdutoCadastrarAlterar(Produto produto);
+
+        [OperationContract]
+        void ProdutoDeletar(Produto produto);
     }
 }

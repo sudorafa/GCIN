@@ -13,7 +13,6 @@ namespace BibliotecaClasses.dados
     public class DPerfil : IPerfil
     {
         ConexaoBanco conexao = new ConexaoBanco();
-
         public void DAlterarPerfil(Perfil perfil)
         {
             try
@@ -34,7 +33,7 @@ namespace BibliotecaClasses.dados
             }
             catch (Exception E)
             {
-                throw new Exception("Erro ao Atualizar Perfil " + E.Message);
+                throw new Exception("Erro ao Atualizar Perfil \n\n" + E.Message);
             }
         }
 
@@ -57,7 +56,7 @@ namespace BibliotecaClasses.dados
             }
             catch (Exception E)
             {
-                throw new Exception("Erro ao Cadastrar Perfil " + E.Message);
+                throw new Exception("Erro ao Cadastrar Perfil \n\n" + E.Message);
             }
         }
 
@@ -78,7 +77,7 @@ namespace BibliotecaClasses.dados
             }
             catch (Exception E)
             {
-                throw new Exception("Erro ao Deletar Perfil " + E.Message);
+                throw new Exception("Erro ao Deletar Perfil \n\n" + E.Message);
             }
         }
 
@@ -111,7 +110,7 @@ namespace BibliotecaClasses.dados
             }
             catch (Exception E)
             {
-                throw new Exception("Erro ao Listar Perfil " + E.Message);
+                throw new Exception("Erro ao Listar Perfil \n\n" + E.Message);
             }
             return perfis;
         }

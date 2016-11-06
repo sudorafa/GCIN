@@ -43,9 +43,11 @@
   <ItemGroup>
     <Compile Include="dados\ConexaoBanco.cs" />
     <Compile Include="dados\DPerfil.cs" />
+    <Compile Include="dados\DProduto.cs" />
     <Compile Include="dados\DSolicitacao.cs" />
     <Compile Include="dados\DUsuario.cs" />
     <Compile Include="faixada\IPerfil.cs" />
+    <Compile Include="faixada\IProduto.cs" />
     <Compile Include="faixada\ISolicitacao.cs" />
     <Compile Include="faixada\IUsuario.cs" />
     <Compile Include="modelo\Cotacao.cs" />
@@ -58,6 +60,7 @@
     <Compile Include="modelo\TipoFornecimento.cs" />
     <Compile Include="modelo\Usuario.cs" />
     <Compile Include="negocio\NPerfil.cs" />
+    <Compile Include="negocio\NProduto.cs" />
     <Compile Include="negocio\NUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
