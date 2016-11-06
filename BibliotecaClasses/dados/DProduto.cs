@@ -39,17 +39,89 @@ namespace BibliotecaClasses.dados
 
         public void DCadastrarProduto(Produto produto)
         {
-            throw new NotImplementedException();
+            try
+            {
+                conexao.abrirConexao();
+                string sql = "insert into Produto";
+                sql += "(descProduto) values";
+                sql += "(@descProduto)";
+
+                SqlCommand comando = new SqlCommand(sql, conexao.sqlConn);
+
+                comando.Parameters.Add("@descProduto", SqlDbType.VarChar);
+                comando.Parameters["@descProduto"].Value = produto.DescProduto;
+
+                comando.ExecuteNonQuery();
+                conexao.fecharConexao();
+            }
+            catch (Exception E)
+            {
+                throw new Exception("Erro ao Cadastrar Produto \n\n" + E.Message);
+            }
         }
 
         public void DDeletarProduto(Produto produto)
         {
-            throw new NotImplementedException();
+            try
+            {
+                conexao.abrirConexao();
+                string sql = "delete Produto where idProduto = @idProduto";
+
+                SqlCommand comando = new SqlCommand(sql, conexao.sqlConn);
+
+                comando.Parameters.Add("@idProduto", SqlDbType.Int);
+                comando.Parameters["@idProduto"].Value = produto.IdProduto;
+
+                comando.ExecuteNonQuery();
+                conexao.fecharConexao();
+            }
+            catch (Exception E)
+            {
+                throw new Exception("Erro ao Deletar Produto \n\n" + E.Message);
+            }
         }
 
         public List<Produto> DListarProduto(Produto produto)
         {
-            throw new NotImplementedException();
+            List<Produto> produtos = new List<Produto>();
+            try
+            {
+                conexao.abrirConexao();
+                string sql = "select idProduto, descProduto from Produto where idProduto = idProduto ";
+                if (produto.IdProduto > 0)
+                {
+                    sql += "and idProduto = " + produto.IdProduto;
+                }
+                if (produto.DescProduto != null && produto.DescProduto.Trim().Equals("") == false)
+                {
+                    sql += "and descProduto like '%" + produto.DescProduto+ "%'";
+                }
+                try
+                {
+                    SqlCommand comando = new SqlCommand(sql, conexao.sqlConn);
+                    SqlDataReader DbReader = comando.ExecuteReader();
+
+                    while (DbReader.Read())
+                    {
+                        Produto prod = new Produto();
+                        prod.IdProduto= DbReader.GetInt32(DbReader.GetOrdinal("idProduto"));
+                        prod.DescProduto = DbReader.GetString(DbReader.GetOrdinal("descProduto"));
+                        produtos.Add(prod);
+                    }
+                    DbReader.Close();
+                    comando.Dispose();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Pesquisa Listar Produtos sem resultado" + ex.Message);
+                }
+                conexao.fecharConexao();
+            }
+            catch (Exception E)
+            {
+                throw new Exception("Erro ao Listar Produtos \n\n" + E.Message);
+            }
+            return produtos;
         }
     }
 }

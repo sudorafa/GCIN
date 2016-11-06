@@ -87,4 +87,42 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="ProdutoListar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="produto" nillable="true" type="q9:Produto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProdutoListarResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="ProdutoListarResult" nillable="true" type="q10:ArrayOfProduto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProdutoCadastrarAlterar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="produto" nillable="true" type="q11:Produto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProdutoCadastrarAlterarResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProdutoDeletar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="produto" nillable="true" type="q12:Produto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProdutoDeletarResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

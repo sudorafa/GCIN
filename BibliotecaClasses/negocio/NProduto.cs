@@ -44,7 +44,7 @@ namespace BibliotecaClasses.negocio
             }
             else
             {
-                new DProduto().DAlterarProduto(produto);
+                new DProduto().DDeletarProduto(produto);
             }
         }
 

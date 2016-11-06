@@ -49,6 +49,24 @@
   <wsdl:message name="IService1_PerfilDeletar_OutputMessage">
     <wsdl:part name="parameters" element="tns:PerfilDeletarResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_ProdutoListar_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProdutoListar" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ProdutoListar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProdutoListarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ProdutoCadastrarAlterar_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProdutoCadastrarAlterar" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ProdutoCadastrarAlterar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProdutoCadastrarAlterarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ProdutoDeletar_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProdutoDeletar" />
+  </wsdl:message>
+  <wsdl:message name="IService1_ProdutoDeletar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProdutoDeletarResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="UsuarioCadastrar">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsuarioCadastrar" message="tns:IService1_UsuarioCadastrar_InputMessage" />
@@ -77,6 +95,18 @@
     <wsdl:operation name="PerfilDeletar">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/PerfilDeletar" message="tns:IService1_PerfilDeletar_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/PerfilDeletarResponse" message="tns:IService1_PerfilDeletar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProdutoListar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ProdutoListar" message="tns:IService1_ProdutoListar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ProdutoListarResponse" message="tns:IService1_ProdutoListar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProdutoCadastrarAlterar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ProdutoCadastrarAlterar" message="tns:IService1_ProdutoCadastrarAlterar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ProdutoCadastrarAlterarResponse" message="tns:IService1_ProdutoCadastrarAlterar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProdutoDeletar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/ProdutoDeletar" message="tns:IService1_ProdutoDeletar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/ProdutoDeletarResponse" message="tns:IService1_ProdutoDeletar_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -137,6 +167,33 @@
     </wsdl:operation>
     <wsdl:operation name="PerfilDeletar">
       <soap:operation soapAction="http://tempuri.org/IService1/PerfilDeletar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProdutoListar">
+      <soap:operation soapAction="http://tempuri.org/IService1/ProdutoListar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProdutoCadastrarAlterar">
+      <soap:operation soapAction="http://tempuri.org/IService1/ProdutoCadastrarAlterar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProdutoDeletar">
+      <soap:operation soapAction="http://tempuri.org/IService1/ProdutoDeletar" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

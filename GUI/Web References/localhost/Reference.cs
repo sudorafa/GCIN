@@ -43,6 +43,12 @@ namespace GUI.localhost {
         
         private System.Threading.SendOrPostCallback PerfilDeletarOperationCompleted;
         
+        private System.Threading.SendOrPostCallback ProdutoListarOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ProdutoCadastrarAlterarOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ProdutoDeletarOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -101,6 +107,15 @@ namespace GUI.localhost {
         
         /// <remarks/>
         public event PerfilDeletarCompletedEventHandler PerfilDeletarCompleted;
+        
+        /// <remarks/>
+        public event ProdutoListarCompletedEventHandler ProdutoListarCompleted;
+        
+        /// <remarks/>
+        public event ProdutoCadastrarAlterarCompletedEventHandler ProdutoCadastrarAlterarCompleted;
+        
+        /// <remarks/>
+        public event ProdutoDeletarCompletedEventHandler ProdutoDeletarCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/UsuarioCadastrar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -299,6 +314,93 @@ namespace GUI.localhost {
             if ((this.PerfilDeletarCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.PerfilDeletarCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ProdutoListar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo")]
+        public Produto[] ProdutoListar([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Produto produto) {
+            object[] results = this.Invoke("ProdutoListar", new object[] {
+                        produto});
+            return ((Produto[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ProdutoListarAsync(Produto produto) {
+            this.ProdutoListarAsync(produto, null);
+        }
+        
+        /// <remarks/>
+        public void ProdutoListarAsync(Produto produto, object userState) {
+            if ((this.ProdutoListarOperationCompleted == null)) {
+                this.ProdutoListarOperationCompleted = new System.Threading.SendOrPostCallback(this.OnProdutoListarOperationCompleted);
+            }
+            this.InvokeAsync("ProdutoListar", new object[] {
+                        produto}, this.ProdutoListarOperationCompleted, userState);
+        }
+        
+        private void OnProdutoListarOperationCompleted(object arg) {
+            if ((this.ProdutoListarCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ProdutoListarCompleted(this, new ProdutoListarCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ProdutoCadastrarAlterar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void ProdutoCadastrarAlterar([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Produto produto) {
+            this.Invoke("ProdutoCadastrarAlterar", new object[] {
+                        produto});
+        }
+        
+        /// <remarks/>
+        public void ProdutoCadastrarAlterarAsync(Produto produto) {
+            this.ProdutoCadastrarAlterarAsync(produto, null);
+        }
+        
+        /// <remarks/>
+        public void ProdutoCadastrarAlterarAsync(Produto produto, object userState) {
+            if ((this.ProdutoCadastrarAlterarOperationCompleted == null)) {
+                this.ProdutoCadastrarAlterarOperationCompleted = new System.Threading.SendOrPostCallback(this.OnProdutoCadastrarAlterarOperationCompleted);
+            }
+            this.InvokeAsync("ProdutoCadastrarAlterar", new object[] {
+                        produto}, this.ProdutoCadastrarAlterarOperationCompleted, userState);
+        }
+        
+        private void OnProdutoCadastrarAlterarOperationCompleted(object arg) {
+            if ((this.ProdutoCadastrarAlterarCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ProdutoCadastrarAlterarCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ProdutoDeletar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void ProdutoDeletar([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Produto produto) {
+            this.Invoke("ProdutoDeletar", new object[] {
+                        produto});
+        }
+        
+        /// <remarks/>
+        public void ProdutoDeletarAsync(Produto produto) {
+            this.ProdutoDeletarAsync(produto, null);
+        }
+        
+        /// <remarks/>
+        public void ProdutoDeletarAsync(Produto produto, object userState) {
+            if ((this.ProdutoDeletarOperationCompleted == null)) {
+                this.ProdutoDeletarOperationCompleted = new System.Threading.SendOrPostCallback(this.OnProdutoDeletarOperationCompleted);
+            }
+            this.InvokeAsync("ProdutoDeletar", new object[] {
+                        produto}, this.ProdutoDeletarOperationCompleted, userState);
+        }
+        
+        private void OnProdutoDeletarOperationCompleted(object arg) {
+            if ((this.ProdutoDeletarCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ProdutoDeletarCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -917,6 +1019,40 @@ namespace GUI.localhost {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     public delegate void PerfilDeletarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void ProdutoListarCompletedEventHandler(object sender, ProdutoListarCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ProdutoListarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ProdutoListarCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Produto[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Produto[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void ProdutoCadastrarAlterarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void ProdutoDeletarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591

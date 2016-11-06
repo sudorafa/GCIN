@@ -26,6 +26,7 @@ namespace GUI
             textBoxId.Text = "";
             textBoxDescricao.Text = "";
             textBoxEspecialidades.Text = "";
+            listViewProduto.Items.Clear();
             textBoxBuscar.Focus();
         }
 
@@ -39,7 +40,7 @@ namespace GUI
                 produto.DescProduto = buscar;
 
                 localhost.Service1 service1 = new localhost.Service1();
-                //listprodutos = service1.ProdutoListar(produto).ToList();
+                listprodutos = service1.ProdutoListar(produto).ToList();
 
                 listViewProduto.Items.Clear();
                 foreach (var prod in listprodutos)
@@ -110,7 +111,7 @@ namespace GUI
                 try
                 {
                     localhost.Service1 service1 = new localhost.Service1();
-                    //service1.ProdutoCadastrarAlterar(produto);
+                    service1.ProdutoCadastrarAlterar(produto);
                     MessageBox.Show("Produto Salvo com Sucesso !", "Ateção", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     LimparTela();
                 }
@@ -140,7 +141,7 @@ namespace GUI
                 try
                 {
                     localhost.Service1 service1 = new localhost.Service1();
-                    //service1.ProdutoDeletar(produto);
+                    service1.ProdutoDeletar(produto);
 
                     MessageBox.Show("Produto Deletado com Sucesso !", "Ateção", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     LimparTela();
