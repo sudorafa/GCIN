@@ -93,8 +93,7 @@ namespace GUI
 
         private void button3_Click(object sender, EventArgs e)
         {
-            FormUsuarioCadastrar formUsuarioCadastrar = new FormUsuarioCadastrar();
-            formUsuarioCadastrar.Show();
+            new FormUsuarioCadastrar().Show();
         }
 
         private void buttonVai_Click(object sender, EventArgs e)
