@@ -67,11 +67,23 @@
   <wsdl:message name="IService1_ProdutoDeletar_OutputMessage">
     <wsdl:part name="parameters" element="tns:ProdutoDeletarResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_TipoFornecimentoCadastrar_InputMessage">
-    <wsdl:part name="parameters" element="tns:TipoFornecimentoCadastrar" />
+  <wsdl:message name="IService1_TipoFornecimentoListar_InputMessage">
+    <wsdl:part name="parameters" element="tns:TipoFornecimentoListar" />
   </wsdl:message>
-  <wsdl:message name="IService1_TipoFornecimentoCadastrar_OutputMessage">
-    <wsdl:part name="parameters" element="tns:TipoFornecimentoCadastrarResponse" />
+  <wsdl:message name="IService1_TipoFornecimentoListar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TipoFornecimentoListarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TipoFornecimentoCadastrarAlterar_InputMessage">
+    <wsdl:part name="parameters" element="tns:TipoFornecimentoCadastrarAlterar" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TipoFornecimentoCadastrarAlterar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TipoFornecimentoCadastrarAlterarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TipoFornecimentoDeletar_InputMessage">
+    <wsdl:part name="parameters" element="tns:TipoFornecimentoDeletar" />
+  </wsdl:message>
+  <wsdl:message name="IService1_TipoFornecimentoDeletar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TipoFornecimentoDeletarResponse" />
   </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="UsuarioCadastrar">
@@ -114,9 +126,17 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/ProdutoDeletar" message="tns:IService1_ProdutoDeletar_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/ProdutoDeletarResponse" message="tns:IService1_ProdutoDeletar_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="TipoFornecimentoCadastrar">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/TipoFornecimentoCadastrar" message="tns:IService1_TipoFornecimentoCadastrar_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/TipoFornecimentoCadastrarResponse" message="tns:IService1_TipoFornecimentoCadastrar_OutputMessage" />
+    <wsdl:operation name="TipoFornecimentoListar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/TipoFornecimentoListar" message="tns:IService1_TipoFornecimentoListar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/TipoFornecimentoListarResponse" message="tns:IService1_TipoFornecimentoListar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoFornecimentoCadastrarAlterar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/TipoFornecimentoCadastrarAlterar" message="tns:IService1_TipoFornecimentoCadastrarAlterar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/TipoFornecimentoCadastrarAlterarResponse" message="tns:IService1_TipoFornecimentoCadastrarAlterar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoFornecimentoDeletar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/TipoFornecimentoDeletar" message="tns:IService1_TipoFornecimentoDeletar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/TipoFornecimentoDeletarResponse" message="tns:IService1_TipoFornecimentoDeletar_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -211,8 +231,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="TipoFornecimentoCadastrar">
-      <soap:operation soapAction="http://tempuri.org/IService1/TipoFornecimentoCadastrar" style="document" />
+    <wsdl:operation name="TipoFornecimentoListar">
+      <soap:operation soapAction="http://tempuri.org/IService1/TipoFornecimentoListar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoFornecimentoCadastrarAlterar">
+      <soap:operation soapAction="http://tempuri.org/IService1/TipoFornecimentoCadastrarAlterar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoFornecimentoDeletar">
+      <soap:operation soapAction="http://tempuri.org/IService1/TipoFornecimentoDeletar" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

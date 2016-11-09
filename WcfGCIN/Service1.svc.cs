@@ -68,17 +68,17 @@ namespace WcfGCIN
         /* ------------------------------- Tipo de Fornecimento ------------------------------ */
         public List<TipoFornecimento> TipoFornecimentoListar()
         {
-            throw new NotImplementedException();
+            return new NTipoFornecimento().NListarTipoFornecimento();
         }
 
         public void TipoFornecimentoCadastrarAlterar(TipoFornecimento tipoFornecimento)
         {
-            throw new NotImplementedException();
+            new NTipoFornecimento().NCadastrarAlterarTipoFornecimento(tipoFornecimento);
         }
 
         public void TipoFornecimentoDeletar(TipoFornecimento tipoFornecimento)
         {
-            throw new NotImplementedException();
+            new NTipoFornecimento().NDeletarTipoFornecimento(tipoFornecimento);
         }
     }
 }

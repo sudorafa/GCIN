@@ -107,6 +107,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfProduto" nillable="true" type="tns:ArrayOfProduto" />
+  <xs:complexType name="ArrayOfTipoFornecimento">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TipoFornecimento" nillable="true" type="tns:TipoFornecimento" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTipoFornecimento" nillable="true" type="tns:ArrayOfTipoFornecimento" />
   <xs:complexType name="TipoFornecimento">
     <xs:sequence>
       <xs:element name="DescTipoFornecimento" nillable="true" type="xs:string" />
@@ -132,10 +138,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Fornecedor" nillable="true" type="tns:Fornecedor" />
-  <xs:complexType name="ArrayOfTipoFornecimento">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="TipoFornecimento" nillable="true" type="tns:TipoFornecimento" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfTipoFornecimento" nillable="true" type="tns:ArrayOfTipoFornecimento" />
 </xs:schema>

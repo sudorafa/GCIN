@@ -49,7 +49,11 @@ namespace GUI.localhost {
         
         private System.Threading.SendOrPostCallback ProdutoDeletarOperationCompleted;
         
-        private System.Threading.SendOrPostCallback TipoFornecimentoCadastrarOperationCompleted;
+        private System.Threading.SendOrPostCallback TipoFornecimentoListarOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback TipoFornecimentoCadastrarAlterarOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback TipoFornecimentoDeletarOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -120,7 +124,13 @@ namespace GUI.localhost {
         public event ProdutoDeletarCompletedEventHandler ProdutoDeletarCompleted;
         
         /// <remarks/>
-        public event TipoFornecimentoCadastrarCompletedEventHandler TipoFornecimentoCadastrarCompleted;
+        public event TipoFornecimentoListarCompletedEventHandler TipoFornecimentoListarCompleted;
+        
+        /// <remarks/>
+        public event TipoFornecimentoCadastrarAlterarCompletedEventHandler TipoFornecimentoCadastrarAlterarCompleted;
+        
+        /// <remarks/>
+        public event TipoFornecimentoDeletarCompletedEventHandler TipoFornecimentoDeletarCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/UsuarioCadastrar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -410,30 +420,87 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/TipoFornecimentoCadastrar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void TipoFornecimentoCadastrar([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] TipoFornecimento tipoFornecimento) {
-            this.Invoke("TipoFornecimentoCadastrar", new object[] {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/TipoFornecimentoListar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo")]
+        public TipoFornecimento[] TipoFornecimentoListar() {
+            object[] results = this.Invoke("TipoFornecimentoListar", new object[0]);
+            return ((TipoFornecimento[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void TipoFornecimentoListarAsync() {
+            this.TipoFornecimentoListarAsync(null);
+        }
+        
+        /// <remarks/>
+        public void TipoFornecimentoListarAsync(object userState) {
+            if ((this.TipoFornecimentoListarOperationCompleted == null)) {
+                this.TipoFornecimentoListarOperationCompleted = new System.Threading.SendOrPostCallback(this.OnTipoFornecimentoListarOperationCompleted);
+            }
+            this.InvokeAsync("TipoFornecimentoListar", new object[0], this.TipoFornecimentoListarOperationCompleted, userState);
+        }
+        
+        private void OnTipoFornecimentoListarOperationCompleted(object arg) {
+            if ((this.TipoFornecimentoListarCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.TipoFornecimentoListarCompleted(this, new TipoFornecimentoListarCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/TipoFornecimentoCadastrarAlterar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void TipoFornecimentoCadastrarAlterar([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] TipoFornecimento tipoFornecimento) {
+            this.Invoke("TipoFornecimentoCadastrarAlterar", new object[] {
                         tipoFornecimento});
         }
         
         /// <remarks/>
-        public void TipoFornecimentoCadastrarAsync(TipoFornecimento tipoFornecimento) {
-            this.TipoFornecimentoCadastrarAsync(tipoFornecimento, null);
+        public void TipoFornecimentoCadastrarAlterarAsync(TipoFornecimento tipoFornecimento) {
+            this.TipoFornecimentoCadastrarAlterarAsync(tipoFornecimento, null);
         }
         
         /// <remarks/>
-        public void TipoFornecimentoCadastrarAsync(TipoFornecimento tipoFornecimento, object userState) {
-            if ((this.TipoFornecimentoCadastrarOperationCompleted == null)) {
-                this.TipoFornecimentoCadastrarOperationCompleted = new System.Threading.SendOrPostCallback(this.OnTipoFornecimentoCadastrarOperationCompleted);
+        public void TipoFornecimentoCadastrarAlterarAsync(TipoFornecimento tipoFornecimento, object userState) {
+            if ((this.TipoFornecimentoCadastrarAlterarOperationCompleted == null)) {
+                this.TipoFornecimentoCadastrarAlterarOperationCompleted = new System.Threading.SendOrPostCallback(this.OnTipoFornecimentoCadastrarAlterarOperationCompleted);
             }
-            this.InvokeAsync("TipoFornecimentoCadastrar", new object[] {
-                        tipoFornecimento}, this.TipoFornecimentoCadastrarOperationCompleted, userState);
+            this.InvokeAsync("TipoFornecimentoCadastrarAlterar", new object[] {
+                        tipoFornecimento}, this.TipoFornecimentoCadastrarAlterarOperationCompleted, userState);
         }
         
-        private void OnTipoFornecimentoCadastrarOperationCompleted(object arg) {
-            if ((this.TipoFornecimentoCadastrarCompleted != null)) {
+        private void OnTipoFornecimentoCadastrarAlterarOperationCompleted(object arg) {
+            if ((this.TipoFornecimentoCadastrarAlterarCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.TipoFornecimentoCadastrarCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.TipoFornecimentoCadastrarAlterarCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/TipoFornecimentoDeletar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void TipoFornecimentoDeletar([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] TipoFornecimento tipoFornecimento) {
+            this.Invoke("TipoFornecimentoDeletar", new object[] {
+                        tipoFornecimento});
+        }
+        
+        /// <remarks/>
+        public void TipoFornecimentoDeletarAsync(TipoFornecimento tipoFornecimento) {
+            this.TipoFornecimentoDeletarAsync(tipoFornecimento, null);
+        }
+        
+        /// <remarks/>
+        public void TipoFornecimentoDeletarAsync(TipoFornecimento tipoFornecimento, object userState) {
+            if ((this.TipoFornecimentoDeletarOperationCompleted == null)) {
+                this.TipoFornecimentoDeletarOperationCompleted = new System.Threading.SendOrPostCallback(this.OnTipoFornecimentoDeletarOperationCompleted);
+            }
+            this.InvokeAsync("TipoFornecimentoDeletar", new object[] {
+                        tipoFornecimento}, this.TipoFornecimentoDeletarOperationCompleted, userState);
+        }
+        
+        private void OnTipoFornecimentoDeletarOperationCompleted(object arg) {
+            if ((this.TipoFornecimentoDeletarCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.TipoFornecimentoDeletarCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1300,7 +1367,37 @@ namespace GUI.localhost {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
-    public delegate void TipoFornecimentoCadastrarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    public delegate void TipoFornecimentoListarCompletedEventHandler(object sender, TipoFornecimentoListarCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class TipoFornecimentoListarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal TipoFornecimentoListarCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public TipoFornecimento[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((TipoFornecimento[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void TipoFornecimentoCadastrarAlterarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void TipoFornecimentoDeletarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591
