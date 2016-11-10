@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -96,17 +97,17 @@ namespace GUI
                 usuario.Bloqueio = bloqueio;
                 usuario.Perfil.IdPerfil = idPerfil;
 
+                localhost.Service1 service1 = new localhost.Service1();
+                
                 try
                 {
-                    localhost.Service1 service1 = new localhost.Service1();
                     service1.UsuarioCadastrar(usuario);
                     MessageBox.Show("Usuario Salvo com Sucesso !", "Ateção", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     ListarPerfil();
                     LimparTela();
-                }
-                catch (Exception ex)
+                }catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(new MenssagemValidaErro().MensagemValidaErro(ex.Message));
                 }
             }
 

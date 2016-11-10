@@ -1,6 +1,7 @@
 ﻿using BibliotecaClasses.dados;
 using BibliotecaClasses.modelo;
 using BibliotecaClasses.negocio;
+using BibliotecaClasses.util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
