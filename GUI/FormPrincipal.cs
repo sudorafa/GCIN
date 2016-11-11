@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.localhost;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,16 @@ namespace GUI
 {
     public partial class FormPrincipal : Form
     {
-        public FormPrincipal()
+        public Usuario usuario = new Usuario();
+        public FormPrincipal(Usuario u)
         {
             InitializeComponent();
+            usuario = u;
         }
 
         private void abrirSolicitaçãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new FormSolicitacao().Show();
+            new FormSolicitacao(usuario).Show();
         }
 
         private void solicitaçõesToolStripMenuItem_Click(object sender, EventArgs e)

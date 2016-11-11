@@ -102,7 +102,7 @@ namespace GUI
                 try
                 {
                     service1.UsuarioCadastrar(usuario);
-                    MessageBox.Show("Usuario Salvo com Sucesso !", "Ateção", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("Usuario Salvo com Sucesso !", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     ListarPerfil();
                     LimparTela();
                 }catch (Exception ex)

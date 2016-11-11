@@ -14,10 +14,13 @@ namespace GUI
     public partial class FormSolicitacao : Form
     {
         List<Usuario> listUsuario = new List<Usuario>();
+        Usuario usuario = new Usuario();
 
-        public FormSolicitacao()
+        public FormSolicitacao(Usuario u)
         {
             InitializeComponent();
+            
+            usuario = u;
             CarregarUsuarioTela();
         }
 
@@ -25,16 +28,9 @@ namespace GUI
         {
             try
             {
-                localhost.Service1 service1 = new localhost.Service1();
-                Usuario usuario = new Usuario();
-                usuario.IdUsuario = 1010;
-                listUsuario = service1.UsuarioListar(usuario).ToList();
-
-                foreach (var user in listUsuario)
-                {
-                    textBoxNome.Text = user.Nome;
-                    textBoxPerfil.Text = user.Perfil.DescPerfil;
-                }
+                textBoxNome.Text = usuario.Nome;
+                textBoxPerfil.Text = usuario.Perfil.DescPerfil;
+                
             }
             catch (Exception ex)
             {

@@ -68,6 +68,14 @@ namespace BibliotecaClasses.dados
                 {
                     sql += "and u.nome like '%" + usuario.Nome + "%'";
                 }
+                if (usuario.Login != null && usuario.Login.Trim().Equals("") == false)
+                {
+                    sql += "and u.usuario = '" + usuario.Login + "'";
+                }
+                if (usuario.Senha != null && usuario.Senha.Trim().Equals("") == false)
+                {
+                    sql += "and u.senha = '" + usuario.Senha + "'";
+                }
 
                 try
                 {

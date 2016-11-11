@@ -37,7 +37,7 @@ namespace BibliotecaClasses.negocio
         {
             new DUsuario().DeletarUsuario(usuario);
         }
-
+        
         private static bool NSalvarUsuario(Usuario usuario)
         {
             if (usuario.Nome.Equals("") || usuario.Nome.Length == 0 || usuario.Nome == null)
