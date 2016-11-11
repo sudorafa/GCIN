@@ -14,7 +14,7 @@ namespace BibliotecaClasses.negocio
 
         public void NCadastrarUsuario(Usuario usuario)
         {
-            if (NSalvarUsuario(usuario) == true && NCpfBanco(usuario.Cpf) == true)
+            if (NSalvarUsuario(usuario) == true && NCpfBanco(usuario.Cpf) == true && NLoginBanco(usuario.Login) == true)
             {
                 new DUsuario().CadastrarUsuario(usuario);
             }
@@ -122,6 +122,30 @@ namespace BibliotecaClasses.negocio
                 throw new Exception("Cpf Já Cadastrado ! ");
             }
                
+            conexao.fecharConexao();
+            return true;
+        }
+
+        private static bool NLoginBanco(string usuario)
+        {
+            ConexaoBanco conexao = new ConexaoBanco();
+            conexao.abrirConexao();
+            string usuarioAqui = "";
+            string sql = "select usuario from Usuario where usuario = '" + usuario + "'";
+
+            SqlCommand comando = new SqlCommand(sql, conexao.sqlConn);
+            SqlDataReader DbReader = comando.ExecuteReader();
+
+            while (DbReader.Read())
+            {
+                usuarioAqui = DbReader.GetString(DbReader.GetOrdinal("usuario"));
+            }
+
+            if (usuario == usuarioAqui)
+            {
+                throw new Exception("Usuario(Login) Já Existe ! ");
+            }
+
             conexao.fecharConexao();
             return true;
         }

@@ -115,7 +115,7 @@ namespace GUI
 
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Feche");
+            this.Dispose();
         }
     }
 }
