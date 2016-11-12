@@ -16,6 +16,9 @@ namespace GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            
+            //Application.Run(new FormPrincipal(null));
+            
             FormLogin formlogin = new FormLogin();
             Application.Run(formlogin);
             if (formlogin.DialogResult == DialogResult.OK) {

@@ -26,8 +26,19 @@ namespace GUI
             usuario.Login = textBoxLogin.Text;
             usuario.Senha = textBoxSenha.Text;
 
-            service1.UsuarioListar(usuario);
+            try
+            {
+                service1.UsuarioLogin(usuario);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
 
+            /*
+            service1.UsuarioListar(usuario);
+            
             if (service1.UsuarioListar(usuario).Count() == 1)
             {
                 this.DialogResult = DialogResult.OK;
@@ -41,7 +52,7 @@ namespace GUI
             } else
             {
                 MessageBox.Show("Acesso Negado !");
-            }
+            }*/
         }
     }
 }

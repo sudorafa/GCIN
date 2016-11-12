@@ -31,6 +31,12 @@
   <wsdl:message name="IService1_UsuarioDeletar_OutputMessage">
     <wsdl:part name="parameters" element="tns:UsuarioDeletarResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_UsuarioLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioLogin" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsuarioLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UsuarioLoginResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_PerfilListar_InputMessage">
     <wsdl:part name="parameters" element="tns:PerfilListar" />
   </wsdl:message>
@@ -102,6 +108,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsuarioDeletar" message="tns:IService1_UsuarioDeletar_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/UsuarioDeletarResponse" message="tns:IService1_UsuarioDeletar_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="UsuarioLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsuarioLogin" message="tns:IService1_UsuarioLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UsuarioLoginResponse" message="tns:IService1_UsuarioLogin_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="PerfilListar">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/PerfilListar" message="tns:IService1_PerfilListar_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/PerfilListarResponse" message="tns:IService1_PerfilListar_OutputMessage" />
@@ -170,6 +180,15 @@
     </wsdl:operation>
     <wsdl:operation name="UsuarioDeletar">
       <soap:operation soapAction="http://tempuri.org/IService1/UsuarioDeletar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioLogin">
+      <soap:operation soapAction="http://tempuri.org/IService1/UsuarioLogin" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

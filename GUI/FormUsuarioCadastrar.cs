@@ -107,7 +107,7 @@ namespace GUI
                     LimparTela();
                 }catch (Exception ex)
                 {
-                    MessageBox.Show(new MenssagemValidaErro().MensagemValidaErro(ex.Message));
+                    MessageBox.Show(ex.Message);
                 }
             }
 

@@ -14,7 +14,7 @@ namespace BibliotecaClasses.negocio
 
         public void NCadastrarUsuario(Usuario usuario)
         {
-            if (NSalvarUsuario(usuario) == true && NCpfBanco(usuario.Cpf) == true && NLoginBanco(usuario.Login) == true)
+            if (NSalvarUsuario(usuario) == true && NCpfBanco(usuario) == true && NLoginBanco(usuario) == true)
             {
                 new DUsuario().CadastrarUsuario(usuario);
             }
@@ -27,7 +27,7 @@ namespace BibliotecaClasses.negocio
 
         public void NAlterarUsuario(Usuario usuario)
         {
-            if (NSalvarUsuario(usuario) == true)
+            if (NSalvarUsuario(usuario) == true && NCpfBanco(usuario) == true && NLoginBanco(usuario) == true)
             {
                 new DUsuario().AlterarUsuario(usuario);
             }
@@ -102,12 +102,21 @@ namespace BibliotecaClasses.negocio
             return true;
         }
 
-        private static bool NCpfBanco(string cpf)
+        private static bool NCpfBanco(Usuario usuario)
         {
             ConexaoBanco conexao = new ConexaoBanco();
             conexao.abrirConexao();
             string cpfAqui = "";
-            string sql = "select cpf from Usuario where cpf = '" + cpf + "'";
+            string sql = "select cpf from Usuario where cpf = cpf ";
+
+            if (usuario.IdUsuario > 0)
+            {
+                sql += "and idUsuario <> " + usuario.IdUsuario + " and cpf = '" + usuario.Cpf + "'";
+            }
+            else
+            {
+                sql += "and cpf = '" + usuario.Cpf + "'";
+            }
             
             SqlCommand comando = new SqlCommand(sql, conexao.sqlConn);
             SqlDataReader DbReader = comando.ExecuteReader();
@@ -117,7 +126,8 @@ namespace BibliotecaClasses.negocio
                 cpfAqui = DbReader.GetString(DbReader.GetOrdinal("cpf"));
             }
 
-            if(cpf == cpfAqui)
+            
+            if(usuario.Cpf == cpfAqui)
             {
                 throw new Exception("Cpf Já Cadastrado ! ");
             }
@@ -126,12 +136,20 @@ namespace BibliotecaClasses.negocio
             return true;
         }
 
-        private static bool NLoginBanco(string usuario)
+        private static bool NLoginBanco(Usuario usuario)
         {
             ConexaoBanco conexao = new ConexaoBanco();
             conexao.abrirConexao();
             string usuarioAqui = "";
-            string sql = "select usuario from Usuario where usuario = '" + usuario + "'";
+            string sql = "select usuario from Usuario where usuario = usuario ";
+            if (usuario.IdUsuario > 0)
+            {
+                sql += "and idUsuario <> " + usuario.IdUsuario + " and usuario = '" + usuario.Login + "'";
+            }
+            else
+            {
+                sql += "and usuario = '" + usuario.Login + "'";
+            }
 
             SqlCommand comando = new SqlCommand(sql, conexao.sqlConn);
             SqlDataReader DbReader = comando.ExecuteReader();
@@ -140,13 +158,33 @@ namespace BibliotecaClasses.negocio
             {
                 usuarioAqui = DbReader.GetString(DbReader.GetOrdinal("usuario"));
             }
-
-            if (usuario == usuarioAqui)
+            
+            if (usuario.Login == usuarioAqui)
             {
                 throw new Exception("Usuario(Login) Já Existe ! ");
             }
 
             conexao.fecharConexao();
+            return true;
+        }
+
+        public bool NLogin(Usuario usuario)
+        {
+            NListarUsuario(usuario);
+
+            if (NListarUsuario(usuario).Count() == 1)
+            {
+                //colocar objeto trazido aqui
+
+                if (usuario.Bloqueio.Equals("sim"))
+                {
+                    throw new Exception("Usuário Bloqueado ! ");
+                }
+            }
+            else
+            {
+                throw new Exception("Usuário Não Existe ! ");
+            }
             return true;
         }
 

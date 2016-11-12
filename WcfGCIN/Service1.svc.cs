@@ -36,6 +36,11 @@ namespace WcfGCIN
         {
             new NUsuario().NDeletarUsuario(usuario);
         }
+
+        public void UsuarioLogin(Usuario usuario)
+        {
+            new NUsuario().NLogin(usuario);
+        }
         /* ------------------------------- Perfil -------------------------------------------- */
         public List<Perfil> PerfilListar()
         {

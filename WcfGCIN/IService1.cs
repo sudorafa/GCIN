@@ -26,6 +26,9 @@ namespace WcfGCIN
 
         [OperationContract]
         void UsuarioDeletar(Usuario usuario);
+
+        [OperationContract]
+        void UsuarioLogin(Usuario usuario);
         /* -------------------------------  Perfil -------------------------------------------- */
         [OperationContract]
         List<Perfil> PerfilListar();
