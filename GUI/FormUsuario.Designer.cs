@@ -46,15 +46,15 @@
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxBuscar = new System.Windows.Forms.TextBox();
             this.listViewUsuario = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label8 = new System.Windows.Forms.Label();
             this.buttonCriar = new System.Windows.Forms.Button();
             this.buttonDeletar = new System.Windows.Forms.Button();
             this.maskedTextBoxCpf = new System.Windows.Forms.MaskedTextBox();
             this.buttonVai = new System.Windows.Forms.Button();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.labelIdUser = new System.Windows.Forms.Label();
             this.groupBoxBloqueio.SuspendLayout();
             this.SuspendLayout();
@@ -170,6 +170,7 @@
             this.textBoxSenha.Enabled = false;
             this.textBoxSenha.Location = new System.Drawing.Point(307, 345);
             this.textBoxSenha.Name = "textBoxSenha";
+            this.textBoxSenha.PasswordChar = 'ᴑ';
             this.textBoxSenha.Size = new System.Drawing.Size(184, 20);
             this.textBoxSenha.TabIndex = 5;
             // 
@@ -240,6 +241,26 @@
             this.listViewUsuario.View = System.Windows.Forms.View.Details;
             this.listViewUsuario.SelectedIndexChanged += new System.EventHandler(this.listViewUsuario_SelectedIndexChanged);
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ID";
+            this.columnHeader1.Width = 40;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Nome";
+            this.columnHeader2.Width = 180;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Usuário";
+            this.columnHeader4.Width = 90;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Perfil";
+            this.columnHeader6.Width = 110;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -288,26 +309,6 @@
             this.buttonVai.Text = "VAI";
             this.buttonVai.UseVisualStyleBackColor = true;
             this.buttonVai.Click += new System.EventHandler(this.buttonVai_Click);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "ID";
-            this.columnHeader1.Width = 40;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Nome";
-            this.columnHeader2.Width = 180;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Usuário";
-            this.columnHeader4.Width = 90;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Perfil";
-            this.columnHeader6.Width = 110;
             // 
             // labelIdUser
             // 
