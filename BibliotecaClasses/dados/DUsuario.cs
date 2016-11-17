@@ -4,6 +4,7 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Collections.Generic;
+using System.ServiceModel;
 
 namespace BibliotecaClasses.dados
 {
@@ -44,7 +45,7 @@ namespace BibliotecaClasses.dados
             }
             catch (Exception E)
             {
-                throw new Exception("Erro ao Cadastrar Usuário \n\n" + E.Message);
+                throw new FaultException("Erro ao Cadastrar Usuário \n\n" + E.Message);
             }
         }
 
@@ -98,12 +99,12 @@ namespace BibliotecaClasses.dados
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("Pesquisa BuscaUsuario sem resultado \n\n" + ex.Message);
+                    throw new FaultException("Pesquisa BuscaUsuario sem resultado \n\n" + ex.Message);
                 }
             }
             catch (Exception E)
             {
-                throw new Exception("Erro ao Buscar Usuário \n\n" + E.Message);
+                throw new FaultException("Erro ao Buscar Usuário \n\n" + E.Message);
             }
 
             return usuarios;
@@ -144,7 +145,7 @@ namespace BibliotecaClasses.dados
             }
             catch (Exception E)
             {
-                throw new Exception("Erro ao Atualizar Usuário \n\n" + E.Message);
+                throw new FaultException("Erro ao Atualizar Usuário \n\n" + E.Message);
             }
         }
 
@@ -165,7 +166,7 @@ namespace BibliotecaClasses.dados
             }
             catch (Exception E)
             {
-                throw new Exception("Erro ao Deletar Usu´rio \n\n" + E.Message);
+                throw new FaultException("Erro ao Deletar Usu´rio \n\n" + E.Message);
             }
         }
     }

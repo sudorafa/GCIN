@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -42,19 +43,19 @@ namespace BibliotecaClasses.negocio
         {
             if (usuario.Nome.Equals("") || usuario.Nome.Length == 0 || usuario.Nome == null)
             {
-                throw new Exception("Por Favor, Informe Nome ! ");
+                throw new FaultException("Por Favor, Informe Nome ! ");
             }
             else if (ValidaCPF(usuario.Cpf) == false)
             {
-                throw new Exception("Por Favor, Informe Cpf Válido ! ");
+                throw new FaultException("Por Favor, Informe Cpf Válido ! ");
             }
             else if (usuario.Login.Equals("") || usuario.Login.Length == 0 || usuario.Login == null)
             {
-                throw new Exception("Por Favor, Informe Login ! ");
+                throw new FaultException("Por Favor, Informe Login ! ");
             }
             else if (usuario.Senha.Equals("") || usuario.Senha.Length == 0 || usuario.Senha == null)
             {
-                throw new Exception("Por Favor, Informe Senha ! ");
+                throw new FaultException("Por Favor, Informe Senha ! ");
             }
             return true;
         }
@@ -129,7 +130,7 @@ namespace BibliotecaClasses.negocio
             
             if(usuario.Cpf == cpfAqui)
             {
-                throw new Exception("Cpf Já Cadastrado ! ");
+                throw new FaultException("Cpf Já Cadastrado ! ");
             }
                
             conexao.fecharConexao();
@@ -161,7 +162,7 @@ namespace BibliotecaClasses.negocio
             
             if (usuario.Login == usuarioAqui)
             {
-                throw new Exception("Usuario(Login) Já Existe ! ");
+                throw new FaultException("Usuario(Login) Já Existe ! ");
             }
 
             conexao.fecharConexao();
@@ -170,20 +171,21 @@ namespace BibliotecaClasses.negocio
 
         public bool NLogin(Usuario usuario)
         {
-            NListarUsuario(usuario);
-
             if (NListarUsuario(usuario).Count() == 1)
             {
-                //colocar objeto trazido aqui
+                foreach (Usuario u in NListarUsuario(usuario))
+                {
+                    usuario = u;
+                }
 
                 if (usuario.Bloqueio.Equals("sim"))
                 {
-                    throw new Exception("Usuário Bloqueado ! ");
+                    throw new FaultException("Usuário Bloqueado ! ");
                 }
             }
             else
             {
-                throw new Exception("Usuário Não Existe ! ");
+                throw new FaultException("Acesso Negado ! ");
             }
             return true;
         }

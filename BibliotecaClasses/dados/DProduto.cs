@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using BibliotecaClasses.modelo;
 using System.Data.SqlClient;
 using System.Data;
+using System.ServiceModel;
 
 namespace BibliotecaClasses.dados
 {
@@ -33,7 +34,7 @@ namespace BibliotecaClasses.dados
             }
             catch (Exception E)
             {
-                throw new Exception("Erro ao Atualizar Produto \n\n" + E.Message);
+                throw new FaultException("Erro ao Atualizar Produto \n\n" + E.Message);
             }
         }
 
@@ -56,7 +57,7 @@ namespace BibliotecaClasses.dados
             }
             catch (Exception E)
             {
-                throw new Exception("Erro ao Cadastrar Produto \n\n" + E.Message);
+                throw new FaultException("Erro ao Cadastrar Produto \n\n" + E.Message);
             }
         }
 
@@ -77,7 +78,7 @@ namespace BibliotecaClasses.dados
             }
             catch (Exception E)
             {
-                throw new Exception("Erro ao Deletar Produto \n\n" + E.Message);
+                throw new FaultException("Erro ao Deletar Produto \n\n" + E.Message);
             }
         }
 
@@ -113,13 +114,13 @@ namespace BibliotecaClasses.dados
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("Pesquisa Listar Produtos sem resultado" + ex.Message);
+                    throw new FaultException("Pesquisa Listar Produtos sem resultado" + ex.Message);
                 }
                 conexao.fecharConexao();
             }
             catch (Exception E)
             {
-                throw new Exception("Erro ao Listar Produtos \n\n" + E.Message);
+                throw new FaultException("Erro ao Listar Produtos \n\n" + E.Message);
             }
             return produtos;
         }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using BibliotecaClasses.modelo;
 using System.Data.SqlClient;
 using System.Data;
+using System.ServiceModel;
 
 namespace BibliotecaClasses.dados
 {
@@ -33,7 +34,7 @@ namespace BibliotecaClasses.dados
             }
             catch (Exception E)
             {
-                throw new Exception("Erro ao Atualizar Tipo Fornecimento \n\n" + E.Message);
+                throw new FaultException("Erro ao Atualizar Tipo Fornecimento \n\n" + E.Message);
             }
         }
 
@@ -56,7 +57,7 @@ namespace BibliotecaClasses.dados
             }
             catch (Exception E)
             {
-                throw new Exception("Erro ao Cadastrar Tipo Fornecimento \n\n" + E.Message);
+                throw new FaultException("Erro ao Cadastrar Tipo Fornecimento \n\n" + E.Message);
             }
         }
 
@@ -77,7 +78,7 @@ namespace BibliotecaClasses.dados
             }
             catch (Exception E)
             {
-                throw new Exception("Erro ao Deletar Tipo Fornecimento \n\n" + E.Message);
+                throw new FaultException("Erro ao Deletar Tipo Fornecimento \n\n" + E.Message);
             }
         }
 
@@ -104,13 +105,13 @@ namespace BibliotecaClasses.dados
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("Pesquisa Listar Tipo Fornecimento sem resultado" + ex.Message);
+                    throw new FaultException("Pesquisa Listar Tipo Fornecimento sem resultado" + ex.Message);
                 }
                 conexao.fecharConexao();
             }
             catch (Exception E)
             {
-                throw new Exception("Erro ao Listar Tipo Fornecimento \n\n" + E.Message);
+                throw new FaultException("Erro ao Listar Tipo Fornecimento \n\n" + E.Message);
             }
             return tiposFornecimentos;
         }

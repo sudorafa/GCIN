@@ -29,30 +29,13 @@ namespace GUI
             try
             {
                 service1.UsuarioLogin(usuario);
+                this.DialogResult = DialogResult.OK;
+                this.Dispose();
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            
-
-            /*
-            service1.UsuarioListar(usuario);
-            
-            if (service1.UsuarioListar(usuario).Count() == 1)
-            {
-                this.DialogResult = DialogResult.OK;
-                foreach(Usuario u in service1.UsuarioListar(usuario))
-                {
-                    usuario = u;
-                }
-                
-                this.Dispose();
-
-            } else
-            {
-                MessageBox.Show("Acesso Negado !");
-            }*/
         }
     }
 }
