@@ -77,7 +77,7 @@ namespace GUI
             especialidades = textBoxEspecialidades.Text;
             if (buscar.Equals("") && id.Equals("") && descricao.Equals("") && especialidades.Equals(""))
             {
-                MessageBox.Show("Feche");
+                this.Dispose();
             }
             else
             {

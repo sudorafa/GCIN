@@ -15,6 +15,20 @@ namespace GUI
         public FormSolicitacaoListar()
         {
             InitializeComponent();
+            comboBoxBuscar.SelectedIndex = 0;
+            comboBoxMostrar.SelectedIndex = 0;
+        }
+
+        private void buttonVai_Click(object sender, EventArgs e)
+        {
+            string dataInicial, dataFinal;
+            dataInicial = dateTimePickerDataInicial.Value.Date.ToString("yyyy-MM-dd");
+            dataFinal = dateTimePickerDataFinal.Value.Date.ToString("yyyy-MM-dd");
+        }
+
+        private void buttonSair_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

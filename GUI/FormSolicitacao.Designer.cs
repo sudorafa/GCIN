@@ -39,24 +39,24 @@
             this.label9 = new System.Windows.Forms.Label();
             this.textBoxNome = new System.Windows.Forms.TextBox();
             this.textBoxPerfil = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerDataAbertura = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerDataDesejadaCompra = new System.Windows.Forms.DateTimePicker();
+            this.comboBoxSeveridade = new System.Windows.Forms.ComboBox();
+            this.textBoxDetalhe = new System.Windows.Forms.TextBox();
+            this.comboBoxTipoFornecimento = new System.Windows.Forms.ComboBox();
+            this.comboBoxProduto = new System.Windows.Forms.ComboBox();
+            this.dateTimePickerDataPrevistaCompra = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.comboBoxHistorico = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.textBoxId = new System.Windows.Forms.TextBox();
+            this.textBoxStatus = new System.Windows.Forms.TextBox();
+            this.buttonSalvar = new System.Windows.Forms.Button();
+            this.buttonSair = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.comboBoxAtualizarSolicitacao = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label2
@@ -157,62 +157,62 @@
             this.textBoxPerfil.Size = new System.Drawing.Size(227, 20);
             this.textBoxPerfil.TabIndex = 27;
             // 
-            // dateTimePicker1
+            // dateTimePickerDataAbertura
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(32, 159);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(227, 20);
-            this.dateTimePicker1.TabIndex = 28;
+            this.dateTimePickerDataAbertura.Location = new System.Drawing.Point(32, 159);
+            this.dateTimePickerDataAbertura.Name = "dateTimePickerDataAbertura";
+            this.dateTimePickerDataAbertura.Size = new System.Drawing.Size(227, 20);
+            this.dateTimePickerDataAbertura.TabIndex = 28;
             // 
-            // dateTimePicker2
+            // dateTimePickerDataDesejadaCompra
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(265, 159);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(234, 20);
-            this.dateTimePicker2.TabIndex = 29;
+            this.dateTimePickerDataDesejadaCompra.Location = new System.Drawing.Point(265, 159);
+            this.dateTimePickerDataDesejadaCompra.Name = "dateTimePickerDataDesejadaCompra";
+            this.dateTimePickerDataDesejadaCompra.Size = new System.Drawing.Size(234, 20);
+            this.dateTimePickerDataDesejadaCompra.TabIndex = 29;
             // 
-            // comboBox1
+            // comboBoxSeveridade
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboBoxSeveridade.FormattingEnabled = true;
+            this.comboBoxSeveridade.Items.AddRange(new object[] {
             "Normal",
             "Prioritário",
             "Extrema"});
-            this.comboBox1.Location = new System.Drawing.Point(553, 209);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(179, 21);
-            this.comboBox1.TabIndex = 30;
+            this.comboBoxSeveridade.Location = new System.Drawing.Point(553, 209);
+            this.comboBoxSeveridade.Name = "comboBoxSeveridade";
+            this.comboBoxSeveridade.Size = new System.Drawing.Size(179, 21);
+            this.comboBoxSeveridade.TabIndex = 35;
             // 
-            // textBox3
+            // textBoxDetalhe
             // 
-            this.textBox3.Location = new System.Drawing.Point(32, 309);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(700, 54);
-            this.textBox3.TabIndex = 31;
+            this.textBoxDetalhe.Location = new System.Drawing.Point(32, 309);
+            this.textBoxDetalhe.Multiline = true;
+            this.textBoxDetalhe.Name = "textBoxDetalhe";
+            this.textBoxDetalhe.Size = new System.Drawing.Size(700, 54);
+            this.textBoxDetalhe.TabIndex = 48;
             // 
-            // comboBox2
+            // comboBoxTipoFornecimento
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(32, 209);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(227, 21);
-            this.comboBox2.TabIndex = 32;
+            this.comboBoxTipoFornecimento.FormattingEnabled = true;
+            this.comboBoxTipoFornecimento.Location = new System.Drawing.Point(32, 209);
+            this.comboBoxTipoFornecimento.Name = "comboBoxTipoFornecimento";
+            this.comboBoxTipoFornecimento.Size = new System.Drawing.Size(227, 21);
+            this.comboBoxTipoFornecimento.TabIndex = 33;
             // 
-            // comboBox3
+            // comboBoxProduto
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(265, 209);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(282, 21);
-            this.comboBox3.TabIndex = 33;
+            this.comboBoxProduto.FormattingEnabled = true;
+            this.comboBoxProduto.Location = new System.Drawing.Point(265, 209);
+            this.comboBoxProduto.Name = "comboBoxProduto";
+            this.comboBoxProduto.Size = new System.Drawing.Size(282, 21);
+            this.comboBoxProduto.TabIndex = 34;
             // 
-            // dateTimePicker3
+            // dateTimePickerDataPrevistaCompra
             // 
-            this.dateTimePicker3.Location = new System.Drawing.Point(505, 159);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(227, 20);
-            this.dateTimePicker3.TabIndex = 34;
+            this.dateTimePickerDataPrevistaCompra.Location = new System.Drawing.Point(505, 159);
+            this.dateTimePickerDataPrevistaCompra.Name = "dateTimePickerDataPrevistaCompra";
+            this.dateTimePickerDataPrevistaCompra.Size = new System.Drawing.Size(227, 20);
+            this.dateTimePickerDataPrevistaCompra.TabIndex = 32;
             // 
             // label10
             // 
@@ -241,13 +241,13 @@
             this.label12.TabIndex = 38;
             this.label12.Text = "Histórico";
             // 
-            // comboBox5
+            // comboBoxHistorico
             // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(265, 258);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(282, 21);
-            this.comboBox5.TabIndex = 39;
+            this.comboBoxHistorico.FormattingEnabled = true;
+            this.comboBoxHistorico.Location = new System.Drawing.Point(265, 258);
+            this.comboBoxHistorico.Name = "comboBoxHistorico";
+            this.comboBoxHistorico.Size = new System.Drawing.Size(282, 21);
+            this.comboBoxHistorico.TabIndex = 43;
             // 
             // label13
             // 
@@ -258,38 +258,41 @@
             this.label13.TabIndex = 40;
             this.label13.Text = "ID Solicitação";
             // 
-            // textBox4
+            // textBoxId
             // 
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(32, 64);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 41;
+            this.textBoxId.Enabled = false;
+            this.textBoxId.Location = new System.Drawing.Point(32, 64);
+            this.textBoxId.Name = "textBoxId";
+            this.textBoxId.Size = new System.Drawing.Size(100, 20);
+            this.textBoxId.TabIndex = 0;
             // 
-            // textBox5
+            // textBoxStatus
             // 
-            this.textBox5.Location = new System.Drawing.Point(32, 259);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(227, 20);
-            this.textBox5.TabIndex = 42;
+            this.textBoxStatus.Enabled = false;
+            this.textBoxStatus.Location = new System.Drawing.Point(32, 259);
+            this.textBoxStatus.Name = "textBoxStatus";
+            this.textBoxStatus.Size = new System.Drawing.Size(227, 20);
+            this.textBoxStatus.TabIndex = 42;
             // 
-            // button2
+            // buttonSalvar
             // 
-            this.button2.Location = new System.Drawing.Point(553, 380);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(98, 23);
-            this.button2.TabIndex = 44;
-            this.button2.Text = "Salvar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonSalvar.Location = new System.Drawing.Point(553, 380);
+            this.buttonSalvar.Name = "buttonSalvar";
+            this.buttonSalvar.Size = new System.Drawing.Size(98, 23);
+            this.buttonSalvar.TabIndex = 49;
+            this.buttonSalvar.Text = "Salvar";
+            this.buttonSalvar.UseVisualStyleBackColor = true;
+            this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             // 
-            // button3
+            // buttonSair
             // 
-            this.button3.Location = new System.Drawing.Point(657, 380);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 45;
-            this.button3.Text = "Sair";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonSair.Location = new System.Drawing.Point(657, 380);
+            this.buttonSair.Name = "buttonSair";
+            this.buttonSair.Size = new System.Drawing.Size(75, 23);
+            this.buttonSair.TabIndex = 50;
+            this.buttonSair.Text = "Sair";
+            this.buttonSair.UseVisualStyleBackColor = true;
+            this.buttonSair.Click += new System.EventHandler(this.buttonSair_Click);
             // 
             // label14
             // 
@@ -300,44 +303,44 @@
             this.label14.TabIndex = 46;
             this.label14.Text = "Atualizar Solicitação";
             // 
-            // comboBox4
+            // comboBoxAtualizarSolicitacao
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
+            this.comboBoxAtualizarSolicitacao.FormattingEnabled = true;
+            this.comboBoxAtualizarSolicitacao.Items.AddRange(new object[] {
             "Cancelar - Ficará \"Cancelado\"",
             "Aprovar para Cotação - Ficará \"Em Cotação\"",
             "Reprovar - Ficará \"Solicitação Reprovada\"",
             "",
             "Quando escolher a cotação vendedora - \"Aguardando Compra\"",
             "Quando Comprado - \"Comprado\""});
-            this.comboBox4.Location = new System.Drawing.Point(553, 258);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(179, 21);
-            this.comboBox4.TabIndex = 47;
+            this.comboBoxAtualizarSolicitacao.Location = new System.Drawing.Point(553, 258);
+            this.comboBoxAtualizarSolicitacao.Name = "comboBoxAtualizarSolicitacao";
+            this.comboBoxAtualizarSolicitacao.Size = new System.Drawing.Size(179, 21);
+            this.comboBoxAtualizarSolicitacao.TabIndex = 47;
             // 
             // FormSolicitacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(757, 430);
-            this.Controls.Add(this.comboBox4);
+            this.Controls.Add(this.comboBoxAtualizarSolicitacao);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.buttonSair);
+            this.Controls.Add(this.buttonSalvar);
+            this.Controls.Add(this.textBoxStatus);
+            this.Controls.Add(this.textBoxId);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.comboBox5);
+            this.Controls.Add(this.comboBoxHistorico);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.dateTimePicker3);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateTimePickerDataPrevistaCompra);
+            this.Controls.Add(this.comboBoxProduto);
+            this.Controls.Add(this.comboBoxTipoFornecimento);
+            this.Controls.Add(this.textBoxDetalhe);
+            this.Controls.Add(this.comboBoxSeveridade);
+            this.Controls.Add(this.dateTimePickerDataDesejadaCompra);
+            this.Controls.Add(this.dateTimePickerDataAbertura);
             this.Controls.Add(this.textBoxPerfil);
             this.Controls.Add(this.textBoxNome);
             this.Controls.Add(this.label9);
@@ -369,23 +372,23 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBoxNome;
         private System.Windows.Forms.TextBox textBoxPerfil;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.DateTimePicker dateTimePickerDataAbertura;
+        private System.Windows.Forms.DateTimePicker dateTimePickerDataDesejadaCompra;
+        private System.Windows.Forms.ComboBox comboBoxSeveridade;
+        private System.Windows.Forms.TextBox textBoxDetalhe;
+        private System.Windows.Forms.ComboBox comboBoxTipoFornecimento;
+        private System.Windows.Forms.ComboBox comboBoxProduto;
+        private System.Windows.Forms.DateTimePicker dateTimePickerDataPrevistaCompra;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox comboBoxHistorico;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox textBoxId;
+        private System.Windows.Forms.TextBox textBoxStatus;
+        private System.Windows.Forms.Button buttonSalvar;
+        private System.Windows.Forms.Button buttonSair;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox comboBoxAtualizarSolicitacao;
     }
 }

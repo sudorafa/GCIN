@@ -39,6 +39,7 @@
       <xs:element name="DataPrecisa" nillable="true" type="xs:string" />
       <xs:element name="DataSolicitacao" nillable="true" type="xs:string" />
       <xs:element name="IdSolicitacao" type="xs:int" />
+      <xs:element name="Produto" nillable="true" type="tns:Produto" />
       <xs:element name="Severidade" nillable="true" type="xs:string" />
       <xs:element name="Status" nillable="true" type="tns:ArrayOfStatus" />
       <xs:element name="Usuarios" nillable="true" type="tns:ArrayOfUsuario" />
@@ -92,6 +93,7 @@
       <xs:element name="DetalheStatus" nillable="true" type="xs:string" />
       <xs:element name="Solicitacao" nillable="true" type="tns:Solicitacao" />
       <xs:element name="StatusSolicitacao" nillable="true" type="xs:string" />
+      <xs:element name="Usuario" nillable="true" type="tns:Usuario" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Status" nillable="true" type="tns:Status" />

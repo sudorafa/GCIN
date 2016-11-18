@@ -157,7 +157,7 @@ namespace GUI
             senha = textBoxSenha.Text;
             if (buscar.Equals("") && nome.Equals("") && cpf.Equals("   .   .   -") && login.Equals("") && senha.Equals(""))
             {
-                MessageBox.Show("Feche");
+                this.Dispose();
             }
             else
             {

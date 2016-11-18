@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxMostrar = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxBuscar = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxId = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.dateTimePickerDataInicial = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerDataFinal = new System.Windows.Forms.DateTimePicker();
+            this.listBoxSolicitacao = new System.Windows.Forms.ListBox();
+            this.buttonSair = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonVai = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -54,16 +54,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Buscar";
             // 
-            // comboBox1
+            // comboBoxMostrar
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboBoxMostrar.FormattingEnabled = true;
+            this.comboBoxMostrar.Items.AddRange(new object[] {
             "Minhas Solicitações",
             "Todas Solicitações"});
-            this.comboBox1.Location = new System.Drawing.Point(139, 71);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(202, 21);
-            this.comboBox1.TabIndex = 1;
+            this.comboBoxMostrar.Location = new System.Drawing.Point(139, 71);
+            this.comboBoxMostrar.Name = "comboBoxMostrar";
+            this.comboBoxMostrar.Size = new System.Drawing.Size(202, 21);
+            this.comboBoxMostrar.TabIndex = 1;
             // 
             // label2
             // 
@@ -74,33 +74,33 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Mostrar";
             // 
-            // comboBox2
+            // comboBoxBuscar
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.comboBoxBuscar.FormattingEnabled = true;
+            this.comboBoxBuscar.Items.AddRange(new object[] {
             "Todas",
             "Aberta",
             "Finalizada"});
-            this.comboBox2.Location = new System.Drawing.Point(347, 71);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(202, 21);
-            this.comboBox2.TabIndex = 3;
+            this.comboBoxBuscar.Location = new System.Drawing.Point(347, 71);
+            this.comboBoxBuscar.Name = "comboBoxBuscar";
+            this.comboBoxBuscar.Size = new System.Drawing.Size(202, 21);
+            this.comboBoxBuscar.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(30, 54);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 13);
+            this.label3.Size = new System.Drawing.Size(18, 13);
             this.label3.TabIndex = 4;
-            this.label3.Text = "ID (opcional)";
+            this.label3.Text = "ID";
             // 
-            // textBox1
+            // textBoxId
             // 
-            this.textBox1.Location = new System.Drawing.Point(33, 71);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 5;
+            this.textBoxId.Location = new System.Drawing.Point(33, 71);
+            this.textBoxId.Name = "textBoxId";
+            this.textBoxId.Size = new System.Drawing.Size(100, 20);
+            this.textBoxId.TabIndex = 0;
             // 
             // label4
             // 
@@ -120,36 +120,37 @@
             this.label5.TabIndex = 7;
             this.label5.Text = "Data Final";
             // 
-            // dateTimePicker1
+            // dateTimePickerDataInicial
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(33, 118);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(230, 20);
-            this.dateTimePicker1.TabIndex = 8;
+            this.dateTimePickerDataInicial.Location = new System.Drawing.Point(33, 118);
+            this.dateTimePickerDataInicial.Name = "dateTimePickerDataInicial";
+            this.dateTimePickerDataInicial.Size = new System.Drawing.Size(230, 20);
+            this.dateTimePickerDataInicial.TabIndex = 8;
             // 
-            // dateTimePicker2
+            // dateTimePickerDataFinal
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(269, 118);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(233, 20);
-            this.dateTimePicker2.TabIndex = 9;
+            this.dateTimePickerDataFinal.Location = new System.Drawing.Point(269, 118);
+            this.dateTimePickerDataFinal.Name = "dateTimePickerDataFinal";
+            this.dateTimePickerDataFinal.Size = new System.Drawing.Size(233, 20);
+            this.dateTimePickerDataFinal.TabIndex = 9;
             // 
-            // listBox1
+            // listBoxSolicitacao
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(33, 153);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(516, 251);
-            this.listBox1.TabIndex = 10;
+            this.listBoxSolicitacao.FormattingEnabled = true;
+            this.listBoxSolicitacao.Location = new System.Drawing.Point(33, 153);
+            this.listBoxSolicitacao.Name = "listBoxSolicitacao";
+            this.listBoxSolicitacao.Size = new System.Drawing.Size(516, 251);
+            this.listBoxSolicitacao.TabIndex = 18;
             // 
-            // button1
+            // buttonSair
             // 
-            this.button1.Location = new System.Drawing.Point(474, 410);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Sair";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonSair.Location = new System.Drawing.Point(474, 410);
+            this.buttonSair.Name = "buttonSair";
+            this.buttonSair.Size = new System.Drawing.Size(75, 23);
+            this.buttonSair.TabIndex = 19;
+            this.buttonSair.Text = "Sair";
+            this.buttonSair.UseVisualStyleBackColor = true;
+            this.buttonSair.Click += new System.EventHandler(this.buttonSair_Click);
             // 
             // label6
             // 
@@ -161,14 +162,15 @@
             this.label6.TabIndex = 16;
             this.label6.Text = "Solicitações";
             // 
-            // button2
+            // buttonVai
             // 
-            this.button2.Location = new System.Drawing.Point(508, 115);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(41, 23);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "VAI";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonVai.Location = new System.Drawing.Point(508, 115);
+            this.buttonVai.Name = "buttonVai";
+            this.buttonVai.Size = new System.Drawing.Size(41, 23);
+            this.buttonVai.TabIndex = 17;
+            this.buttonVai.Text = "VAI";
+            this.buttonVai.UseVisualStyleBackColor = true;
+            this.buttonVai.Click += new System.EventHandler(this.buttonVai_Click);
             // 
             // label7
             // 
@@ -183,21 +185,21 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(601, 453);
+            this.ClientSize = new System.Drawing.Size(579, 453);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.buttonVai);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.buttonSair);
+            this.Controls.Add(this.listBoxSolicitacao);
+            this.Controls.Add(this.dateTimePickerDataFinal);
+            this.Controls.Add(this.dateTimePickerDataInicial);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxId);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.comboBoxBuscar);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxMostrar);
             this.Controls.Add(this.label1);
             this.Name = "FormSolicitacaoListar";
             this.Text = "Listar Solicitação";
@@ -209,19 +211,19 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxMostrar;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBoxBuscar;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxId;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DateTimePicker dateTimePickerDataInicial;
+        private System.Windows.Forms.DateTimePicker dateTimePickerDataFinal;
+        private System.Windows.Forms.ListBox listBoxSolicitacao;
+        private System.Windows.Forms.Button buttonSair;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonVai;
         private System.Windows.Forms.Label label7;
     }
 }

@@ -23,7 +23,6 @@ namespace GUI
             Application.Run(formlogin);
             if (formlogin.DialogResult == DialogResult.OK) {
                 Application.Run(new FormPrincipal(formlogin.usuario));
-
             }
         }
     }

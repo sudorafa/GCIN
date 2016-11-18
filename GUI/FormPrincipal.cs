@@ -22,7 +22,7 @@ namespace GUI
 
         private void abrirSolicitaçãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new FormSolicitacao(usuario).Show();
+            new FormSolicitacao(usuario, null).Show();
         }
 
         private void solicitaçõesToolStripMenuItem_Click(object sender, EventArgs e)

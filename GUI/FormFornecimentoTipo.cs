@@ -119,7 +119,7 @@ namespace GUI
             descricao = textBoxDescricao.Text;
             if (id.Equals("") && descricao.Equals(""))
             {
-                MessageBox.Show("Feche");
+                this.Dispose();
             }
             else
             {
