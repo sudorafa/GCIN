@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BibliotecaClasses.modelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace BibliotecaClasses.faixada
 {
     interface ISolicitacao
     {
+        void CadastrarSolicitacao(Solicitacao solicitacao);
     }
 }

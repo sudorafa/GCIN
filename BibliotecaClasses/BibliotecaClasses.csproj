@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="dados\DTipoFornecimento.cs" />
     <Compile Include="faixada\ITipoFornecimento.cs" />
+    <Compile Include="negocio\NSolicitacao.cs" />
     <Compile Include="negocio\NTipoFornecimento.cs" />
     <Compile Include="util\ConexaoBanco.cs" />
     <Compile Include="dados\DPerfil.cs" />

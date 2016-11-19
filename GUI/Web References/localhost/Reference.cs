@@ -57,6 +57,8 @@ namespace GUI.localhost {
         
         private System.Threading.SendOrPostCallback TipoFornecimentoDeletarOperationCompleted;
         
+        private System.Threading.SendOrPostCallback SolicitacaoCadastrarOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -136,6 +138,9 @@ namespace GUI.localhost {
         
         /// <remarks/>
         public event TipoFornecimentoDeletarCompletedEventHandler TipoFornecimentoDeletarCompleted;
+        
+        /// <remarks/>
+        public event SolicitacaoCadastrarCompletedEventHandler SolicitacaoCadastrarCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/UsuarioCadastrar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -534,6 +539,34 @@ namespace GUI.localhost {
             if ((this.TipoFornecimentoDeletarCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.TipoFornecimentoDeletarCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/SolicitacaoCadastrar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void SolicitacaoCadastrar([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Solicitacao solicitacao) {
+            this.Invoke("SolicitacaoCadastrar", new object[] {
+                        solicitacao});
+        }
+        
+        /// <remarks/>
+        public void SolicitacaoCadastrarAsync(Solicitacao solicitacao) {
+            this.SolicitacaoCadastrarAsync(solicitacao, null);
+        }
+        
+        /// <remarks/>
+        public void SolicitacaoCadastrarAsync(Solicitacao solicitacao, object userState) {
+            if ((this.SolicitacaoCadastrarOperationCompleted == null)) {
+                this.SolicitacaoCadastrarOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSolicitacaoCadastrarOperationCompleted);
+            }
+            this.InvokeAsync("SolicitacaoCadastrar", new object[] {
+                        solicitacao}, this.SolicitacaoCadastrarOperationCompleted, userState);
+        }
+        
+        private void OnSolicitacaoCadastrarOperationCompleted(object arg) {
+            if ((this.SolicitacaoCadastrarCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SolicitacaoCadastrarCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1146,13 +1179,15 @@ namespace GUI.localhost {
         
         private string dataSolicitacaoField;
         
+        private string detalheField;
+        
         private int idSolicitacaoField;
         
         private Produto produtoField;
         
         private string severidadeField;
         
-        private Status[] statusField;
+        private Status statusField;
         
         private Usuario[] usuariosField;
         
@@ -1190,6 +1225,17 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Detalhe {
+            get {
+                return this.detalheField;
+            }
+            set {
+                this.detalheField = value;
+            }
+        }
+        
+        /// <remarks/>
         public int IdSolicitacao {
             get {
                 return this.idSolicitacaoField;
@@ -1222,8 +1268,8 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        public Status[] Status {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Status Status {
             get {
                 return this.statusField;
             }
@@ -1461,6 +1507,10 @@ namespace GUI.localhost {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     public delegate void TipoFornecimentoDeletarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void SolicitacaoCadastrarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591

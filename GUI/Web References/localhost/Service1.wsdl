@@ -91,6 +91,12 @@
   <wsdl:message name="IService1_TipoFornecimentoDeletar_OutputMessage">
     <wsdl:part name="parameters" element="tns:TipoFornecimentoDeletarResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_SolicitacaoCadastrar_InputMessage">
+    <wsdl:part name="parameters" element="tns:SolicitacaoCadastrar" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SolicitacaoCadastrar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SolicitacaoCadastrarResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="UsuarioCadastrar">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsuarioCadastrar" message="tns:IService1_UsuarioCadastrar_InputMessage" />
@@ -147,6 +153,10 @@
     <wsdl:operation name="TipoFornecimentoDeletar">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/TipoFornecimentoDeletar" message="tns:IService1_TipoFornecimentoDeletar_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/TipoFornecimentoDeletarResponse" message="tns:IService1_TipoFornecimentoDeletar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SolicitacaoCadastrar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SolicitacaoCadastrar" message="tns:IService1_SolicitacaoCadastrar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SolicitacaoCadastrarResponse" message="tns:IService1_SolicitacaoCadastrar_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -270,6 +280,15 @@
     </wsdl:operation>
     <wsdl:operation name="TipoFornecimentoDeletar">
       <soap:operation soapAction="http://tempuri.org/IService1/TipoFornecimentoDeletar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SolicitacaoCadastrar">
+      <soap:operation soapAction="http://tempuri.org/IService1/SolicitacaoCadastrar" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

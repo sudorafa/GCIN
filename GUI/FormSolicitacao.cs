@@ -40,9 +40,8 @@ namespace GUI
             try
             {
                 List<Usuario> listUsuarios = new List<Usuario>();
-                localhost.Service1 service1 = new localhost.Service1();
+                Service1 service1 = new Service1();
 
-                Usuario usuario = new Usuario();
                 usuario.Perfil = new Perfil();
 
                 listUsuarios = service1.UsuarioListar(usuario).ToList();
@@ -88,6 +87,8 @@ namespace GUI
             comboBoxAtualizarSolicitacao.Enabled = false;
             dateTimePickerDataAbertura.Enabled = false;
             dateTimePickerDataPrevistaCompra.Enabled = false;
+            dateTimePickerDataDesejadaCompra.Value = DateTime.Now.Date;
+            textBoxDetalhe.Text = "";
         }
 
         private void CarregarComboBox()
@@ -96,12 +97,15 @@ namespace GUI
             listProdutos = service1.ProdutoListar(produto).ToList();
             listTiposFornecimentos = service1.TipoFornecimentoListar().ToList();
 
+            comboBoxTipoFornecimento.Items.Clear();
             foreach (var tf in listTiposFornecimentos)
             {
                 comboBoxTipoFornecimento.Items.Add(tf.DescTipoFornecimento.ToString());
             }
 
-            //Pegar Tipo de fornecimento changeado da tela para passar para o produto
+            //Fazer Pegar Tipo de fornecimento changeado da tela para passar para o produto dele
+
+            comboBoxProduto.Items.Clear();
             foreach (var prod in listProdutos)
             {
                 comboBoxProduto.Items.Add(prod.DescProduto.ToString());
@@ -115,44 +119,56 @@ namespace GUI
 
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
-            string dataSolicitacao, severidade, detalheSolicitacao, detalheStatus, dataStatus, statusSolicitacao;
+            string dataSolicitacao, dataPrecisa, severidade, detalheSolicitacao, detalheStatus, dataStatus, statusSolicitacao;
             int idProduto, index;
 
             Produto produtoEscolhido;
             index = comboBoxProduto.SelectedIndex;
             produtoEscolhido = listProdutos.ElementAt(index);
-
-            Solicitacao solicitacao = new Solicitacao();
-            Status status = new Status();
-            solicitacao.Produto = new Produto();
-            status.Usuario = new Usuario();
-
+            
             dataSolicitacao = dateTimePickerDataAbertura.Value.Date.ToString("yyyy-MM-dd");
+            dataPrecisa = dateTimePickerDataDesejadaCompra.Value.Date.ToString("yyyy-MM-dd");
             severidade = comboBoxSeveridade.Text;
             detalheSolicitacao = textBoxDetalhe.Text;
             idProduto = produtoEscolhido.IdProduto;
             detalheStatus = textBoxDetalhe.Text;
             dataStatus = dateTimePickerDataAbertura.Value.Date.ToString("yyyy-MM-dd");
             statusSolicitacao = "Aberto";
-           
-            solicitacao.DataSolicitacao = dataSolicitacao;
-            solicitacao.Severidade = severidade;
-            solicitacao.DataSolicitacao = dataSolicitacao;
-            solicitacao.Produto.IdProduto = idProduto;
-            status.DetalheStatus = detalheStatus;
-            status.DetalheStatus = dataStatus;
-            status.StatusSolicitacao = statusSolicitacao;
-            status.Usuario.IdUsuario = idUsuarioTela;
 
-            /*
-             * No D/N irá insert esta solicitação,
-             * Em seguida inset Stat..
-             * Para pegar id desta solicitação: where detalhe e data da solicitação = solicitacao.Data..Status...
-             */
+            if (detalheStatus.Equals("") || detalheStatus.Length == 0 || detalheStatus == null)
+            {
+                MessageBox.Show("Por Favor, Informe Detalhe Status ! ", "Ateção", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                textBoxDetalhe.Focus();
+            }
+            else
+            {
+                Solicitacao solicitacao = new Solicitacao();
+                solicitacao.Produto = new Produto();
+                solicitacao.Status = new Status();
+                solicitacao.Status.Usuario = new Usuario();
 
-            //Negocio CadastrarSolicitação
+                solicitacao.DataSolicitacao = dataSolicitacao;
+                solicitacao.DataPrecisa = dataPrecisa;
+                solicitacao.Severidade = severidade;
+                solicitacao.Detalhe = detalheSolicitacao;
+                solicitacao.Produto.IdProduto = idProduto;
+                solicitacao.Status.DetalheStatus = detalheStatus;
+                solicitacao.Status.DataStatus = dataStatus;
+                solicitacao.Status.StatusSolicitacao = statusSolicitacao;
+                solicitacao.Status.Usuario.IdUsuario = idUsuarioTela;
 
-            //Negocio CadastrarStatus
+                try
+                {
+                    new Service1().SolicitacaoCadastrar(solicitacao);
+                    MessageBox.Show("Solicitação Realizada Com Sucesso !");
+                    CarregarSolicitacaoNova();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                    
+            }
         }
     }
 }

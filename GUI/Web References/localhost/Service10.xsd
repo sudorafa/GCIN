@@ -38,10 +38,11 @@
       <xs:element name="CotacoesProdutosSolicitacoes" nillable="true" type="tns:ArrayOfCotacaoDoProduto" />
       <xs:element name="DataPrecisa" nillable="true" type="xs:string" />
       <xs:element name="DataSolicitacao" nillable="true" type="xs:string" />
+      <xs:element name="Detalhe" nillable="true" type="xs:string" />
       <xs:element name="IdSolicitacao" type="xs:int" />
       <xs:element name="Produto" nillable="true" type="tns:Produto" />
       <xs:element name="Severidade" nillable="true" type="xs:string" />
-      <xs:element name="Status" nillable="true" type="tns:ArrayOfStatus" />
+      <xs:element name="Status" nillable="true" type="tns:Status" />
       <xs:element name="Usuarios" nillable="true" type="tns:ArrayOfUsuario" />
     </xs:sequence>
   </xs:complexType>
@@ -81,12 +82,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Produto" nillable="true" type="tns:Produto" />
-  <xs:complexType name="ArrayOfStatus">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Status" nillable="true" type="tns:Status" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfStatus" nillable="true" type="tns:ArrayOfStatus" />
   <xs:complexType name="Status">
     <xs:sequence>
       <xs:element name="DataStatus" nillable="true" type="xs:string" />

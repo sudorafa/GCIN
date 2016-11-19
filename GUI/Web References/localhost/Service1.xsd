@@ -173,4 +173,16 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="SolicitacaoCadastrar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="solicitacao" nillable="true" type="q17:Solicitacao" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SolicitacaoCadastrarResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
