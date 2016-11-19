@@ -86,14 +86,9 @@ namespace WcfGCIN
             new NTipoFornecimento().NDeletarTipoFornecimento(tipoFornecimento);
         }
         /* ------------------------------- Solicitação --------------------------------------- */
-        public void SolicitacaoCadastrar(Solicitacao solicitacao)
+        public Solicitacao SolicitacaoCadastrar(Solicitacao solicitacao)
         {
-            new NSolicitacao().NCadastrarSolicitacao(solicitacao);
-        }
-
-        public Solicitacao SolicitacaoBuscar(Solicitacao solicitacao)
-        {
-            return new NSolicitacao().NSolicitacaoBuscar(solicitacao);
+            return new NSolicitacao().NCadastrarSolicitacao(solicitacao);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace BibliotecaClasses.dados
     public class DSolicitacao : ISolicitacao
     {
         ConexaoBanco conexao = new ConexaoBanco();
-        public void CadastrarSolicitacao(Solicitacao solicitacao)
+        public Solicitacao CadastrarSolicitacao(Solicitacao solicitacao)
         {
             try
             {
@@ -42,8 +42,8 @@ namespace BibliotecaClasses.dados
                 comando.Parameters["@idProduto"].Value = solicitacao.Produto.IdProduto;
                 
                 //idSolicitação cadastrado acima:
-                int idSolicitacao = (int)comando.ExecuteScalar();
-
+                solicitacao.IdSolicitacao = (int)comando.ExecuteScalar();
+                
                 //Status:
                 string sql2 = "insert into Stat";
                 sql2 += "(detalheStatus, dataStatus, statusSolicitacao, idSolicitacao, idUsuario) values";
@@ -61,7 +61,7 @@ namespace BibliotecaClasses.dados
                 comando2.Parameters["@statusSolicitacao"].Value = solicitacao.Status.StatusSolicitacao;
 
                 comando2.Parameters.Add("@idSolicitacao", SqlDbType.Int);
-                comando2.Parameters["@idSolicitacao"].Value = idSolicitacao;
+                comando2.Parameters["@idSolicitacao"].Value = solicitacao.IdSolicitacao;
 
                 comando2.Parameters.Add("@idUsuario", SqlDbType.Int);
                 comando2.Parameters["@idUsuario"].Value = solicitacao.Status.Usuario.IdUsuario;
@@ -74,6 +74,7 @@ namespace BibliotecaClasses.dados
             {
                 throw new FaultException("Erro ao Cadastrar Solicitação \n\n" + E.Message);
             }
+            return solicitacao;
         }
     }
 }

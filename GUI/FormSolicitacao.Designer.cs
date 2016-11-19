@@ -57,6 +57,7 @@
             this.buttonSair = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.comboBoxAtualizarSolicitacao = new System.Windows.Forms.ComboBox();
+            this.buttonNovo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
@@ -189,7 +190,7 @@
             this.textBoxDetalhe.Multiline = true;
             this.textBoxDetalhe.Name = "textBoxDetalhe";
             this.textBoxDetalhe.Size = new System.Drawing.Size(700, 54);
-            this.textBoxDetalhe.TabIndex = 48;
+            this.textBoxDetalhe.TabIndex = 0;
             // 
             // comboBoxTipoFornecimento
             // 
@@ -279,7 +280,7 @@
             this.buttonSalvar.Location = new System.Drawing.Point(553, 380);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(98, 23);
-            this.buttonSalvar.TabIndex = 49;
+            this.buttonSalvar.TabIndex = 50;
             this.buttonSalvar.Text = "Salvar";
             this.buttonSalvar.UseVisualStyleBackColor = true;
             this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
@@ -318,11 +319,23 @@
             this.comboBoxAtualizarSolicitacao.Size = new System.Drawing.Size(179, 21);
             this.comboBoxAtualizarSolicitacao.TabIndex = 47;
             // 
+            // buttonNovo
+            // 
+            this.buttonNovo.Location = new System.Drawing.Point(472, 380);
+            this.buttonNovo.Name = "buttonNovo";
+            this.buttonNovo.Size = new System.Drawing.Size(75, 23);
+            this.buttonNovo.TabIndex = 49;
+            this.buttonNovo.Text = "Novo";
+            this.buttonNovo.UseVisualStyleBackColor = true;
+            this.buttonNovo.Visible = false;
+            this.buttonNovo.Click += new System.EventHandler(this.buttonNovo_Click);
+            // 
             // FormSolicitacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(757, 430);
+            this.Controls.Add(this.buttonNovo);
             this.Controls.Add(this.comboBoxAtualizarSolicitacao);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.buttonSair);
@@ -390,5 +403,6 @@
         private System.Windows.Forms.Button buttonSair;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox comboBoxAtualizarSolicitacao;
+        private System.Windows.Forms.Button buttonNovo;
     }
 }

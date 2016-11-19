@@ -58,9 +58,6 @@ namespace WcfGCIN
         void TipoFornecimentoDeletar(TipoFornecimento tipoFornecimento);
         /* ------------------------------- Solicitação --------------------------------------- */
         [OperationContract]
-        void SolicitacaoCadastrar(Solicitacao solicitacao);
-
-        [OperationContract]
-        Solicitacao SolicitacaoBuscar(Solicitacao solicitacao);
+        Solicitacao SolicitacaoCadastrar(Solicitacao solicitacao);
     }
 }

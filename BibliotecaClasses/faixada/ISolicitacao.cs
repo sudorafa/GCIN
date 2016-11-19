@@ -9,6 +9,6 @@ namespace BibliotecaClasses.faixada
 {
     interface ISolicitacao
     {
-        void CadastrarSolicitacao(Solicitacao solicitacao);
+        Solicitacao CadastrarSolicitacao(Solicitacao solicitacao);
     }
 }

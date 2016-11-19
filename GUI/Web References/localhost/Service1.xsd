@@ -182,7 +182,9 @@
   </xs:element>
   <xs:element name="SolicitacaoCadastrarResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="SolicitacaoCadastrarResult" nillable="true" type="q18:Solicitacao" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
 </xs:schema>

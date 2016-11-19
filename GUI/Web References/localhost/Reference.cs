@@ -544,9 +544,11 @@ namespace GUI.localhost {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/SolicitacaoCadastrar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void SolicitacaoCadastrar([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Solicitacao solicitacao) {
-            this.Invoke("SolicitacaoCadastrar", new object[] {
+        [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Solicitacao SolicitacaoCadastrar([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Solicitacao solicitacao) {
+            object[] results = this.Invoke("SolicitacaoCadastrar", new object[] {
                         solicitacao});
+            return ((Solicitacao)(results[0]));
         }
         
         /// <remarks/>
@@ -566,7 +568,7 @@ namespace GUI.localhost {
         private void OnSolicitacaoCadastrarOperationCompleted(object arg) {
             if ((this.SolicitacaoCadastrarCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.SolicitacaoCadastrarCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.SolicitacaoCadastrarCompleted(this, new SolicitacaoCadastrarCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1510,7 +1512,29 @@ namespace GUI.localhost {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
-    public delegate void SolicitacaoCadastrarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    public delegate void SolicitacaoCadastrarCompletedEventHandler(object sender, SolicitacaoCadastrarCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SolicitacaoCadastrarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SolicitacaoCadastrarCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Solicitacao Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Solicitacao)(this.results[0]));
+            }
+        }
+    }
 }
 
 #pragma warning restore 1591
