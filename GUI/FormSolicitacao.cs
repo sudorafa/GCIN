@@ -94,6 +94,12 @@ namespace GUI
             textBoxId.Text = "";
             buttonSalvar.Text = "Salvar";
             buttonNovo.Visible = false;
+            comboBoxTipoFornecimento.Enabled = true;
+            comboBoxProduto.Enabled = true;
+            comboBoxSeveridade.Enabled = true;
+            comboBoxAtualizarSolicitacao.Enabled = false;
+            textBoxDetalhe.Enabled = true;
+            dateTimePickerDataDesejadaCompra.Enabled = true;
             textBoxDetalhe.Focus();
         }
 
@@ -129,6 +135,12 @@ namespace GUI
             comboBoxHistorico.SelectedIndex = 0;
             comboBoxAtualizarSolicitacao.Enabled = true;
             comboBoxAtualizarSolicitacao.SelectedIndex = 0;
+            comboBoxTipoFornecimento.Enabled = false;
+            comboBoxProduto.Enabled = false;
+            comboBoxSeveridade.Enabled = false;
+            comboBoxAtualizarSolicitacao.Enabled = false;
+            textBoxDetalhe.Enabled = false;
+            dateTimePickerDataDesejadaCompra.Enabled = false;
 
             buttonSalvar.Text = "Atualizar";
             buttonNovo.Visible = true;
@@ -148,6 +160,17 @@ namespace GUI
         {
             if (textBoxId.TextLength > 0)
             {
+                if (buttonSalvar.Text.Equals("Atualizar"))
+                {
+                    buttonSalvar.Text = "Salvar";
+                    dateTimePickerDataDesejadaCompra.Enabled = true;
+                    dateTimePickerDataPrevistaCompra.Enabled = true;
+                    comboBoxSeveridade.Enabled = true;
+                    comboBoxAtualizarSolicitacao.Enabled = true;
+                    textBoxDetalhe.Enabled = true;
+                    textBoxDetalhe.Text = "";
+                    textBoxDetalhe.Focus();
+                }
                 MessageBox.Show("oi");
             }
             else

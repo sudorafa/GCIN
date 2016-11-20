@@ -306,12 +306,13 @@
             // 
             // comboBoxAtualizarSolicitacao
             // 
+            this.comboBoxAtualizarSolicitacao.Enabled = false;
             this.comboBoxAtualizarSolicitacao.FormattingEnabled = true;
             this.comboBoxAtualizarSolicitacao.Items.AddRange(new object[] {
+            "-",
             "Cancelar - Ficará \"Cancelado\"",
             "Aprovar para Cotação - Ficará \"Em Cotação\"",
             "Reprovar - Ficará \"Solicitação Reprovada\"",
-            "",
             "Quando escolher a cotação vendedora - \"Aguardando Compra\"",
             "Quando Comprado - \"Comprado\""});
             this.comboBoxAtualizarSolicitacao.Location = new System.Drawing.Point(553, 258);
