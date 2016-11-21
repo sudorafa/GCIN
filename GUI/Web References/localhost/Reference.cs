@@ -59,6 +59,8 @@ namespace GUI.localhost {
         
         private System.Threading.SendOrPostCallback SolicitacaoCadastrarOperationCompleted;
         
+        private System.Threading.SendOrPostCallback NSolicitacaoListarOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -141,6 +143,9 @@ namespace GUI.localhost {
         
         /// <remarks/>
         public event SolicitacaoCadastrarCompletedEventHandler SolicitacaoCadastrarCompleted;
+        
+        /// <remarks/>
+        public event NSolicitacaoListarCompletedEventHandler NSolicitacaoListarCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/UsuarioCadastrar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -569,6 +574,41 @@ namespace GUI.localhost {
             if ((this.SolicitacaoCadastrarCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.SolicitacaoCadastrarCompleted(this, new SolicitacaoCadastrarCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/NSolicitacaoListar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo")]
+        public Solicitacao[] NSolicitacaoListar([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Solicitacao solicitacao, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string dataInicial, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string dataFinal) {
+            object[] results = this.Invoke("NSolicitacaoListar", new object[] {
+                        solicitacao,
+                        dataInicial,
+                        dataFinal});
+            return ((Solicitacao[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void NSolicitacaoListarAsync(Solicitacao solicitacao, string dataInicial, string dataFinal) {
+            this.NSolicitacaoListarAsync(solicitacao, dataInicial, dataFinal, null);
+        }
+        
+        /// <remarks/>
+        public void NSolicitacaoListarAsync(Solicitacao solicitacao, string dataInicial, string dataFinal, object userState) {
+            if ((this.NSolicitacaoListarOperationCompleted == null)) {
+                this.NSolicitacaoListarOperationCompleted = new System.Threading.SendOrPostCallback(this.OnNSolicitacaoListarOperationCompleted);
+            }
+            this.InvokeAsync("NSolicitacaoListar", new object[] {
+                        solicitacao,
+                        dataInicial,
+                        dataFinal}, this.NSolicitacaoListarOperationCompleted, userState);
+        }
+        
+        private void OnNSolicitacaoListarOperationCompleted(object arg) {
+            if ((this.NSolicitacaoListarCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.NSolicitacaoListarCompleted(this, new NSolicitacaoListarCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1179,6 +1219,8 @@ namespace GUI.localhost {
         
         private string dataPrecisaField;
         
+        private string dataPrevistaFimField;
+        
         private string dataSolicitacaoField;
         
         private string detalheField;
@@ -1214,6 +1256,17 @@ namespace GUI.localhost {
             }
             set {
                 this.dataPrecisaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string DataPrevistaFim {
+            get {
+                return this.dataPrevistaFimField;
+            }
+            set {
+                this.dataPrevistaFimField = value;
             }
         }
         
@@ -1532,6 +1585,32 @@ namespace GUI.localhost {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((Solicitacao)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void NSolicitacaoListarCompletedEventHandler(object sender, NSolicitacaoListarCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class NSolicitacaoListarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal NSolicitacaoListarCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Solicitacao[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Solicitacao[])(this.results[0]));
             }
         }
     }

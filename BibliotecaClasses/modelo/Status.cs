@@ -13,11 +13,10 @@ namespace BibliotecaClasses.modelo
     {
         private string detalheStatus, dataStatus;
         private Usuario usuario;
-        private Solicitacao solicitacao;
 
         public Status()
         {
-            this.Solicitacao = new Solicitacao();
+            this.usuario = new Usuario();
         }
 
         [DataMember(IsRequired = true)]
@@ -45,20 +44,6 @@ namespace BibliotecaClasses.modelo
             set
             {
                 detalheStatus = value;
-            }
-        }
-
-        [DataMember(IsRequired = true)]
-        public Solicitacao Solicitacao
-        {
-            get
-            {
-                return solicitacao;
-            }
-
-            set
-            {
-                solicitacao = value;
             }
         }
         

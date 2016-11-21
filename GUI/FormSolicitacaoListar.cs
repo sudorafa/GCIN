@@ -14,6 +14,8 @@ namespace GUI
     public partial class FormSolicitacaoListar : Form
     {
         Usuario usuario = new Usuario();
+        List<Solicitacao> solicitacaoes = new List<Solicitacao>();
+
         public FormSolicitacaoListar(Usuario u)
         {
             InitializeComponent();
@@ -60,13 +62,23 @@ namespace GUI
                 Solicitacao solicitacao = new Solicitacao();
                 solicitacao.Status = new Status();
                 solicitacao.Status.Usuario = new Usuario();
+                solicitacao.Produto = new Produto();
                 
                 solicitacao.IdSolicitacao = idSolicitacao;
                 solicitacao.Status.Usuario.IdUsuario = idUsuario;
                 solicitacao.StatusSolicitacao = statusBuscar;
-                //new Service1().
 
-                //carregar listview
+                solicitacaoes = new Service1().NSolicitacaoListar(solicitacao, dataInicial, dataFinal).ToList();
+
+                listViewSolicitacao.Items.Clear();
+                foreach (var s in solicitacaoes)
+                {
+                    ListViewItem ItemLV = listViewSolicitacao.Items.Add("" + s.IdSolicitacao);
+                    ItemLV.SubItems.Add(s.DataSolicitacao);
+                    ItemLV.SubItems.Add(s.Status.Usuario.Nome);
+                    ItemLV.SubItems.Add(s.Severidade);
+                    ItemLV.SubItems.Add(s.Produto.DescProduto);
+                }
             }
             catch (Exception ex)
             {

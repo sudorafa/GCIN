@@ -187,4 +187,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="NSolicitacaoListar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="solicitacao" nillable="true" type="q19:Solicitacao" />
+        <xs:element minOccurs="0" name="dataInicial" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dataFinal" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NSolicitacaoListarResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="NSolicitacaoListarResult" nillable="true" type="q20:ArrayOfSolicitacao" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

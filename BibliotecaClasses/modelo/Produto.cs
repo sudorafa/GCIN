@@ -13,13 +13,7 @@ namespace BibliotecaClasses.modelo
     {
         private int idProduto;
         private string dataCadastro, descProduto;
-        private List<CotacaoDoProduto> cotacoesProdutosSolicitacoes;
-
-        public Produto()
-        {
-            this.cotacoesProdutosSolicitacoes = new List<CotacaoDoProduto>();
-        }
-
+        
         [DataMember(IsRequired = true)]
         public int IdProduto
         {
@@ -61,19 +55,6 @@ namespace BibliotecaClasses.modelo
                 descProduto = value;
             }
         }
-
-        [DataMember(IsRequired = true)]
-        public List<CotacaoDoProduto> CotacoesProdutosSolicitacoes
-        {
-            get
-            {
-                return cotacoesProdutosSolicitacoes;
-            }
-
-            set
-            {
-                cotacoesProdutosSolicitacoes = value;
-            }
-        }
+        
     }
 }

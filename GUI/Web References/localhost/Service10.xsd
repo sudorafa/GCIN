@@ -37,6 +37,7 @@
     <xs:sequence>
       <xs:element name="CotacoesProdutosSolicitacoes" nillable="true" type="tns:ArrayOfCotacaoDoProduto" />
       <xs:element name="DataPrecisa" nillable="true" type="xs:string" />
+      <xs:element name="DataPrevistaFim" nillable="true" type="xs:string" />
       <xs:element name="DataSolicitacao" nillable="true" type="xs:string" />
       <xs:element name="Detalhe" nillable="true" type="xs:string" />
       <xs:element name="IdSolicitacao" type="xs:int" />

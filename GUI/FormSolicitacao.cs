@@ -177,7 +177,7 @@ namespace GUI
             }
             else
             {
-                string dataSolicitacao, dataPrecisa, severidade, detalheSolicitacao, detalheStatus, dataStatus, statusSolicitacao;
+                string dataSolicitacao, dataPrecisa, dataPrevistaCompra, severidade, detalheSolicitacao, detalheStatus, dataStatus, statusSolicitacao;
                 int idProduto, index;
 
                 Produto produtoEscolhido;
@@ -186,6 +186,7 @@ namespace GUI
 
                 dataSolicitacao = dateTimePickerDataAbertura.Value.Date.ToString("yyyy-MM-dd");
                 dataPrecisa = dateTimePickerDataDesejadaCompra.Value.Date.ToString("yyyy-MM-dd");
+                dataPrevistaCompra = dateTimePickerDataPrevistaCompra.Value.Date.ToString("yyyy-MM-dd");
                 severidade = comboBoxSeveridade.Text;
                 detalheSolicitacao = textBoxDetalhe.Text;
                 idProduto = produtoEscolhido.IdProduto;
@@ -207,6 +208,7 @@ namespace GUI
 
                     solicitacao.DataSolicitacao = dataSolicitacao;
                     solicitacao.DataPrecisa = dataPrecisa;
+                    solicitacao.DataPrevistaFim = dataPrevistaCompra;
                     solicitacao.Severidade = severidade;
                     solicitacao.Detalhe = detalheSolicitacao;
                     solicitacao.Produto.IdProduto = idProduto;

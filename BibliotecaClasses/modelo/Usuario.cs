@@ -13,12 +13,10 @@ namespace BibliotecaClasses.modelo
     {
         private int idUsuario;
         private string cpf, login, senha, nome, bloqueio;
-        private List<Solicitacao> solicitacoes;
         private Perfil perfil;
 
         public Usuario()
         {
-            this.solicitacoes = new List<Solicitacao>();
             this.perfil = new Perfil();
         }
 
@@ -92,21 +90,7 @@ namespace BibliotecaClasses.modelo
                 bloqueio = value;
             }
         }
-
-        [DataMember()]
-        public List<Solicitacao> Solicitacoes
-        {
-            get
-            {
-                return solicitacoes;
-            }
-
-            set
-            {
-                solicitacoes = value;
-            }
-        }
-
+        
         [DataMember()]
         public Perfil Perfil
         {

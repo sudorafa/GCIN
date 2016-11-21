@@ -97,6 +97,12 @@
   <wsdl:message name="IService1_SolicitacaoCadastrar_OutputMessage">
     <wsdl:part name="parameters" element="tns:SolicitacaoCadastrarResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_NSolicitacaoListar_InputMessage">
+    <wsdl:part name="parameters" element="tns:NSolicitacaoListar" />
+  </wsdl:message>
+  <wsdl:message name="IService1_NSolicitacaoListar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NSolicitacaoListarResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="UsuarioCadastrar">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsuarioCadastrar" message="tns:IService1_UsuarioCadastrar_InputMessage" />
@@ -157,6 +163,10 @@
     <wsdl:operation name="SolicitacaoCadastrar">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/SolicitacaoCadastrar" message="tns:IService1_SolicitacaoCadastrar_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/SolicitacaoCadastrarResponse" message="tns:IService1_SolicitacaoCadastrar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NSolicitacaoListar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/NSolicitacaoListar" message="tns:IService1_NSolicitacaoListar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/NSolicitacaoListarResponse" message="tns:IService1_NSolicitacaoListar_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -289,6 +299,15 @@
     </wsdl:operation>
     <wsdl:operation name="SolicitacaoCadastrar">
       <soap:operation soapAction="http://tempuri.org/IService1/SolicitacaoCadastrar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NSolicitacaoListar">
+      <soap:operation soapAction="http://tempuri.org/IService1/NSolicitacaoListar" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -5,7 +5,7 @@
 --select * from Produto;
 
 select s.idSolicitacao, s.dataSolicitacao, s.dataPrecisa, s.severidade, s.detalhe, s.statusSolicitacao, s.dataPrevistaFim,
-	   p.descProduto, st.detalheStatus, st.dataStatus From Solicitacao as s
+	   p.descProduto, st.detalheStatus, st.dataStatus, u.idUsuario, u.nome From Solicitacao as s
 inner join Produto as p
 	on s.idProduto = p.idProduto
 inner join Stat as st

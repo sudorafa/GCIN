@@ -21,8 +21,8 @@ namespace BibliotecaClasses.dados
                 conexao.abrirConexao();
                 //Solicitação
                 string sql = "insert into Solicitacao";
-                sql += "(dataSolicitacao, dataPrecisa, severidade, detalhe, statusSolicitacao, idProduto) output Inserted.idSolicitacao values";
-                sql += "(@dataSolicitacao, @dataPrecisa, @severidade, @detalhe, @statusSolicitacao, @idProduto)";
+                sql += "(dataSolicitacao, dataPrecisa, dataPrevistaFim, severidade, detalhe, statusSolicitacao, idProduto) output Inserted.idSolicitacao values";
+                sql += "(@dataSolicitacao, @dataPrecisa, @dataPrevistaFim, @severidade, @detalhe, @statusSolicitacao, @idProduto)";
 
                 SqlCommand comando = new SqlCommand(sql, conexao.sqlConn);
 
@@ -31,6 +31,9 @@ namespace BibliotecaClasses.dados
 
                 comando.Parameters.Add("@dataPrecisa", SqlDbType.Date);
                 comando.Parameters["@dataPrecisa"].Value = solicitacao.DataPrecisa;
+
+                comando.Parameters.Add("@dataPrevistaFim", SqlDbType.Date);
+                comando.Parameters["@dataPrevistaFim"].Value = solicitacao.DataPrevistaFim;
 
                 comando.Parameters.Add("@severidade", SqlDbType.VarChar);
                 comando.Parameters["@severidade"].Value = solicitacao.Severidade;
@@ -84,25 +87,26 @@ namespace BibliotecaClasses.dados
             {
                 conexao.abrirConexao();
                 string sql = "select s.idSolicitacao, s.dataSolicitacao, s.dataPrecisa, s.severidade, s.detalhe, s.statusSolicitacao, s.dataPrevistaFim, ";
-                sql += "p.descProduto, st.detalheStatus, st.dataStatus From Solicitacao as s ";
-                sql += "inner join Produto as p on s.idProduto = p.idProduto";
-                sql += "inner join Stat as st on s.idSolicitacao = st.idSolicitacao";
-                sql += "where s.idSolicitacao = s.idSolicitacao";
+                sql += "p.descProduto, st.detalheStatus, st.dataStatus, u.idUsuario, u.nome From Solicitacao as s ";
+                sql += "inner join Produto as p on s.idProduto = p.idProduto ";
+                sql += "inner join Stat as st on s.idSolicitacao = st.idSolicitacao ";
+                sql += "inner join Usuario as u on st.idUsuario = u.idUsuario ";
+                sql += "where s.idSolicitacao = s.idSolicitacao ";
 
-                if (solicitacao.Status.Usuario.IdUsuario > 0)
+                if (solicitacao.IdSolicitacao > 0)
                 {
                     sql += "and s.idSolicitacao = " + solicitacao.IdSolicitacao;
                 }
                 if (solicitacao.Status.Usuario.IdUsuario > 0)
                 {
-                    sql += "and st.idUsuario = " + solicitacao.Status.Usuario.IdUsuario;
+                    sql += " and st.idUsuario = " + solicitacao.Status.Usuario.IdUsuario;
                 }
 
-                sql += "s.dataSolicitacao between '" + dataInicial + "' and '" + dataFinal + "'";
+                sql += " and s.dataSolicitacao between '" + dataInicial + "' and '" + dataFinal + "'";
 
                 if (solicitacao.StatusSolicitacao != null && solicitacao.StatusSolicitacao.Trim().Equals("") == false)
                 {
-                    sql += "s.statusSolicitacao = '" + solicitacao.StatusSolicitacao +"'";
+                    sql += " and s.statusSolicitacao = '" + solicitacao.StatusSolicitacao + "'";
                 }
 
                 SqlCommand comando = new SqlCommand(sql, conexao.sqlConn);
@@ -111,13 +115,18 @@ namespace BibliotecaClasses.dados
                 while (DbReader.Read())
                 {
                     Solicitacao s = new Solicitacao();
-                    s.IdSolicitacao = DbReader.GetInt32(DbReader.GetOrdinal("s.idSolicitacao"));
-                    s.DataSolicitacao = DbReader.GetString(DbReader.GetOrdinal("s.dataSolicitacao"));
-                    s.DataPrecisa = DbReader.GetString(DbReader.GetOrdinal("s.dataPrecisa"));
-                    s.Severidade = DbReader.GetString(DbReader.GetOrdinal("s.severidade"));
-                    s.Detalhe = DbReader.GetString(DbReader.GetOrdinal("s.detalhe"));
-                    s.StatusSolicitacao = DbReader.GetString(DbReader.GetOrdinal("s.statusSolicitacao"));
-                    s.da = DbReader.GetString(DbReader.GetOrdinal("s.statusSolicitacao"));
+                    s.IdSolicitacao = DbReader.GetInt32(DbReader.GetOrdinal("idSolicitacao"));
+                    s.DataSolicitacao = DbReader.GetDateTime(DbReader.GetOrdinal("dataSolicitacao")).ToString();
+                    s.DataPrecisa = DbReader.GetDateTime(DbReader.GetOrdinal("dataPrecisa")).ToString();
+                    s.Severidade = DbReader.GetString(DbReader.GetOrdinal("severidade"));
+                    s.Detalhe = DbReader.GetString(DbReader.GetOrdinal("detalhe"));
+                    s.StatusSolicitacao = DbReader.GetString(DbReader.GetOrdinal("statusSolicitacao"));
+                    s.DataPrevistaFim = DbReader.GetDateTime(DbReader.GetOrdinal("dataPrevistaFim")).ToString();
+                    s.Produto.DescProduto = DbReader.GetString(DbReader.GetOrdinal("descProduto"));
+                    s.Status.DetalheStatus = DbReader.GetString(DbReader.GetOrdinal("detalheStatus"));
+                    s.Status.DataStatus = DbReader.GetDateTime(DbReader.GetOrdinal("dataStatus")).ToString();
+                    s.Status.Usuario.IdUsuario = DbReader.GetInt32(DbReader.GetOrdinal("idUsuario"));
+                    s.Status.Usuario.Nome = DbReader.GetString(DbReader.GetOrdinal("nome"));
                     solicitacaoes.Add(s);
                 }
                 DbReader.Close();

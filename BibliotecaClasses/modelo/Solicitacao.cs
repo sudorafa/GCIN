@@ -12,7 +12,7 @@ namespace BibliotecaClasses.modelo
     public class Solicitacao
     {
         private int idSolicitacao;
-        private string dataSolicitacao, dataPrecisa, severidade, detalhe, statusSolicitacao;
+        private string dataSolicitacao, dataPrecisa, severidade, detalhe, statusSolicitacao, dataPrevistaFim;
         private Produto produto;
         private Status status;
         private List<CotacaoDoProduto> cotacoesProdutosSolicitacoes;
@@ -22,7 +22,7 @@ namespace BibliotecaClasses.modelo
         public Solicitacao()
         {
             this.produto = new Produto();
-            this.Status = new Status();
+            this.status = new Status();
             this.cotacoesProdutosSolicitacoes = new List<CotacaoDoProduto>();
             //this.status = new List<modelo.Status>();
             this.Usuarios = new List<Usuario>();
@@ -181,6 +181,20 @@ namespace BibliotecaClasses.modelo
             set
             {
                 statusSolicitacao = value;
+            }
+        }
+
+        [DataMember(IsRequired = true)]
+        public string DataPrevistaFim
+        {
+            get
+            {
+                return dataPrevistaFim;
+            }
+
+            set
+            {
+                dataPrevistaFim = value;
             }
         }
     }
