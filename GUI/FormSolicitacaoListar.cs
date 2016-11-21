@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.localhost;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,7 @@ namespace GUI
 {
     public partial class FormSolicitacaoListar : Form
     {
-        public FormSolicitacaoListar()
+        public FormSolicitacaoListar(Usuario u)
         {
             InitializeComponent();
             comboBoxBuscar.SelectedIndex = 0;
@@ -28,7 +29,7 @@ namespace GUI
 
         private void buttonSair_Click(object sender, EventArgs e)
         {
-
+            this.Dispose();
         }
     }
 }

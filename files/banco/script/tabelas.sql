@@ -79,4 +79,7 @@ CREATE TABLE ForneceTipo(
 );
 
 
+insert into Perfil (descPerfil) values ('Admin');
+select idPerfil, descPerfil from Perfil;
+insert into Usuario (nome, cpf, usuario, senha, bloqueio, idPerfil) values ('Rafael Eduardo Lima', '090.213.814-60', 'rafa', '123', 'nao', 1000);
 select idUsuario, nome, cpf, usuario, senha, bloqueio, idPerfil from Usuario where idUsuario = idUsuario;

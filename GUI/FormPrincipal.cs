@@ -17,7 +17,19 @@ namespace GUI
         public FormPrincipal(Usuario u)
         {
             InitializeComponent();
-            usuario = u;
+
+            List<Usuario> listUsuarios = new List<Usuario>();
+
+            Service1 service1 = new Service1();
+
+            usuario.Perfil = new Perfil();
+
+            listUsuarios = service1.UsuarioListar(u).ToList();
+
+            foreach (Usuario user in listUsuarios)
+            {
+                usuario = user;
+            }
         }
 
         private void abrirSolicitaçãoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -27,7 +39,7 @@ namespace GUI
 
         private void solicitaçõesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new FormSolicitacaoListar().Show();
+            new FormSolicitacaoListar(usuario).Show();
         }
 
         private void cadastrarUsuárioToolStripMenuItem_Click(object sender, EventArgs e)

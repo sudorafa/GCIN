@@ -39,6 +39,7 @@ namespace GUI
         {
             try
             {
+                /*
                 List<Usuario> listUsuarios = new List<Usuario>();
                 Service1 service1 = new Service1();
 
@@ -50,6 +51,7 @@ namespace GUI
                 {
                     usuario = user;
                 }
+                */
                 
                 textBoxNome.Text = usuario.Nome;
                 textBoxPerfil.Text = usuario.Perfil.DescPerfil;
