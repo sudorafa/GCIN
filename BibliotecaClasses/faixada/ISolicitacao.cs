@@ -10,5 +10,6 @@ namespace BibliotecaClasses.faixada
     interface ISolicitacao
     {
         Solicitacao CadastrarSolicitacao(Solicitacao solicitacao);
+        List<Solicitacao> ListarSolicitacao(Solicitacao solicitacao, string dataInicial, string dataFinal);
     }
 }

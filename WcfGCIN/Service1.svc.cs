@@ -90,5 +90,9 @@ namespace WcfGCIN
         {
             return new NSolicitacao().NCadastrarSolicitacao(solicitacao);
         }
+        public List<Solicitacao> NSolicitacaoListar(Solicitacao solicitacao, string dataInicial, string dataFinal)
+        {
+            return new NSolicitacao().NListarSolicitacao(solicitacao, dataInicial, dataFinal);
+        }
     }
 }

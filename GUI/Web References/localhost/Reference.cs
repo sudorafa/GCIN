@@ -1191,6 +1191,8 @@ namespace GUI.localhost {
         
         private Status statusField;
         
+        private string statusSolicitacaoField;
+        
         private Usuario[] usuariosField;
         
         /// <remarks/>
@@ -1281,6 +1283,17 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string StatusSolicitacao {
+            get {
+                return this.statusSolicitacaoField;
+            }
+            set {
+                this.statusSolicitacaoField = value;
+            }
+        }
+        
+        /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
         public Usuario[] Usuarios {
             get {
@@ -1305,8 +1318,6 @@ namespace GUI.localhost {
         private string detalheStatusField;
         
         private Solicitacao solicitacaoField;
-        
-        private string statusSolicitacaoField;
         
         private Usuario usuarioField;
         
@@ -1340,17 +1351,6 @@ namespace GUI.localhost {
             }
             set {
                 this.solicitacaoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string StatusSolicitacao {
-            get {
-                return this.statusSolicitacaoField;
-            }
-            set {
-                this.statusSolicitacaoField = value;
             }
         }
         

@@ -23,7 +23,12 @@ namespace BibliotecaClasses.negocio
                 return solicitacao;
             }
         }
-        
+
+        public List<Solicitacao> NListarSolicitacao(Solicitacao solicitacao, string dataInicial, string dataFinal)
+        {
+            return new DSolicitacao().ListarSolicitacao(solicitacao, dataInicial, dataFinal);
+        }
+
         private static bool NSalvarSolicitacao(Solicitacao solicitacao)
         {
             if (solicitacao.Detalhe.Equals("") || solicitacao.Detalhe.Length == 0 || solicitacao.Detalhe == null)

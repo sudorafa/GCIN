@@ -131,9 +131,9 @@ namespace GUI
             comboBoxHistorico.Items.Clear();
 
             textBoxId.Text = s.IdSolicitacao + "";
-            textBoxStatus.Text = s.Status.StatusSolicitacao;
+            textBoxStatus.Text = s.StatusSolicitacao;
             comboBoxHistorico.Enabled = true;
-            comboBoxHistorico.Items.Add(usuario.Nome + " - " + s.Status.StatusSolicitacao + " - " + s.DataSolicitacao);
+            comboBoxHistorico.Items.Add(usuario.Nome + " - " + s.StatusSolicitacao + " - " + s.DataSolicitacao);
             comboBoxHistorico.SelectedIndex = 0;
             comboBoxAtualizarSolicitacao.Enabled = true;
             comboBoxAtualizarSolicitacao.SelectedIndex = 0;
@@ -191,7 +191,7 @@ namespace GUI
                 idProduto = produtoEscolhido.IdProduto;
                 detalheStatus = textBoxDetalhe.Text;
                 dataStatus = dateTimePickerDataAbertura.Value.Date.ToString("yyyy-MM-dd");
-                statusSolicitacao = "Aberto";
+                statusSolicitacao = "Aberta";
 
                 if (detalheStatus.Equals("") || detalheStatus.Length == 0 || detalheStatus == null)
                 {
@@ -212,7 +212,7 @@ namespace GUI
                     solicitacao.Produto.IdProduto = idProduto;
                     solicitacao.Status.DetalheStatus = detalheStatus;
                     solicitacao.Status.DataStatus = dataStatus;
-                    solicitacao.Status.StatusSolicitacao = statusSolicitacao;
+                    solicitacao.StatusSolicitacao = statusSolicitacao;
                     solicitacao.Status.Usuario.IdUsuario = idUsuarioTela;
 
                     try
