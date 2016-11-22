@@ -47,7 +47,7 @@ namespace GUI
             }
             else if (comboBoxBuscar.SelectedIndex == 2)
             {
-                statusBuscar = "Finalizada";
+                statusBuscar = "Finalizar";
             }
             else
             {
@@ -79,6 +79,7 @@ namespace GUI
                     ItemLV.SubItems.Add(s.Status.Usuario.Nome);
                     ItemLV.SubItems.Add(s.Severidade);
                     ItemLV.SubItems.Add(s.Produto.DescProduto);
+                    ItemLV.SubItems.Add(s.Status.StatusSolicitacao);
                 }
             }
             catch (Exception ex)

@@ -90,9 +90,9 @@ namespace BibliotecaClasses.dados
             {
                 conexao.abrirConexao();
                 sql = "select distinct s.idSolicitacao, s.dataSolicitacao, s.dataPrecisa, s.severidade, s.detalhe, s.dataPrevistaFim, ";
-                sql += "p.descProduto, u.idUsuario, u.nome, pf.descPerfil From Solicitacao as s ";
+                sql += "p.descProduto, st.statusSolicitacao, u.idUsuario, u.nome, pf.descPerfil From Solicitacao as s ";
                 sql += "inner join Produto as p on s.idProduto = p.idProduto ";
-                sql += "inner join Stat as st on s.idSolicitacao = st.idSolicitacao and st.statusSolicitacao = 'Abertura' ";
+                sql += "inner join Stat as st on s.idSolicitacao = st.idSolicitacao ";
                 sql += "inner join Usuario as u on st.idUsuario = u.idUsuario ";
                 sql += "inner join Perfil as pf on u.idPerfil = pf.idPerfil ";
                 sql += "where s.idSolicitacao = s.idSolicitacao ";
@@ -141,6 +141,7 @@ namespace BibliotecaClasses.dados
                     s.Detalhe = DbReader.GetString(DbReader.GetOrdinal("detalhe"));
                     s.DataPrevistaFim = DbReader.GetDateTime(DbReader.GetOrdinal("dataPrevistaFim")).ToString();
                     s.Produto.DescProduto = DbReader.GetString(DbReader.GetOrdinal("descProduto"));
+                    s.Status.StatusSolicitacao = DbReader.GetString(DbReader.GetOrdinal("statusSolicitacao"));
                     s.Status.Usuario.IdUsuario = DbReader.GetInt32(DbReader.GetOrdinal("idUsuario"));
                     s.Status.Usuario.Nome = DbReader.GetString(DbReader.GetOrdinal("nome"));
                     s.Status.Usuario.Perfil.DescPerfil = DbReader.GetString(DbReader.GetOrdinal("descPerfil"));

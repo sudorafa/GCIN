@@ -48,6 +48,7 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
@@ -185,7 +186,8 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader5,
-            this.columnHeader6});
+            this.columnHeader6,
+            this.columnHeader4});
             this.listViewSolicitacao.FullRowSelect = true;
             this.listViewSolicitacao.Location = new System.Drawing.Point(33, 145);
             this.listViewSolicitacao.Name = "listViewSolicitacao";
@@ -219,6 +221,10 @@
             // 
             this.columnHeader6.Text = "Produto";
             this.columnHeader6.Width = 137;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Status";
             // 
             // FormSolicitacaoListar
             // 
@@ -269,5 +275,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }
