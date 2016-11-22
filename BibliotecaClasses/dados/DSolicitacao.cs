@@ -176,7 +176,58 @@ namespace BibliotecaClasses.dados
 
         public Solicitacao AtualizarSolicitacao(Solicitacao solicitacao)
         {
-            throw new FaultException();
+            try
+            {
+                conexao.abrirConexao();
+                //Solicitação
+                string sql = "update Solicitacao set dataPrecisa = @dataPrecisa, dataPrevistaFim = @dataPrevistaFim, severidade = @severidade where idSolicitacao = @idSolicitacao";
+
+                SqlCommand comando = new SqlCommand(sql, conexao.sqlConn);
+
+                comando.Parameters.Add("@dataPrecisa", SqlDbType.Date);
+                comando.Parameters["@dataPrecisa"].Value = solicitacao.DataPrecisa;
+
+                comando.Parameters.Add("@dataPrevistaFim", SqlDbType.Date);
+                comando.Parameters["@dataPrevistaFim"].Value = solicitacao.DataPrevistaFim;
+
+                comando.Parameters.Add("@severidade", SqlDbType.VarChar);
+                comando.Parameters["@severidade"].Value = solicitacao.Severidade;
+
+                comando.Parameters.Add("@idSolicitacao", SqlDbType.Int);
+                comando.Parameters["@idSolicitacao"].Value = solicitacao.IdSolicitacao;
+
+                comando.ExecuteNonQuery();
+                
+                //Status:
+                string sql2 = "insert into Stat";
+                sql2 += "(detalheStatus, dataStatus, statusSolicitacao, idSolicitacao, idUsuario) values";
+                sql2 += "(@detalheStatus, @dataStatus, @statusSolicitacao, @idSolicitacao, @idUsuario)";
+
+                SqlCommand comando2 = new SqlCommand(sql2, conexao.sqlConn);
+
+                comando2.Parameters.Add("@detalheStatus", SqlDbType.VarChar);
+                comando2.Parameters["@detalheStatus"].Value = solicitacao.Status.DetalheStatus;
+
+                comando2.Parameters.Add("@dataStatus", SqlDbType.Date);
+                comando2.Parameters["@dataStatus"].Value = solicitacao.Status.DataStatus;
+
+                comando2.Parameters.Add("@statusSolicitacao", SqlDbType.VarChar);
+                comando2.Parameters["@statusSolicitacao"].Value = solicitacao.Status.StatusSolicitacao;
+
+                comando2.Parameters.Add("@idSolicitacao", SqlDbType.Int);
+                comando2.Parameters["@idSolicitacao"].Value = solicitacao.IdSolicitacao;
+
+                comando2.Parameters.Add("@idUsuario", SqlDbType.Int);
+                comando2.Parameters["@idUsuario"].Value = solicitacao.Status.Usuario.IdUsuario;
+
+                comando2.ExecuteNonQuery();
+                conexao.fecharConexao();
+            }
+            catch (Exception E)
+            {
+                throw new FaultException("Erro ao Salvar Alteração da Solicitação \n\n" + E.Message);
+            }
+            return solicitacao;
         }
     }
 }

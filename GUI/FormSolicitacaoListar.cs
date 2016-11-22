@@ -43,7 +43,7 @@ namespace GUI
             }
             if (comboBoxBuscar.SelectedIndex == 1)
             {
-                statusBuscar = "Aberta";
+                statusBuscar = "Abertura";
             }
             else if (comboBoxBuscar.SelectedIndex == 2)
             {
@@ -101,7 +101,7 @@ namespace GUI
                 int index = listViewSolicitacao.FocusedItem.Index;
                 solicitacaoSelecionado = listSolicitacao.ElementAt(index);
 
-                new FormSolicitacao(null, solicitacaoSelecionado).Show();
+                new FormSolicitacao(usuario, solicitacaoSelecionado).Show();
             }
             catch (Exception) { }
         }

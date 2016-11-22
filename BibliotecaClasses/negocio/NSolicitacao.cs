@@ -51,10 +51,6 @@ namespace BibliotecaClasses.negocio
         }
         private static bool NAtualizarSolicitacao(Solicitacao solicitacao)
         {
-            if (solicitacao.Detalhe.Equals("") || solicitacao.Detalhe.Length == 0 || solicitacao.Detalhe == null)
-            {
-                throw new FaultException("Por Favor, Informe Detalhe ! ");
-            }
             return true;
         }
     }

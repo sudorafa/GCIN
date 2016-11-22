@@ -126,17 +126,27 @@ namespace GUI
             }
         }
 
-        private void CarregarSolicitacao(Solicitacao s)
+        private void CarregarSolicitacao(Solicitacao solicitacao)
         {
-            textBoxId.Text = s.IdSolicitacao + "";
-            textBoxStatus.Text = s.Status.StatusSolicitacao;
+            List<Status> listSolicitacaoStatus = new List<Status>();
+            Solicitacao s = new Solicitacao();
+            s.Status = new Status();
+            s.Status.Usuario = new Usuario();
+            s.IdSolicitacao = solicitacao.IdSolicitacao;
 
-            comboBoxHistorico.Items.Clear();
-            foreach (var stat in s.ListStatus)
+            textBoxId.Text = solicitacao.IdSolicitacao + "";
+            textBoxStatus.Text = solicitacao.Status.StatusSolicitacao;
+
+            solicitacao.Status.Usuario = new Usuario();
+            foreach (Solicitacao solicitacaoStatus in service1.SolicitacaoListar(s, "", "").ToList())
             {
-                comboBoxHistorico.Items.Add(s.Status.StatusSolicitacao + " - " + usuario.Nome + " - " + s.DataSolicitacao);
+                listSolicitacaoStatus = solicitacaoStatus.ListStatus.ToList();
             }
-            comboBoxHistorico.Enabled = true;
+            comboBoxHistorico.Items.Clear();
+            foreach (Status st in listSolicitacaoStatus)
+            {
+                comboBoxHistorico.Items.Add(st.StatusSolicitacao + " - " + st.Usuario.Nome + " - " + st.DataStatus);
+            }
             comboBoxHistorico.SelectedIndex = 0;
 
             comboBoxTipoFornecimento.Enabled = false;
@@ -146,7 +156,8 @@ namespace GUI
             comboBoxAtualizarSolicitacao.Enabled = false;
             textBoxDetalhe.Enabled = false;
             dateTimePickerDataDesejadaCompra.Enabled = false;
-
+            comboBoxHistorico.Enabled = true;
+            dateTimePickerDataPrevistaCompra.Enabled = false;
             buttonSalvar.Text = "Atualizar";
             buttonNovo.Visible = true;
         }
@@ -155,7 +166,6 @@ namespace GUI
         {
             List<Status> listSolicitacaoStatus = new List<Status>();
 
-            comboBoxHistorico.Items.Clear();
             textBoxId.Text = solicitacao.IdSolicitacao+"";
             textBoxNome.Text = solicitacao.Status.Usuario.Nome;
             textBoxPerfil.Text = solicitacao.Status.Usuario.Perfil.DescPerfil;
@@ -170,7 +180,6 @@ namespace GUI
             
             comboBoxHistorico.Enabled = true;
             comboBoxHistorico.Items.Clear();
-
             solicitacao.Status.Usuario = new Usuario();
             foreach (Solicitacao s in service1.SolicitacaoListar(solicitacao, "", "").ToList())
             {
@@ -180,9 +189,6 @@ namespace GUI
             {
                 comboBoxHistorico.Items.Add(st.StatusSolicitacao + " - " + st.Usuario.Nome + " - " + st.DataStatus);
             }
-
-            //comboBoxHistorico.Items.Add(s.ListStatus + " - " + usuario.Nome + " - " + s.DataSolicitacao);
-
             comboBoxHistorico.SelectedIndex = 0;
 
             comboBoxAtualizarSolicitacao.Enabled = false;
@@ -199,31 +205,33 @@ namespace GUI
         private void SalvarAlterarSolicitacao(string status)
         {
             string dataSolicitacao, dataPrecisa, dataPrevistaCompra, severidade, detalheSolicitacao, detalheStatus, dataStatus, statusSolicitacao;
-            int idProduto, index;
-
+            int idProduto = 0, index, idSolicitacao = 0;
             Produto produtoEscolhido;
-            index = comboBoxProduto.SelectedIndex;
-            produtoEscolhido = listProdutos.ElementAt(index);
 
-            dataSolicitacao = dateTimePickerDataAbertura.Value.Date.ToString("yyyy-MM-dd");
-            dataPrecisa = dateTimePickerDataDesejadaCompra.Value.Date.ToString("yyyy-MM-dd");
-            dataPrevistaCompra = dateTimePickerDataPrevistaCompra.Value.Date.ToString("yyyy-MM-dd");
-            severidade = comboBoxSeveridade.Text;
-            idProduto = produtoEscolhido.IdProduto;
-            dataStatus = dateTimePickerDataAbertura.Value.Date.ToString("yyyy-MM-dd");
             if (status.Equals("Abertura"))
             {
                 detalheStatus = textBoxDetalhe.Text;
                 statusSolicitacao = status;
                 detalheSolicitacao = textBoxDetalhe.Text;
+                index = comboBoxProduto.SelectedIndex;
+                produtoEscolhido = listProdutos.ElementAt(index);
+                idProduto = produtoEscolhido.IdProduto;
             }
             else
             {
                 detalheStatus = textBoxDetalhe.Text;
                 statusSolicitacao = status;
                 detalheSolicitacao = null;
+                idSolicitacao = Int32.Parse(textBoxId.Text);
+                idUsuarioTela = usuario.IdUsuario;
             }
-            
+
+            dataSolicitacao = dateTimePickerDataAbertura.Value.Date.ToString("yyyy-MM-dd");
+            dataPrecisa = dateTimePickerDataDesejadaCompra.Value.Date.ToString("yyyy-MM-dd");
+            dataPrevistaCompra = dateTimePickerDataPrevistaCompra.Value.Date.ToString("yyyy-MM-dd");
+            severidade = comboBoxSeveridade.Text;
+            dataStatus = DateTime.Today.ToString("yyyy-MM-dd");
+
             if (textBoxDetalhe.Text.Equals("") || textBoxDetalhe.Text.Length == 0 || textBoxDetalhe.Text == null)
             {
                 MessageBox.Show("Por Favor, Informe Detalhe Status ! ", "Ateção", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -246,6 +254,7 @@ namespace GUI
                 solicitacao.Status.DataStatus = dataStatus;
                 solicitacao.Status.StatusSolicitacao = statusSolicitacao;
                 solicitacao.Status.Usuario.IdUsuario = idUsuarioTela;
+                solicitacao.IdSolicitacao = idSolicitacao;
 
                 try
                 {
