@@ -150,7 +150,16 @@ namespace GUI
 
         private void SolicitacaoLista(Solicitacao solicitacao)
         {
-
+            textBoxId.Text = solicitacao.IdSolicitacao+"";
+            textBoxNome.Text = solicitacao.Status.Usuario.Nome;
+            textBoxPerfil.Text = solicitacao.Status.Usuario.Perfil.DescPerfil;
+            dateTimePickerDataAbertura.Value = DateTime.Parse(solicitacao.DataSolicitacao);
+            dateTimePickerDataDesejadaCompra.Value = DateTime.Parse(solicitacao.DataPrecisa);
+            dateTimePickerDataPrevistaCompra.Value = DateTime.Parse(solicitacao.DataPrevistaFim);
+            comboBoxProduto.Text = solicitacao.Produto.DescProduto;
+            comboBoxSeveridade.Text = solicitacao.Severidade;
+            textBoxStatus.Text = solicitacao.StatusSolicitacao;
+            //historico e detalhe será um List que irá vim no objeto solicitação quando implementado
         }
 
         private void buttonSair_Click(object sender, EventArgs e)

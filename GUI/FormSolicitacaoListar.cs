@@ -14,7 +14,7 @@ namespace GUI
     public partial class FormSolicitacaoListar : Form
     {
         Usuario usuario = new Usuario();
-        List<Solicitacao> solicitacaoes = new List<Solicitacao>();
+        List<Solicitacao> listSolicitacao = new List<Solicitacao>();
 
         public FormSolicitacaoListar(Usuario u)
         {
@@ -62,16 +62,17 @@ namespace GUI
                 Solicitacao solicitacao = new Solicitacao();
                 solicitacao.Status = new Status();
                 solicitacao.Status.Usuario = new Usuario();
+                solicitacao.Status.Usuario.Perfil = new Perfil();
                 solicitacao.Produto = new Produto();
                 
                 solicitacao.IdSolicitacao = idSolicitacao;
                 solicitacao.Status.Usuario.IdUsuario = idUsuario;
                 solicitacao.StatusSolicitacao = statusBuscar;
 
-                solicitacaoes = new Service1().NSolicitacaoListar(solicitacao, dataInicial, dataFinal).ToList();
+                listSolicitacao = new Service1().NSolicitacaoListar(solicitacao, dataInicial, dataFinal).ToList();
 
                 listViewSolicitacao.Items.Clear();
-                foreach (var s in solicitacaoes)
+                foreach (var s in listSolicitacao)
                 {
                     ListViewItem ItemLV = listViewSolicitacao.Items.Add("" + s.IdSolicitacao);
                     ItemLV.SubItems.Add(s.DataSolicitacao);
@@ -90,6 +91,19 @@ namespace GUI
         private void buttonSair_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void listViewSolicitacao_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Solicitacao solicitacaoSelecionado;
+                int index = listViewSolicitacao.FocusedItem.Index;
+                solicitacaoSelecionado = listSolicitacao.ElementAt(index);
+
+                new FormSolicitacao(null, solicitacaoSelecionado).Show();
+            }
+            catch (Exception) { }
         }
     }
 }

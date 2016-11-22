@@ -86,11 +86,12 @@ namespace BibliotecaClasses.dados
             try
             {
                 conexao.abrirConexao();
-                string sql = "select s.idSolicitacao, s.dataSolicitacao, s.dataPrecisa, s.severidade, s.detalhe, s.statusSolicitacao, s.dataPrevistaFim, ";
-                sql += "p.descProduto, st.detalheStatus, st.dataStatus, u.idUsuario, u.nome From Solicitacao as s ";
+                string sql = "select 1 s.idSolicitacao, s.dataSolicitacao, s.dataPrecisa, s.severidade, s.detalhe, s.statusSolicitacao, s.dataPrevistaFim, ";
+                sql += "p.descProduto, st.detalheStatus, st.dataStatus, u.idUsuario, u.nome, pf.descPerfil From Solicitacao as s ";
                 sql += "inner join Produto as p on s.idProduto = p.idProduto ";
                 sql += "inner join Stat as st on s.idSolicitacao = st.idSolicitacao ";
                 sql += "inner join Usuario as u on st.idUsuario = u.idUsuario ";
+                sql += "inner join Perfil as pf on u.idPerfil = pf.idPerfil ";
                 sql += "where s.idSolicitacao = s.idSolicitacao ";
 
                 if (solicitacao.IdSolicitacao > 0)
@@ -123,10 +124,15 @@ namespace BibliotecaClasses.dados
                     s.StatusSolicitacao = DbReader.GetString(DbReader.GetOrdinal("statusSolicitacao"));
                     s.DataPrevistaFim = DbReader.GetDateTime(DbReader.GetOrdinal("dataPrevistaFim")).ToString();
                     s.Produto.DescProduto = DbReader.GetString(DbReader.GetOrdinal("descProduto"));
+                    s.Status.Usuario.Nome = DbReader.GetString(DbReader.GetOrdinal("nome"));
+                    s.Status.Usuario.Perfil.DescPerfil = DbReader.GetString(DbReader.GetOrdinal("descPerfil"));
+
+                    //List do Status
                     s.Status.DetalheStatus = DbReader.GetString(DbReader.GetOrdinal("detalheStatus"));
                     s.Status.DataStatus = DbReader.GetDateTime(DbReader.GetOrdinal("dataStatus")).ToString();
                     s.Status.Usuario.IdUsuario = DbReader.GetInt32(DbReader.GetOrdinal("idUsuario"));
-                    s.Status.Usuario.Nome = DbReader.GetString(DbReader.GetOrdinal("nome"));
+
+                    //s.ListStatus.Add(s.Status);
                     solicitacaoes.Add(s);
                 }
                 DbReader.Close();

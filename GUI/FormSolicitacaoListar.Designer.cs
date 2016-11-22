@@ -193,6 +193,7 @@
             this.listViewSolicitacao.TabIndex = 20;
             this.listViewSolicitacao.UseCompatibleStateImageBehavior = false;
             this.listViewSolicitacao.View = System.Windows.Forms.View.Details;
+            this.listViewSolicitacao.SelectedIndexChanged += new System.EventHandler(this.listViewSolicitacao_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -207,7 +208,7 @@
             // columnHeader3
             // 
             this.columnHeader3.Text = "Usuário";
-            this.columnHeader3.Width = 222;
+            this.columnHeader3.Width = 193;
             // 
             // columnHeader5
             // 

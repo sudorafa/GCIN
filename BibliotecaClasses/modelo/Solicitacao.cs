@@ -16,7 +16,7 @@ namespace BibliotecaClasses.modelo
         private Produto produto;
         private Status status;
         private List<CotacaoDoProduto> cotacoesProdutosSolicitacoes;
-        //private List<Status> status;
+        private List<Status> listStatus;
         private List<Usuario> usuarios;
 
         public Solicitacao()
@@ -24,7 +24,7 @@ namespace BibliotecaClasses.modelo
             this.produto = new Produto();
             this.status = new Status();
             this.cotacoesProdutosSolicitacoes = new List<CotacaoDoProduto>();
-            //this.status = new List<modelo.Status>();
+            this.ListStatus = new List<Status>();
             this.Usuarios = new List<Usuario>();
         }
 
@@ -195,6 +195,20 @@ namespace BibliotecaClasses.modelo
             set
             {
                 dataPrevistaFim = value;
+            }
+        }
+
+        [DataMember(IsRequired = true)]
+        public List<Status> ListStatus
+        {
+            get
+            {
+                return listStatus;
+            }
+
+            set
+            {
+                listStatus = value;
             }
         }
     }

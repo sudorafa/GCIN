@@ -19,19 +19,23 @@ namespace BibliotecaClasses.dados
         */
 
         //Unibratec
-        /*
-        private const string local = "PC-058";
+        
+        private const string local = "PC-215";
         private const string banco = "GCIN";
         private const string usuario = "aluno";
         private const string senha = "aluno";
-        */
+        
 
         //Meu PC
+        /*
         private const string local = "ORAFA-PC\\SQLEXPRESS";
         private const string banco = "GCIN";
         private const string usuario = "rafael";
         private const string senha = "2016";
+        */
+    
         string connectionStringSqlServer = @"Data Source=" + local + ";Initial Catalog=" + banco + ";UId=" + usuario + ";Password=" + senha + ";";
+        
 
         public void abrirConexao()
         {

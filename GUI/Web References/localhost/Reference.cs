@@ -23,7 +23,7 @@ namespace GUI.localhost {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="BasicHttpBinding_IService1", Namespace="http://tempuri.org/")]
@@ -632,7 +632,7 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -652,8 +652,6 @@ namespace GUI.localhost {
         private Perfil perfilField;
         
         private string senhaField;
-        
-        private Solicitacao[] solicitacoesField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
@@ -730,21 +728,10 @@ namespace GUI.localhost {
                 this.senhaField = value;
             }
         }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        public Solicitacao[] Solicitacoes {
-            get {
-                return this.solicitacoesField;
-            }
-            set {
-                this.solicitacoesField = value;
-            }
-        }
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -791,7 +778,412 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo")]
+    public partial class Status {
+        
+        private string dataStatusField;
+        
+        private string detalheStatusField;
+        
+        private Usuario usuarioField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string DataStatus {
+            get {
+                return this.dataStatusField;
+            }
+            set {
+                this.dataStatusField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string DetalheStatus {
+            get {
+                return this.detalheStatusField;
+            }
+            set {
+                this.detalheStatusField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Usuario Usuario {
+            get {
+                return this.usuarioField;
+            }
+            set {
+                this.usuarioField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo")]
+    public partial class Cotacao {
+        
+        private CotacaoDoProduto[] cotacaoProdutoSolicitacaoField;
+        
+        private string dataCotacaoField;
+        
+        private string dataValidadeCotacaoField;
+        
+        private int idCotacaoField;
+        
+        private string statusCotacaoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        public CotacaoDoProduto[] CotacaoProdutoSolicitacao {
+            get {
+                return this.cotacaoProdutoSolicitacaoField;
+            }
+            set {
+                this.cotacaoProdutoSolicitacaoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string DataCotacao {
+            get {
+                return this.dataCotacaoField;
+            }
+            set {
+                this.dataCotacaoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string DataValidadeCotacao {
+            get {
+                return this.dataValidadeCotacaoField;
+            }
+            set {
+                this.dataValidadeCotacaoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int IdCotacao {
+            get {
+                return this.idCotacaoField;
+            }
+            set {
+                this.idCotacaoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string StatusCotacao {
+            get {
+                return this.statusCotacaoField;
+            }
+            set {
+                this.statusCotacaoField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo")]
+    public partial class CotacaoDoProduto {
+        
+        private Cotacao cotacaoField;
+        
+        private Produto produtoField;
+        
+        private Solicitacao solicitacaoField;
+        
+        private double valorCotadoField;
+        
+        private string venceuField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Cotacao Cotacao {
+            get {
+                return this.cotacaoField;
+            }
+            set {
+                this.cotacaoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Produto Produto {
+            get {
+                return this.produtoField;
+            }
+            set {
+                this.produtoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Solicitacao Solicitacao {
+            get {
+                return this.solicitacaoField;
+            }
+            set {
+                this.solicitacaoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public double ValorCotado {
+            get {
+                return this.valorCotadoField;
+            }
+            set {
+                this.valorCotadoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Venceu {
+            get {
+                return this.venceuField;
+            }
+            set {
+                this.venceuField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo")]
+    public partial class Produto {
+        
+        private string dataCadastroField;
+        
+        private string descProdutoField;
+        
+        private int idProdutoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string DataCadastro {
+            get {
+                return this.dataCadastroField;
+            }
+            set {
+                this.dataCadastroField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string DescProduto {
+            get {
+                return this.descProdutoField;
+            }
+            set {
+                this.descProdutoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int IdProduto {
+            get {
+                return this.idProdutoField;
+            }
+            set {
+                this.idProdutoField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo")]
+    public partial class Solicitacao {
+        
+        private CotacaoDoProduto[] cotacoesProdutosSolicitacoesField;
+        
+        private string dataPrecisaField;
+        
+        private string dataPrevistaFimField;
+        
+        private string dataSolicitacaoField;
+        
+        private string detalheField;
+        
+        private int idSolicitacaoField;
+        
+        private Status[] listStatusField;
+        
+        private Produto produtoField;
+        
+        private string severidadeField;
+        
+        private Status statusField;
+        
+        private string statusSolicitacaoField;
+        
+        private Usuario[] usuariosField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        public CotacaoDoProduto[] CotacoesProdutosSolicitacoes {
+            get {
+                return this.cotacoesProdutosSolicitacoesField;
+            }
+            set {
+                this.cotacoesProdutosSolicitacoesField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string DataPrecisa {
+            get {
+                return this.dataPrecisaField;
+            }
+            set {
+                this.dataPrecisaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string DataPrevistaFim {
+            get {
+                return this.dataPrevistaFimField;
+            }
+            set {
+                this.dataPrevistaFimField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string DataSolicitacao {
+            get {
+                return this.dataSolicitacaoField;
+            }
+            set {
+                this.dataSolicitacaoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Detalhe {
+            get {
+                return this.detalheField;
+            }
+            set {
+                this.detalheField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int IdSolicitacao {
+            get {
+                return this.idSolicitacaoField;
+            }
+            set {
+                this.idSolicitacaoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        public Status[] ListStatus {
+            get {
+                return this.listStatusField;
+            }
+            set {
+                this.listStatusField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Produto Produto {
+            get {
+                return this.produtoField;
+            }
+            set {
+                this.produtoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Severidade {
+            get {
+                return this.severidadeField;
+            }
+            set {
+                this.severidadeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Status Status {
+            get {
+                return this.statusField;
+            }
+            set {
+                this.statusField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string StatusSolicitacao {
+            get {
+                return this.statusSolicitacaoField;
+            }
+            set {
+                this.statusSolicitacaoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        public Usuario[] Usuarios {
+            get {
+                return this.usuariosField;
+            }
+            set {
+                this.usuariosField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -942,7 +1334,7 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1002,433 +1394,15 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo")]
-    public partial class Produto {
-        
-        private CotacaoDoProduto[] cotacoesProdutosSolicitacoesField;
-        
-        private string dataCadastroField;
-        
-        private string descProdutoField;
-        
-        private int idProdutoField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        public CotacaoDoProduto[] CotacoesProdutosSolicitacoes {
-            get {
-                return this.cotacoesProdutosSolicitacoesField;
-            }
-            set {
-                this.cotacoesProdutosSolicitacoesField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string DataCadastro {
-            get {
-                return this.dataCadastroField;
-            }
-            set {
-                this.dataCadastroField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string DescProduto {
-            get {
-                return this.descProdutoField;
-            }
-            set {
-                this.descProdutoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int IdProduto {
-            get {
-                return this.idProdutoField;
-            }
-            set {
-                this.idProdutoField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo")]
-    public partial class CotacaoDoProduto {
-        
-        private Cotacao cotacaoField;
-        
-        private Produto produtoField;
-        
-        private Solicitacao solicitacaoField;
-        
-        private double valorCotadoField;
-        
-        private string venceuField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public Cotacao Cotacao {
-            get {
-                return this.cotacaoField;
-            }
-            set {
-                this.cotacaoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public Produto Produto {
-            get {
-                return this.produtoField;
-            }
-            set {
-                this.produtoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public Solicitacao Solicitacao {
-            get {
-                return this.solicitacaoField;
-            }
-            set {
-                this.solicitacaoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public double ValorCotado {
-            get {
-                return this.valorCotadoField;
-            }
-            set {
-                this.valorCotadoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string Venceu {
-            get {
-                return this.venceuField;
-            }
-            set {
-                this.venceuField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo")]
-    public partial class Cotacao {
-        
-        private CotacaoDoProduto[] cotacaoProdutoSolicitacaoField;
-        
-        private string dataCotacaoField;
-        
-        private string dataValidadeCotacaoField;
-        
-        private int idCotacaoField;
-        
-        private string statusCotacaoField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        public CotacaoDoProduto[] CotacaoProdutoSolicitacao {
-            get {
-                return this.cotacaoProdutoSolicitacaoField;
-            }
-            set {
-                this.cotacaoProdutoSolicitacaoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string DataCotacao {
-            get {
-                return this.dataCotacaoField;
-            }
-            set {
-                this.dataCotacaoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string DataValidadeCotacao {
-            get {
-                return this.dataValidadeCotacaoField;
-            }
-            set {
-                this.dataValidadeCotacaoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int IdCotacao {
-            get {
-                return this.idCotacaoField;
-            }
-            set {
-                this.idCotacaoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string StatusCotacao {
-            get {
-                return this.statusCotacaoField;
-            }
-            set {
-                this.statusCotacaoField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo")]
-    public partial class Solicitacao {
-        
-        private CotacaoDoProduto[] cotacoesProdutosSolicitacoesField;
-        
-        private string dataPrecisaField;
-        
-        private string dataPrevistaFimField;
-        
-        private string dataSolicitacaoField;
-        
-        private string detalheField;
-        
-        private int idSolicitacaoField;
-        
-        private Produto produtoField;
-        
-        private string severidadeField;
-        
-        private Status statusField;
-        
-        private string statusSolicitacaoField;
-        
-        private Usuario[] usuariosField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        public CotacaoDoProduto[] CotacoesProdutosSolicitacoes {
-            get {
-                return this.cotacoesProdutosSolicitacoesField;
-            }
-            set {
-                this.cotacoesProdutosSolicitacoesField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string DataPrecisa {
-            get {
-                return this.dataPrecisaField;
-            }
-            set {
-                this.dataPrecisaField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string DataPrevistaFim {
-            get {
-                return this.dataPrevistaFimField;
-            }
-            set {
-                this.dataPrevistaFimField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string DataSolicitacao {
-            get {
-                return this.dataSolicitacaoField;
-            }
-            set {
-                this.dataSolicitacaoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string Detalhe {
-            get {
-                return this.detalheField;
-            }
-            set {
-                this.detalheField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int IdSolicitacao {
-            get {
-                return this.idSolicitacaoField;
-            }
-            set {
-                this.idSolicitacaoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public Produto Produto {
-            get {
-                return this.produtoField;
-            }
-            set {
-                this.produtoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string Severidade {
-            get {
-                return this.severidadeField;
-            }
-            set {
-                this.severidadeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public Status Status {
-            get {
-                return this.statusField;
-            }
-            set {
-                this.statusField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string StatusSolicitacao {
-            get {
-                return this.statusSolicitacaoField;
-            }
-            set {
-                this.statusSolicitacaoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        public Usuario[] Usuarios {
-            get {
-                return this.usuariosField;
-            }
-            set {
-                this.usuariosField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo")]
-    public partial class Status {
-        
-        private string dataStatusField;
-        
-        private string detalheStatusField;
-        
-        private Solicitacao solicitacaoField;
-        
-        private Usuario usuarioField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string DataStatus {
-            get {
-                return this.dataStatusField;
-            }
-            set {
-                this.dataStatusField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string DetalheStatus {
-            get {
-                return this.detalheStatusField;
-            }
-            set {
-                this.detalheStatusField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public Solicitacao Solicitacao {
-            get {
-                return this.solicitacaoField;
-            }
-            set {
-                this.solicitacaoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public Usuario Usuario {
-            get {
-                return this.usuarioField;
-            }
-            set {
-                this.usuarioField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     public delegate void UsuarioCadastrarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     public delegate void UsuarioListarCompletedEventHandler(object sender, UsuarioListarCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class UsuarioListarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1450,23 +1424,23 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     public delegate void UsuarioAlterarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     public delegate void UsuarioDeletarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     public delegate void UsuarioLoginCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     public delegate void PerfilListarCompletedEventHandler(object sender, PerfilListarCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class PerfilListarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1488,19 +1462,19 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     public delegate void PerfilCadastrarAlterarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     public delegate void PerfilDeletarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     public delegate void ProdutoListarCompletedEventHandler(object sender, ProdutoListarCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class ProdutoListarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1522,19 +1496,19 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     public delegate void ProdutoCadastrarAlterarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     public delegate void ProdutoDeletarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     public delegate void TipoFornecimentoListarCompletedEventHandler(object sender, TipoFornecimentoListarCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class TipoFornecimentoListarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1556,19 +1530,19 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     public delegate void TipoFornecimentoCadastrarAlterarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     public delegate void TipoFornecimentoDeletarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     public delegate void SolicitacaoCadastrarCompletedEventHandler(object sender, SolicitacaoCadastrarCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class SolicitacaoCadastrarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1590,11 +1564,11 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     public delegate void NSolicitacaoListarCompletedEventHandler(object sender, NSolicitacaoListarCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class NSolicitacaoListarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
