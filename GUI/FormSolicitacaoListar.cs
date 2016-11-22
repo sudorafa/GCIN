@@ -67,9 +67,9 @@ namespace GUI
                 
                 solicitacao.IdSolicitacao = idSolicitacao;
                 solicitacao.Status.Usuario.IdUsuario = idUsuario;
-                solicitacao.StatusSolicitacao = statusBuscar;
+                solicitacao.Status.StatusSolicitacao = statusBuscar;
 
-                listSolicitacao = new Service1().NSolicitacaoListar(solicitacao, dataInicial, dataFinal).ToList();
+                listSolicitacao = new Service1().SolicitacaoListar(solicitacao, dataInicial, dataFinal).ToList();
 
                 listViewSolicitacao.Items.Clear();
                 foreach (var s in listSolicitacao)

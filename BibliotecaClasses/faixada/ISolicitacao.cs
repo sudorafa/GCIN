@@ -11,5 +11,6 @@ namespace BibliotecaClasses.faixada
     {
         Solicitacao CadastrarSolicitacao(Solicitacao solicitacao);
         List<Solicitacao> ListarSolicitacao(Solicitacao solicitacao, string dataInicial, string dataFinal);
+        Solicitacao AtualizarSolicitacao(Solicitacao solicitacao);
     }
 }

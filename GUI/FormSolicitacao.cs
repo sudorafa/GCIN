@@ -128,18 +128,21 @@ namespace GUI
 
         private void CarregarSolicitacao(Solicitacao s)
         {
-            comboBoxHistorico.Items.Clear();
-
             textBoxId.Text = s.IdSolicitacao + "";
-            textBoxStatus.Text = s.StatusSolicitacao;
+            textBoxStatus.Text = s.Status.StatusSolicitacao;
+
+            comboBoxHistorico.Items.Clear();
+            foreach (var stat in s.ListStatus)
+            {
+                comboBoxHistorico.Items.Add(s.Status.StatusSolicitacao + " - " + usuario.Nome + " - " + s.DataSolicitacao);
+            }
             comboBoxHistorico.Enabled = true;
-            comboBoxHistorico.Items.Add(usuario.Nome + " - " + s.StatusSolicitacao + " - " + s.DataSolicitacao);
             comboBoxHistorico.SelectedIndex = 0;
-            comboBoxAtualizarSolicitacao.Enabled = true;
-            comboBoxAtualizarSolicitacao.SelectedIndex = 0;
+
             comboBoxTipoFornecimento.Enabled = false;
             comboBoxProduto.Enabled = false;
             comboBoxSeveridade.Enabled = false;
+            comboBoxAtualizarSolicitacao.SelectedIndex = 0;
             comboBoxAtualizarSolicitacao.Enabled = false;
             textBoxDetalhe.Enabled = false;
             dateTimePickerDataDesejadaCompra.Enabled = false;
@@ -150,6 +153,9 @@ namespace GUI
 
         private void SolicitacaoLista(Solicitacao solicitacao)
         {
+            List<Status> listSolicitacaoStatus = new List<Status>();
+
+            comboBoxHistorico.Items.Clear();
             textBoxId.Text = solicitacao.IdSolicitacao+"";
             textBoxNome.Text = solicitacao.Status.Usuario.Nome;
             textBoxPerfil.Text = solicitacao.Status.Usuario.Perfil.DescPerfil;
@@ -157,9 +163,111 @@ namespace GUI
             dateTimePickerDataDesejadaCompra.Value = DateTime.Parse(solicitacao.DataPrecisa);
             dateTimePickerDataPrevistaCompra.Value = DateTime.Parse(solicitacao.DataPrevistaFim);
             comboBoxProduto.Text = solicitacao.Produto.DescProduto;
+            comboBoxProduto.Enabled = false;
             comboBoxSeveridade.Text = solicitacao.Severidade;
-            textBoxStatus.Text = solicitacao.StatusSolicitacao;
-            //historico e detalhe será um List que irá vim no objeto solicitação quando implementado
+            comboBoxSeveridade.Enabled = false;
+            textBoxStatus.Text = solicitacao.Status.StatusSolicitacao;
+            
+            comboBoxHistorico.Enabled = true;
+            comboBoxHistorico.Items.Clear();
+
+            solicitacao.Status.Usuario = new Usuario();
+            foreach (Solicitacao s in service1.SolicitacaoListar(solicitacao, "", "").ToList())
+            {
+                listSolicitacaoStatus = s.ListStatus.ToList();
+            }
+            foreach (Status st in listSolicitacaoStatus)
+            {
+                comboBoxHistorico.Items.Add(st.StatusSolicitacao + " - " + st.Usuario.Nome + " - " + st.DataStatus);
+            }
+
+            //comboBoxHistorico.Items.Add(s.ListStatus + " - " + usuario.Nome + " - " + s.DataSolicitacao);
+
+            comboBoxHistorico.SelectedIndex = 0;
+
+            comboBoxAtualizarSolicitacao.Enabled = false;
+            comboBoxAtualizarSolicitacao.SelectedIndex = 0;
+            comboBoxTipoFornecimento.Enabled = false;
+            textBoxDetalhe.Enabled = false;
+            dateTimePickerDataDesejadaCompra.Enabled = false;
+            dateTimePickerDataAbertura.Enabled = false;
+            dateTimePickerDataPrevistaCompra.Enabled = false;
+            buttonSalvar.Text = "Atualizar";
+            buttonNovo.Visible = true;
+        }
+
+        private void SalvarAlterarSolicitacao(string status)
+        {
+            string dataSolicitacao, dataPrecisa, dataPrevistaCompra, severidade, detalheSolicitacao, detalheStatus, dataStatus, statusSolicitacao;
+            int idProduto, index;
+
+            Produto produtoEscolhido;
+            index = comboBoxProduto.SelectedIndex;
+            produtoEscolhido = listProdutos.ElementAt(index);
+
+            dataSolicitacao = dateTimePickerDataAbertura.Value.Date.ToString("yyyy-MM-dd");
+            dataPrecisa = dateTimePickerDataDesejadaCompra.Value.Date.ToString("yyyy-MM-dd");
+            dataPrevistaCompra = dateTimePickerDataPrevistaCompra.Value.Date.ToString("yyyy-MM-dd");
+            severidade = comboBoxSeveridade.Text;
+            idProduto = produtoEscolhido.IdProduto;
+            dataStatus = dateTimePickerDataAbertura.Value.Date.ToString("yyyy-MM-dd");
+            if (status.Equals("Abertura"))
+            {
+                detalheStatus = textBoxDetalhe.Text;
+                statusSolicitacao = status;
+                detalheSolicitacao = textBoxDetalhe.Text;
+            }
+            else
+            {
+                detalheStatus = textBoxDetalhe.Text;
+                statusSolicitacao = status;
+                detalheSolicitacao = null;
+            }
+            
+            if (textBoxDetalhe.Text.Equals("") || textBoxDetalhe.Text.Length == 0 || textBoxDetalhe.Text == null)
+            {
+                MessageBox.Show("Por Favor, Informe Detalhe Status ! ", "Ateção", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                textBoxDetalhe.Focus();
+            }
+            else
+            {
+                Solicitacao solicitacao = new Solicitacao();
+                solicitacao.Produto = new Produto();
+                solicitacao.Status = new Status();
+                solicitacao.Status.Usuario = new Usuario();
+
+                solicitacao.DataSolicitacao = dataSolicitacao;
+                solicitacao.DataPrecisa = dataPrecisa;
+                solicitacao.DataPrevistaFim = dataPrevistaCompra;
+                solicitacao.Severidade = severidade;
+                solicitacao.Detalhe = detalheSolicitacao;
+                solicitacao.Produto.IdProduto = idProduto;
+                solicitacao.Status.DetalheStatus = detalheStatus;
+                solicitacao.Status.DataStatus = dataStatus;
+                solicitacao.Status.StatusSolicitacao = statusSolicitacao;
+                solicitacao.Status.Usuario.IdUsuario = idUsuarioTela;
+
+                try
+                {
+                    Solicitacao s = new Solicitacao();
+                    if (status.Equals("Abertura"))
+                    {
+                        s = new Service1().SolicitacaoCadastrar(solicitacao);
+                        MessageBox.Show("Solicitação Realizada Com Sucesso !");
+                    }
+                    else
+                    {
+                        s = new Service1().SolicitacaoAlterar(solicitacao);
+                        MessageBox.Show("Solicitação Atualizada Com Sucesso !");
+                    }
+                    
+                    CarregarSolicitacao(s);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
 
         private void buttonSair_Click(object sender, EventArgs e)
@@ -177,67 +285,20 @@ namespace GUI
                     dateTimePickerDataDesejadaCompra.Enabled = true;
                     dateTimePickerDataPrevistaCompra.Enabled = true;
                     comboBoxSeveridade.Enabled = true;
+                    comboBoxHistorico.Enabled = false;
                     comboBoxAtualizarSolicitacao.Enabled = true;
                     textBoxDetalhe.Enabled = true;
                     textBoxDetalhe.Text = "";
                     textBoxDetalhe.Focus();
                 }
-                MessageBox.Show("oi");
+                else
+                {
+                    SalvarAlterarSolicitacao(comboBoxAtualizarSolicitacao.Text);
+                }
             }
             else
             {
-                string dataSolicitacao, dataPrecisa, dataPrevistaCompra, severidade, detalheSolicitacao, detalheStatus, dataStatus, statusSolicitacao;
-                int idProduto, index;
-
-                Produto produtoEscolhido;
-                index = comboBoxProduto.SelectedIndex;
-                produtoEscolhido = listProdutos.ElementAt(index);
-
-                dataSolicitacao = dateTimePickerDataAbertura.Value.Date.ToString("yyyy-MM-dd");
-                dataPrecisa = dateTimePickerDataDesejadaCompra.Value.Date.ToString("yyyy-MM-dd");
-                dataPrevistaCompra = dateTimePickerDataPrevistaCompra.Value.Date.ToString("yyyy-MM-dd");
-                severidade = comboBoxSeveridade.Text;
-                detalheSolicitacao = textBoxDetalhe.Text;
-                idProduto = produtoEscolhido.IdProduto;
-                detalheStatus = textBoxDetalhe.Text;
-                dataStatus = dateTimePickerDataAbertura.Value.Date.ToString("yyyy-MM-dd");
-                statusSolicitacao = "Aberta";
-
-                if (detalheStatus.Equals("") || detalheStatus.Length == 0 || detalheStatus == null)
-                {
-                    MessageBox.Show("Por Favor, Informe Detalhe Status ! ", "Ateção", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    textBoxDetalhe.Focus();
-                }
-                else
-                {
-                    Solicitacao solicitacao = new Solicitacao();
-                    solicitacao.Produto = new Produto();
-                    solicitacao.Status = new Status();
-                    solicitacao.Status.Usuario = new Usuario();
-
-                    solicitacao.DataSolicitacao = dataSolicitacao;
-                    solicitacao.DataPrecisa = dataPrecisa;
-                    solicitacao.DataPrevistaFim = dataPrevistaCompra;
-                    solicitacao.Severidade = severidade;
-                    solicitacao.Detalhe = detalheSolicitacao;
-                    solicitacao.Produto.IdProduto = idProduto;
-                    solicitacao.Status.DetalheStatus = detalheStatus;
-                    solicitacao.Status.DataStatus = dataStatus;
-                    solicitacao.StatusSolicitacao = statusSolicitacao;
-                    solicitacao.Status.Usuario.IdUsuario = idUsuarioTela;
-
-                    try
-                    {
-                        Solicitacao s = new Solicitacao();
-                        s = new Service1().SolicitacaoCadastrar(solicitacao);
-                        MessageBox.Show("Solicitação Realizada Com Sucesso !");
-                        CarregarSolicitacao(s);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                }
+                SalvarAlterarSolicitacao("Abertura");
             }
         }
 

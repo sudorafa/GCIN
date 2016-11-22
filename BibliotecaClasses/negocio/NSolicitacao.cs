@@ -29,6 +29,18 @@ namespace BibliotecaClasses.negocio
             return new DSolicitacao().ListarSolicitacao(solicitacao, dataInicial, dataFinal);
         }
 
+        public Solicitacao NAlterarSolicitacao(Solicitacao solicitacao)
+        {
+            if (NAtualizarSolicitacao(solicitacao) == true)
+            {
+                return new DSolicitacao().AtualizarSolicitacao(solicitacao);
+            }
+            else
+            {
+                return solicitacao;
+            }
+        }
+        
         private static bool NSalvarSolicitacao(Solicitacao solicitacao)
         {
             if (solicitacao.Detalhe.Equals("") || solicitacao.Detalhe.Length == 0 || solicitacao.Detalhe == null)
@@ -37,6 +49,13 @@ namespace BibliotecaClasses.negocio
             }
             return true;
         }
-        
+        private static bool NAtualizarSolicitacao(Solicitacao solicitacao)
+        {
+            if (solicitacao.Detalhe.Equals("") || solicitacao.Detalhe.Length == 0 || solicitacao.Detalhe == null)
+            {
+                throw new FaultException("Por Favor, Informe Detalhe ! ");
+            }
+            return true;
+        }
     }
 }

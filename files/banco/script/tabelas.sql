@@ -1,3 +1,7 @@
+use master;
+go
+drop database gcin;
+go
 CREATE DATABASE GCIN;
 GO
 USE GCIN;
@@ -26,13 +30,13 @@ CREATE TABLE Solicitacao(idSolicitacao integer identity(1000,1) PRIMARY KEY ,
 					 dataPrecisa date,
 					 severidade varchar(50),
 					 detalhe varchar(50),
-					 statusSolicitacao varchar(50),
 					 dataPrevistaFim date,
 					 idProduto integer references Produto(idProduto)
 );
 
 CREATE TABLE Stat( detalheStatus varchar(50),
-				   dataStatus date,				   
+				   dataStatus date,
+				   statusSolicitacao varchar(50),				   
 				   idSolicitacao integer references Solicitacao(idSolicitacao),
 				   idUsuario integer references Usuario(idUsuario)
 );

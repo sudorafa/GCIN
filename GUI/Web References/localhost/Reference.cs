@@ -23,7 +23,7 @@ namespace GUI.localhost {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="BasicHttpBinding_IService1", Namespace="http://tempuri.org/")]
@@ -59,7 +59,9 @@ namespace GUI.localhost {
         
         private System.Threading.SendOrPostCallback SolicitacaoCadastrarOperationCompleted;
         
-        private System.Threading.SendOrPostCallback NSolicitacaoListarOperationCompleted;
+        private System.Threading.SendOrPostCallback SolicitacaoListarOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SolicitacaoAlterarOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -145,7 +147,10 @@ namespace GUI.localhost {
         public event SolicitacaoCadastrarCompletedEventHandler SolicitacaoCadastrarCompleted;
         
         /// <remarks/>
-        public event NSolicitacaoListarCompletedEventHandler NSolicitacaoListarCompleted;
+        public event SolicitacaoListarCompletedEventHandler SolicitacaoListarCompleted;
+        
+        /// <remarks/>
+        public event SolicitacaoAlterarCompletedEventHandler SolicitacaoAlterarCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/UsuarioCadastrar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -578,11 +583,11 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/NSolicitacaoListar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/SolicitacaoListar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
         [return: System.Xml.Serialization.XmlArrayItemAttribute(Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo")]
-        public Solicitacao[] NSolicitacaoListar([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Solicitacao solicitacao, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string dataInicial, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string dataFinal) {
-            object[] results = this.Invoke("NSolicitacaoListar", new object[] {
+        public Solicitacao[] SolicitacaoListar([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Solicitacao solicitacao, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string dataInicial, [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] string dataFinal) {
+            object[] results = this.Invoke("SolicitacaoListar", new object[] {
                         solicitacao,
                         dataInicial,
                         dataFinal});
@@ -590,25 +595,55 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        public void NSolicitacaoListarAsync(Solicitacao solicitacao, string dataInicial, string dataFinal) {
-            this.NSolicitacaoListarAsync(solicitacao, dataInicial, dataFinal, null);
+        public void SolicitacaoListarAsync(Solicitacao solicitacao, string dataInicial, string dataFinal) {
+            this.SolicitacaoListarAsync(solicitacao, dataInicial, dataFinal, null);
         }
         
         /// <remarks/>
-        public void NSolicitacaoListarAsync(Solicitacao solicitacao, string dataInicial, string dataFinal, object userState) {
-            if ((this.NSolicitacaoListarOperationCompleted == null)) {
-                this.NSolicitacaoListarOperationCompleted = new System.Threading.SendOrPostCallback(this.OnNSolicitacaoListarOperationCompleted);
+        public void SolicitacaoListarAsync(Solicitacao solicitacao, string dataInicial, string dataFinal, object userState) {
+            if ((this.SolicitacaoListarOperationCompleted == null)) {
+                this.SolicitacaoListarOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSolicitacaoListarOperationCompleted);
             }
-            this.InvokeAsync("NSolicitacaoListar", new object[] {
+            this.InvokeAsync("SolicitacaoListar", new object[] {
                         solicitacao,
                         dataInicial,
-                        dataFinal}, this.NSolicitacaoListarOperationCompleted, userState);
+                        dataFinal}, this.SolicitacaoListarOperationCompleted, userState);
         }
         
-        private void OnNSolicitacaoListarOperationCompleted(object arg) {
-            if ((this.NSolicitacaoListarCompleted != null)) {
+        private void OnSolicitacaoListarOperationCompleted(object arg) {
+            if ((this.SolicitacaoListarCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.NSolicitacaoListarCompleted(this, new NSolicitacaoListarCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.SolicitacaoListarCompleted(this, new SolicitacaoListarCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/SolicitacaoAlterar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Solicitacao SolicitacaoAlterar([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Solicitacao solicitacao) {
+            object[] results = this.Invoke("SolicitacaoAlterar", new object[] {
+                        solicitacao});
+            return ((Solicitacao)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SolicitacaoAlterarAsync(Solicitacao solicitacao) {
+            this.SolicitacaoAlterarAsync(solicitacao, null);
+        }
+        
+        /// <remarks/>
+        public void SolicitacaoAlterarAsync(Solicitacao solicitacao, object userState) {
+            if ((this.SolicitacaoAlterarOperationCompleted == null)) {
+                this.SolicitacaoAlterarOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSolicitacaoAlterarOperationCompleted);
+            }
+            this.InvokeAsync("SolicitacaoAlterar", new object[] {
+                        solicitacao}, this.SolicitacaoAlterarOperationCompleted, userState);
+        }
+        
+        private void OnSolicitacaoAlterarOperationCompleted(object arg) {
+            if ((this.SolicitacaoAlterarCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SolicitacaoAlterarCompleted(this, new SolicitacaoAlterarCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -632,7 +667,7 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -731,7 +766,7 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -778,7 +813,7 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -788,6 +823,8 @@ namespace GUI.localhost {
         private string dataStatusField;
         
         private string detalheStatusField;
+        
+        private string statusSolicitacaoField;
         
         private Usuario usuarioField;
         
@@ -815,6 +852,17 @@ namespace GUI.localhost {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string StatusSolicitacao {
+            get {
+                return this.statusSolicitacaoField;
+            }
+            set {
+                this.statusSolicitacaoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public Usuario Usuario {
             get {
                 return this.usuarioField;
@@ -826,7 +874,7 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -899,7 +947,7 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -972,7 +1020,7 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1019,7 +1067,7 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1045,8 +1093,6 @@ namespace GUI.localhost {
         private string severidadeField;
         
         private Status statusField;
-        
-        private string statusSolicitacaoField;
         
         private Usuario[] usuariosField;
         
@@ -1160,17 +1206,6 @@ namespace GUI.localhost {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string StatusSolicitacao {
-            get {
-                return this.statusSolicitacaoField;
-            }
-            set {
-                this.statusSolicitacaoField = value;
-            }
-        }
-        
-        /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
         public Usuario[] Usuarios {
             get {
@@ -1183,7 +1218,7 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1334,7 +1369,7 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1394,15 +1429,15 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     public delegate void UsuarioCadastrarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     public delegate void UsuarioListarCompletedEventHandler(object sender, UsuarioListarCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class UsuarioListarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1424,23 +1459,23 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     public delegate void UsuarioAlterarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     public delegate void UsuarioDeletarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     public delegate void UsuarioLoginCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     public delegate void PerfilListarCompletedEventHandler(object sender, PerfilListarCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class PerfilListarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1462,19 +1497,19 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     public delegate void PerfilCadastrarAlterarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     public delegate void PerfilDeletarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     public delegate void ProdutoListarCompletedEventHandler(object sender, ProdutoListarCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class ProdutoListarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1496,19 +1531,19 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     public delegate void ProdutoCadastrarAlterarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     public delegate void ProdutoDeletarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     public delegate void TipoFornecimentoListarCompletedEventHandler(object sender, TipoFornecimentoListarCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class TipoFornecimentoListarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1530,19 +1565,19 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     public delegate void TipoFornecimentoCadastrarAlterarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     public delegate void TipoFornecimentoDeletarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     public delegate void SolicitacaoCadastrarCompletedEventHandler(object sender, SolicitacaoCadastrarCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class SolicitacaoCadastrarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -1564,18 +1599,18 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
-    public delegate void NSolicitacaoListarCompletedEventHandler(object sender, NSolicitacaoListarCompletedEventArgs e);
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void SolicitacaoListarCompletedEventHandler(object sender, SolicitacaoListarCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class NSolicitacaoListarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class SolicitacaoListarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal NSolicitacaoListarCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal SolicitacaoListarCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -1585,6 +1620,32 @@ namespace GUI.localhost {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((Solicitacao[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void SolicitacaoAlterarCompletedEventHandler(object sender, SolicitacaoAlterarCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SolicitacaoAlterarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SolicitacaoAlterarCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Solicitacao Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Solicitacao)(this.results[0]));
             }
         }
     }

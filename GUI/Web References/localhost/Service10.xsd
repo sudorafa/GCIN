@@ -89,7 +89,6 @@
       <xs:element name="Produto" nillable="true" type="tns:Produto" />
       <xs:element name="Severidade" nillable="true" type="xs:string" />
       <xs:element name="Status" nillable="true" type="tns:Status" />
-      <xs:element name="StatusSolicitacao" nillable="true" type="xs:string" />
       <xs:element name="Usuarios" nillable="true" type="tns:ArrayOfUsuario" />
     </xs:sequence>
   </xs:complexType>
@@ -130,6 +129,7 @@
     <xs:sequence>
       <xs:element name="DataStatus" nillable="true" type="xs:string" />
       <xs:element name="DetalheStatus" nillable="true" type="xs:string" />
+      <xs:element name="StatusSolicitacao" nillable="true" type="xs:string" />
       <xs:element name="Usuario" nillable="true" type="tns:Usuario" />
     </xs:sequence>
   </xs:complexType>

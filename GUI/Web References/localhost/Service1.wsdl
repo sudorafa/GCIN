@@ -97,11 +97,17 @@
   <wsdl:message name="IService1_SolicitacaoCadastrar_OutputMessage">
     <wsdl:part name="parameters" element="tns:SolicitacaoCadastrarResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_NSolicitacaoListar_InputMessage">
-    <wsdl:part name="parameters" element="tns:NSolicitacaoListar" />
+  <wsdl:message name="IService1_SolicitacaoListar_InputMessage">
+    <wsdl:part name="parameters" element="tns:SolicitacaoListar" />
   </wsdl:message>
-  <wsdl:message name="IService1_NSolicitacaoListar_OutputMessage">
-    <wsdl:part name="parameters" element="tns:NSolicitacaoListarResponse" />
+  <wsdl:message name="IService1_SolicitacaoListar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SolicitacaoListarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SolicitacaoAlterar_InputMessage">
+    <wsdl:part name="parameters" element="tns:SolicitacaoAlterar" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SolicitacaoAlterar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SolicitacaoAlterarResponse" />
   </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="UsuarioCadastrar">
@@ -164,9 +170,13 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/SolicitacaoCadastrar" message="tns:IService1_SolicitacaoCadastrar_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/SolicitacaoCadastrarResponse" message="tns:IService1_SolicitacaoCadastrar_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="NSolicitacaoListar">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/NSolicitacaoListar" message="tns:IService1_NSolicitacaoListar_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/NSolicitacaoListarResponse" message="tns:IService1_NSolicitacaoListar_OutputMessage" />
+    <wsdl:operation name="SolicitacaoListar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SolicitacaoListar" message="tns:IService1_SolicitacaoListar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SolicitacaoListarResponse" message="tns:IService1_SolicitacaoListar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SolicitacaoAlterar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SolicitacaoAlterar" message="tns:IService1_SolicitacaoAlterar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SolicitacaoAlterarResponse" message="tns:IService1_SolicitacaoAlterar_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -306,8 +316,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="NSolicitacaoListar">
-      <soap:operation soapAction="http://tempuri.org/IService1/NSolicitacaoListar" style="document" />
+    <wsdl:operation name="SolicitacaoListar">
+      <soap:operation soapAction="http://tempuri.org/IService1/SolicitacaoListar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SolicitacaoAlterar">
+      <soap:operation soapAction="http://tempuri.org/IService1/SolicitacaoAlterar" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

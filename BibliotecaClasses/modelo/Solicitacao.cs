@@ -12,7 +12,7 @@ namespace BibliotecaClasses.modelo
     public class Solicitacao
     {
         private int idSolicitacao;
-        private string dataSolicitacao, dataPrecisa, severidade, detalhe, statusSolicitacao, dataPrevistaFim;
+        private string dataSolicitacao, dataPrecisa, severidade, detalhe, dataPrevistaFim;
         private Produto produto;
         private Status status;
         private List<CotacaoDoProduto> cotacoesProdutosSolicitacoes;
@@ -169,21 +169,7 @@ namespace BibliotecaClasses.modelo
                 status = value;
             }
         }
-
-        [DataMember(IsRequired = true)]
-        public string StatusSolicitacao
-        {
-            get
-            {
-                return statusSolicitacao;
-            }
-
-            set
-            {
-                statusSolicitacao = value;
-            }
-        }
-
+        
         [DataMember(IsRequired = true)]
         public string DataPrevistaFim
         {

@@ -187,7 +187,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="NSolicitacaoListar">
+  <xs:element name="SolicitacaoListar">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="solicitacao" nillable="true" type="q19:Solicitacao" />
@@ -196,10 +196,24 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="NSolicitacaoListarResponse">
+  <xs:element name="SolicitacaoListarResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="NSolicitacaoListarResult" nillable="true" type="q20:ArrayOfSolicitacao" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="SolicitacaoListarResult" nillable="true" type="q20:ArrayOfSolicitacao" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SolicitacaoAlterar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="solicitacao" nillable="true" type="q21:Solicitacao" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SolicitacaoAlterarResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="SolicitacaoAlterarResult" nillable="true" type="q22:Solicitacao" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

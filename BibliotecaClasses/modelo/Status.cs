@@ -11,7 +11,7 @@ namespace BibliotecaClasses.modelo
     [DataContract()]
     public class Status
     {
-        private string detalheStatus, dataStatus;
+        private string detalheStatus, dataStatus, statusSolicitacao;
         private Usuario usuario;
 
         public Status()
@@ -58,6 +58,20 @@ namespace BibliotecaClasses.modelo
             set
             {
                 usuario = value;
+            }
+        }
+
+        [DataMember(IsRequired = true)]
+        public string StatusSolicitacao
+        {
+            get
+            {
+                return statusSolicitacao;
+            }
+
+            set
+            {
+                statusSolicitacao = value;
             }
         }
     }

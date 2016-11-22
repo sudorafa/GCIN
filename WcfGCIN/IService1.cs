@@ -61,6 +61,9 @@ namespace WcfGCIN
         Solicitacao SolicitacaoCadastrar(Solicitacao solicitacao);
 
         [OperationContract]
-        List<Solicitacao> NSolicitacaoListar(Solicitacao solicitacao, string dataInicial, string dataFinal);
+        List<Solicitacao> SolicitacaoListar(Solicitacao solicitacao, string dataInicial, string dataFinal);
+
+        [OperationContract]
+        Solicitacao SolicitacaoAlterar(Solicitacao solicitacao);
     }
 }
