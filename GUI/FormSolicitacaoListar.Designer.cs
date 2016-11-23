@@ -200,7 +200,7 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "ID";
-            this.columnHeader1.Width = 69;
+            this.columnHeader1.Width = 62;
             // 
             // columnHeader2
             // 
@@ -210,7 +210,7 @@
             // columnHeader3
             // 
             this.columnHeader3.Text = "Usuário";
-            this.columnHeader3.Width = 193;
+            this.columnHeader3.Width = 141;
             // 
             // columnHeader5
             // 
@@ -220,11 +220,12 @@
             // columnHeader6
             // 
             this.columnHeader6.Text = "Produto";
-            this.columnHeader6.Width = 137;
+            this.columnHeader6.Width = 107;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Situação";
+            this.columnHeader4.Width = 89;
             // 
             // FormSolicitacaoListar
             // 
