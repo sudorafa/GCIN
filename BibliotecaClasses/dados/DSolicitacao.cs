@@ -22,8 +22,8 @@ namespace BibliotecaClasses.dados
                 conexao.abrirConexao();
                 //Solicitação
                 string sql = "insert into Solicitacao";
-                sql += "(dataSolicitacao, dataPrecisa, dataPrevistaFim, severidade, detalhe, idProduto) output Inserted.idSolicitacao values";
-                sql += "(@dataSolicitacao, @dataPrecisa, @dataPrevistaFim, @severidade, @detalhe, @idProduto)";
+                sql += "(dataSolicitacao, dataPrecisa, dataPrevistaFim, severidade, situacao, detalhe, idProduto) output Inserted.idSolicitacao values";
+                sql += "(@dataSolicitacao, @dataPrecisa, @dataPrevistaFim, @severidade, @situacao, @detalhe, @idProduto)";
 
                 SqlCommand comando = new SqlCommand(sql, conexao.sqlConn);
 
@@ -38,7 +38,10 @@ namespace BibliotecaClasses.dados
 
                 comando.Parameters.Add("@severidade", SqlDbType.VarChar);
                 comando.Parameters["@severidade"].Value = solicitacao.Severidade;
-                
+
+                comando.Parameters.Add("@situacao", SqlDbType.VarChar);
+                comando.Parameters["@situacao"].Value = solicitacao.Situacao;
+
                 comando.Parameters.Add("@detalhe", SqlDbType.VarChar);
                 comando.Parameters["@detalhe"].Value = solicitacao.Detalhe;
 
@@ -89,13 +92,13 @@ namespace BibliotecaClasses.dados
             try
             {
                 conexao.abrirConexao();
-                sql = "select distinct s.idSolicitacao, s.dataSolicitacao, s.dataPrecisa, s.severidade, s.detalhe, s.dataPrevistaFim, ";
-                sql += "p.descProduto, st.statusSolicitacao, u.idUsuario, u.nome, pf.descPerfil From Solicitacao as s ";
+                sql = "select distinct s.idSolicitacao, s.dataSolicitacao, s.dataPrecisa, s.severidade, s.detalhe, s.dataPrevistaFim, s.situacao, ";
+                sql += "p.descProduto, u.idUsuario, u.nome, pf.descPerfil From Solicitacao as s ";
                 sql += "inner join Produto as p on s.idProduto = p.idProduto ";
                 sql += "inner join Stat as st on s.idSolicitacao = st.idSolicitacao ";
                 sql += "inner join Usuario as u on st.idUsuario = u.idUsuario ";
                 sql += "inner join Perfil as pf on u.idPerfil = pf.idPerfil ";
-                sql += "where s.idSolicitacao = s.idSolicitacao ";
+                sql += "where s.idSolicitacao = s.idSolicitacao and st.statusSolicitacao = 'Abertura' ";
 
                 if (solicitacao.IdSolicitacao > 0)
                 {
@@ -115,9 +118,9 @@ namespace BibliotecaClasses.dados
                     sql += " and s.dataSolicitacao between '" + dataInicial + "' and '" + dataFinal + "'";
                 }   
 
-                if (solicitacao.Status.StatusSolicitacao != null && solicitacao.Status.StatusSolicitacao.Trim().Equals("") == false)
+                if (solicitacao.Situacao != null && solicitacao.Situacao.Trim().Equals("") == false)
                 {
-                    sql += " and st.statusSolicitacao = '" + solicitacao.Status.StatusSolicitacao + "'";
+                    sql += " and s.situacao = '" + solicitacao.Situacao + "'";
                 }
 
                 if (solicitacao.IdSolicitacao > 0)
@@ -141,7 +144,7 @@ namespace BibliotecaClasses.dados
                     s.Detalhe = DbReader.GetString(DbReader.GetOrdinal("detalhe"));
                     s.DataPrevistaFim = DbReader.GetDateTime(DbReader.GetOrdinal("dataPrevistaFim")).ToString();
                     s.Produto.DescProduto = DbReader.GetString(DbReader.GetOrdinal("descProduto"));
-                    s.Status.StatusSolicitacao = DbReader.GetString(DbReader.GetOrdinal("statusSolicitacao"));
+                    s.Situacao = DbReader.GetString(DbReader.GetOrdinal("situacao"));
                     s.Status.Usuario.IdUsuario = DbReader.GetInt32(DbReader.GetOrdinal("idUsuario"));
                     s.Status.Usuario.Nome = DbReader.GetString(DbReader.GetOrdinal("nome"));
                     s.Status.Usuario.Perfil.DescPerfil = DbReader.GetString(DbReader.GetOrdinal("descPerfil"));
@@ -181,7 +184,7 @@ namespace BibliotecaClasses.dados
             {
                 conexao.abrirConexao();
                 //Solicitação
-                string sql = "update Solicitacao set dataPrecisa = @dataPrecisa, dataPrevistaFim = @dataPrevistaFim, severidade = @severidade where idSolicitacao = @idSolicitacao";
+                string sql = "update Solicitacao set dataPrecisa = @dataPrecisa, dataPrevistaFim = @dataPrevistaFim, severidade = @severidade, situacao = @situacao where idSolicitacao = @idSolicitacao";
 
                 SqlCommand comando = new SqlCommand(sql, conexao.sqlConn);
 
@@ -193,6 +196,9 @@ namespace BibliotecaClasses.dados
 
                 comando.Parameters.Add("@severidade", SqlDbType.VarChar);
                 comando.Parameters["@severidade"].Value = solicitacao.Severidade;
+
+                comando.Parameters.Add("@situacao", SqlDbType.VarChar);
+                comando.Parameters["@situacao"].Value = solicitacao.Situacao;
 
                 comando.Parameters.Add("@idSolicitacao", SqlDbType.Int);
                 comando.Parameters["@idSolicitacao"].Value = solicitacao.IdSolicitacao;

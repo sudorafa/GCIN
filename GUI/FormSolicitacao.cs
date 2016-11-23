@@ -204,7 +204,7 @@ namespace GUI
 
         private void SalvarAlterarSolicitacao(string status)
         {
-            string dataSolicitacao, dataPrecisa, dataPrevistaCompra, severidade, detalheSolicitacao, detalheStatus, dataStatus, statusSolicitacao;
+            string dataSolicitacao, dataPrecisa, dataPrevistaCompra, severidade, detalheSolicitacao, detalheStatus, dataStatus, statusSolicitacao, situacao;
             int idProduto = 0, index, idSolicitacao = 0;
             Produto produtoEscolhido;
 
@@ -216,6 +216,7 @@ namespace GUI
                 index = comboBoxProduto.SelectedIndex;
                 produtoEscolhido = listProdutos.ElementAt(index);
                 idProduto = produtoEscolhido.IdProduto;
+                situacao = "Aberta";
             }
             else
             {
@@ -224,6 +225,12 @@ namespace GUI
                 detalheSolicitacao = null;
                 idSolicitacao = Int32.Parse(textBoxId.Text);
                 idUsuarioTela = usuario.IdUsuario;
+                if (status.Equals("Cancelar") || status.Equals("Reprovar")) {
+                    situacao = "Fechado";
+                }else
+                {
+                    situacao = "Aberta";
+                }
             }
 
             dataSolicitacao = dateTimePickerDataAbertura.Value.Date.ToString("yyyy-MM-dd");
@@ -249,6 +256,7 @@ namespace GUI
                 solicitacao.DataPrevistaFim = dataPrevistaCompra;
                 solicitacao.Severidade = severidade;
                 solicitacao.Detalhe = detalheSolicitacao;
+                solicitacao.Situacao = situacao;
                 solicitacao.Produto.IdProduto = idProduto;
                 solicitacao.Status.DetalheStatus = detalheStatus;
                 solicitacao.Status.DataStatus = dataStatus;

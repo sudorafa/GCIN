@@ -224,7 +224,7 @@
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "Status";
+            this.columnHeader4.Text = "Situação";
             // 
             // FormSolicitacaoListar
             // 

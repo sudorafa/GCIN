@@ -29,6 +29,7 @@ CREATE TABLE Solicitacao(idSolicitacao integer identity(1000,1) PRIMARY KEY ,
 					 dataSolicitacao date,
 					 dataPrecisa date,
 					 severidade varchar(50),
+					 situacao varchar(50),
 					 detalhe varchar(50),
 					 dataPrevistaFim date,
 					 idProduto integer references Produto(idProduto)

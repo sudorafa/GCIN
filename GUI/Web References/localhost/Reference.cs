@@ -1092,6 +1092,8 @@ namespace GUI.localhost {
         
         private string severidadeField;
         
+        private string situacaoField;
+        
         private Status statusField;
         
         private Usuario[] usuariosField;
@@ -1191,6 +1193,17 @@ namespace GUI.localhost {
             }
             set {
                 this.severidadeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string Situacao {
+            get {
+                return this.situacaoField;
+            }
+            set {
+                this.situacaoField = value;
             }
         }
         

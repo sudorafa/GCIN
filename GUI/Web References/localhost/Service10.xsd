@@ -88,6 +88,7 @@
       <xs:element name="ListStatus" nillable="true" type="tns:ArrayOfStatus" />
       <xs:element name="Produto" nillable="true" type="tns:Produto" />
       <xs:element name="Severidade" nillable="true" type="xs:string" />
+      <xs:element name="Situacao" nillable="true" type="xs:string" />
       <xs:element name="Status" nillable="true" type="tns:Status" />
       <xs:element name="Usuarios" nillable="true" type="tns:ArrayOfUsuario" />
     </xs:sequence>

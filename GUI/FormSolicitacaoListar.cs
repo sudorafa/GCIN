@@ -43,11 +43,11 @@ namespace GUI
             }
             if (comboBoxBuscar.SelectedIndex == 1)
             {
-                statusBuscar = "Abertura";
+                statusBuscar = "Aberta";
             }
             else if (comboBoxBuscar.SelectedIndex == 2)
             {
-                statusBuscar = "Finalizar";
+                statusBuscar = "Fechado";
             }
             else
             {
@@ -67,7 +67,7 @@ namespace GUI
                 
                 solicitacao.IdSolicitacao = idSolicitacao;
                 solicitacao.Status.Usuario.IdUsuario = idUsuario;
-                solicitacao.Status.StatusSolicitacao = statusBuscar;
+                solicitacao.Situacao = statusBuscar;
 
                 listSolicitacao = new Service1().SolicitacaoListar(solicitacao, dataInicial, dataFinal).ToList();
 
@@ -79,7 +79,7 @@ namespace GUI
                     ItemLV.SubItems.Add(s.Status.Usuario.Nome);
                     ItemLV.SubItems.Add(s.Severidade);
                     ItemLV.SubItems.Add(s.Produto.DescProduto);
-                    ItemLV.SubItems.Add(s.Status.StatusSolicitacao);
+                    ItemLV.SubItems.Add(s.Situacao);
                 }
             }
             catch (Exception ex)
