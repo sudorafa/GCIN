@@ -47,7 +47,7 @@ namespace GUI
             }
             else if (comboBoxBuscar.SelectedIndex == 2)
             {
-                statusBuscar = "Fechado";
+                statusBuscar = "Finalizada";
             }
             else
             {
@@ -86,7 +86,6 @@ namespace GUI
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
 
         private void buttonSair_Click(object sender, EventArgs e)

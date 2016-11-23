@@ -41,7 +41,7 @@ namespace BibliotecaClasses.negocio
             }
         }
         
-        private static bool NSalvarSolicitacao(Solicitacao solicitacao)
+        private bool NSalvarSolicitacao(Solicitacao solicitacao)
         {
             if (solicitacao.Detalhe.Equals("") || solicitacao.Detalhe.Length == 0 || solicitacao.Detalhe == null)
             {
@@ -49,8 +49,43 @@ namespace BibliotecaClasses.negocio
             }
             return true;
         }
-        private static bool NAtualizarSolicitacao(Solicitacao solicitacao)
+        private bool NAtualizarSolicitacao(Solicitacao solicitacao)
         {
+            string sql, statusSolicitacao = null;
+
+            try { 
+                conexao.abrirConexao();
+
+                sql = "select top 1 statusSolicitacao from Stat where statusSolicitacao <> 'Atualizado' and idSolicitacao = " + solicitacao.IdSolicitacao;
+                sql += "order by idStatus desc";
+
+                SqlCommand comando = new SqlCommand(sql, conexao.sqlConn);
+                SqlDataReader DbReader = comando.ExecuteReader();
+                while (DbReader.Read())
+                {
+                    statusSolicitacao = DbReader.GetString(DbReader.GetOrdinal("statusSolicitacao"));
+                }
+                DbReader.Close();
+                comando.Dispose();
+                conexao.fecharConexao();
+            }
+            catch (Exception E)
+            {
+                throw new FaultException("Erro ao Listar statusSolicitacao no NSolicitacao \n\n" + E.Message);
+            }
+            if (statusSolicitacao.Equals("Cancelado"))
+            {
+                throw new FaultException("Não Pode "+ solicitacao.Status.StatusSolicitacao + " ! Solicitação Está Cancelado");
+            }
+            else if (statusSolicitacao.Equals("Em Cotação"))
+            {
+                throw new FaultException("Não Pode " + solicitacao.Status.StatusSolicitacao + " ! Solicitação Está Cotação");
+            }
+            else if (statusSolicitacao.Equals("Reprovado"))
+            {
+                throw new FaultException("Não Pode " + solicitacao.Status.StatusSolicitacao + " ! Solicitação Está Reprovado");
+            }
+
             return true;
         }
     }

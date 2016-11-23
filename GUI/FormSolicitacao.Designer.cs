@@ -310,9 +310,9 @@
             this.comboBoxAtualizarSolicitacao.FormattingEnabled = true;
             this.comboBoxAtualizarSolicitacao.Items.AddRange(new object[] {
             "Atualizar",
-            "Aprovar para Cotação",
             "Cancelar",
-            "Reprovar"});
+            "Reprovar Solicitação",
+            "Aprovar para Cotação"});
             this.comboBoxAtualizarSolicitacao.Location = new System.Drawing.Point(553, 258);
             this.comboBoxAtualizarSolicitacao.Name = "comboBoxAtualizarSolicitacao";
             this.comboBoxAtualizarSolicitacao.Size = new System.Drawing.Size(179, 21);

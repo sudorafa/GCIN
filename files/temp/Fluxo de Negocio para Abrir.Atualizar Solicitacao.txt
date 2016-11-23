@@ -1,0 +1,43 @@
+Quando Abre Solicitação:
+	solicitação.Detalhe: txtBoxDetalhe;
+	solicitação.Situação: "Aberta" ;
+	solicitação.Status.StatusSolicitação: "Abertura";
+	solicitação.Status.DetalheStatus: txtBoxDetalhe;
+
+Quando Atualizar Solicitação:
+	Se Atualizar:
+		solicitação.Detalhe: (não muda nunca após abertura);
+		solicitação.Situação: "Aberta"(não muda);
+		solicitação.Status.StatusSolicitação: "Atualizado";
+		solicitação.Status.DetalheStatus: txtBoxDetalhe;
+	Se Cancelar:
+		solicitação.Detalhe: (não muda nunca após abertura);
+		solicitação.Situação: "Finalizada";
+		solicitação.Status.StatusSolicitação: "Cancelado";
+		solicitação.Status.DetalheStatus: txtBoxDetalhe;
+	Se Aprovar para Cotação:
+		solicitação.Detalhe: (não muda nunca após abertura);
+		solicitação.Situação: "Aberta"(não muda);
+		solicitação.Status.StatusSolicitação: "Em Cotação";
+		solicitação.Status.DetalheStatus: txtBoxDetalhe;
+	Se Reprovar para Cotação:
+		solicitação.Detalhe: (não muda nunca após abertura);
+		solicitação.Situação: "Finalizada";
+		solicitação.Status.StatusSolicitação: "Reprovado";
+		solicitação.Status.DetalheStatus: txtBoxDetalhe;
+
+(Negocio irá select com top 1 no order by idStatus desc)
+
+	Se solicitação.Status.StatusSolicitação: "Abertura":
+		Pode: Atualizar, Cancelar, Aprovar, Reprovar
+			
+
+	Se solicitação.Status.StatusSolicitação: "Cancelado":
+	(no select colocar && solicitação.Status.StatusSolicitação != "Atualizado")
+		Pode: Atualizar;
+		
+	Se solicitação.Status.StatusSolicitação: "Em Cotação":
+		Pode: Atualizar;
+		
+	Se solicitação.Status.StatusSolicitação: "Finalizada":
+		Pode: Atualizar;

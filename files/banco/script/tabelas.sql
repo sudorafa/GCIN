@@ -35,7 +35,8 @@ CREATE TABLE Solicitacao(idSolicitacao integer identity(1000,1) PRIMARY KEY ,
 					 idProduto integer references Produto(idProduto)
 );
 
-CREATE TABLE Stat( detalheStatus varchar(50),
+CREATE TABLE Stat( idStatus integer identity(1000,1) PRIMARY KEY ,
+				   detalheStatus varchar(50),
 				   dataStatus date,
 				   statusSolicitacao varchar(50),				   
 				   idSolicitacao integer references Solicitacao(idSolicitacao),

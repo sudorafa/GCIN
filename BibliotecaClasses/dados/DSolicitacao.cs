@@ -40,7 +40,7 @@ namespace BibliotecaClasses.dados
                 comando.Parameters["@severidade"].Value = solicitacao.Severidade;
 
                 comando.Parameters.Add("@situacao", SqlDbType.VarChar);
-                comando.Parameters["@situacao"].Value = solicitacao.Situacao;
+                comando.Parameters["@situacao"].Value = "Aberta";
 
                 comando.Parameters.Add("@detalhe", SqlDbType.VarChar);
                 comando.Parameters["@detalhe"].Value = solicitacao.Detalhe;
@@ -182,6 +182,27 @@ namespace BibliotecaClasses.dados
         {
             try
             {
+                if (solicitacao.Status.StatusSolicitacao.Equals("Atualizar"))
+                {
+                    solicitacao.Situacao = "Aberta";
+                    solicitacao.Status.StatusSolicitacao = "Atualizado";
+                }
+                else if (solicitacao.Status.StatusSolicitacao.Equals("Cancelar"))
+                {
+                    solicitacao.Situacao = "Finalizada";
+                    solicitacao.Status.StatusSolicitacao = "Cancelado";
+                }
+                else if (solicitacao.Status.StatusSolicitacao.Equals("Reprovar Solicitação"))
+                {
+                    solicitacao.Situacao = "Finalizada";
+                    solicitacao.Status.StatusSolicitacao = "Reprovado";
+                }
+                else if (solicitacao.Status.StatusSolicitacao.Equals("Aprovar para Cotação"))
+                {
+                    solicitacao.Situacao = "Aberta";
+                    solicitacao.Status.StatusSolicitacao = "Em Cotação";
+                }
+
                 conexao.abrirConexao();
                 //Solicitação
                 string sql = "update Solicitacao set dataPrecisa = @dataPrecisa, dataPrevistaFim = @dataPrevistaFim, severidade = @severidade, situacao = @situacao where idSolicitacao = @idSolicitacao";

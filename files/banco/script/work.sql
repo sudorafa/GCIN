@@ -21,3 +21,24 @@ inner join Produto as p
 	on s.idProduto = p.idProduto
 where u.idUsuario = 1032 and st.statusSolicitacao = 'Aberto' order by s.idSolicitacao desc;
 	   
+
+select distinct s.idSolicitacao, s.dataSolicitacao, s.dataPrecisa, s.severidade, s.detalhe, s.dataPrevistaFim, s.situacao,
+p.descProduto, u.idUsuario, u.nome, pf.descPerfil From Solicitacao as s 
+inner join Produto as p
+	on s.idProduto = p.idProduto
+inner join Stat as st
+	on s.idSolicitacao = st.idSolicitacao
+inner join Usuario as u
+	on st.idUsuario = u.idUsuario
+inner join Perfil as pf
+	on u.idPerfil = pf.idPerfil
+where s.idSolicitacao = s.idSolicitacao and s.dataSolicitacao between '2016-11-23' and '2016-11-23' and st.statusSolicitacao = 'Abertura';
+
+select top 1 * from Stat where idSolicitacao = 1002 order by idStatus desc;
+
+select * from Stat;
+select * from Solicitacao;
+
+--select distinct s.idSolicitacao, s.dataSolicitacao, s.dataPrecisa, s.severidade, s.detalhe, s.dataPrevistaFim, s.situacao, p.descProduto, u.idUsuario, u.nome, pf.descPerfil From Solicitacao as s inner join Produto as p on s.idProduto = p.idProduto inner join Stat as st on s.idSolicitacao = st.idSolicitacao inner join Usuario as u on st.idUsuario = u.idUsuario inner join Perfil as pf on u.idPerfil = pf.idPerfil where s.idSolicitacao = s.idSolicitacao  and st.idUsuario = 1000 and s.dataSolicitacao between '2016-11-23' and '2016-11-23'
+
+alter table Stat add idStatus integer identity(1000,1) PRIMARY KEY;
