@@ -112,19 +112,23 @@ namespace GUI
             listProdutos = service1.ProdutoListar(produto).ToList();
             listTiposFornecimentos = service1.TipoFornecimentoListar().ToList();
 
-            comboBoxTipoFornecimento.Items.Clear();
-            foreach (var tf in listTiposFornecimentos)
+            try
             {
-                comboBoxTipoFornecimento.Items.Add(tf.DescTipoFornecimento.ToString());
-            }
+                comboBoxTipoFornecimento.Items.Clear();
+                foreach (var tf in listTiposFornecimentos)
+                {
+                    comboBoxTipoFornecimento.Items.Add(tf.DescTipoFornecimento.ToString());
+                }
 
-            //Fazer Pegar Tipo de fornecimento changeado da tela para passar para o produto dele
+                //Fazer Pegar Tipo de fornecimento changeado da tela para passar para o produto dele
 
-            comboBoxProduto.Items.Clear();
-            foreach (var prod in listProdutos)
-            {
-                comboBoxProduto.Items.Add(prod.DescProduto.ToString());
+                comboBoxProduto.Items.Clear();
+                foreach (var prod in listProdutos)
+                {
+                    comboBoxProduto.Items.Add(prod.DescProduto.ToString());
+                }
             }
+            catch (Exception) { }
         }
 
         private void CarregarSolicitacao(Solicitacao solicitacao)
