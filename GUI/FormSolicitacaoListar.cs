@@ -84,7 +84,7 @@ namespace GUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Ateção", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
 

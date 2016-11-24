@@ -58,6 +58,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.comboBoxAtualizarSolicitacao = new System.Windows.Forms.ComboBox();
             this.buttonNovo = new System.Windows.Forms.Button();
+            this.buttonXml = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
@@ -329,11 +330,23 @@
             this.buttonNovo.Visible = false;
             this.buttonNovo.Click += new System.EventHandler(this.buttonNovo_Click);
             // 
+            // buttonXml
+            // 
+            this.buttonXml.Location = new System.Drawing.Point(391, 380);
+            this.buttonXml.Name = "buttonXml";
+            this.buttonXml.Size = new System.Drawing.Size(75, 23);
+            this.buttonXml.TabIndex = 51;
+            this.buttonXml.Text = "Gerar XML";
+            this.buttonXml.UseVisualStyleBackColor = true;
+            this.buttonXml.Visible = false;
+            this.buttonXml.Click += new System.EventHandler(this.buttonXml_Click);
+            // 
             // FormSolicitacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(757, 430);
+            this.Controls.Add(this.buttonXml);
             this.Controls.Add(this.buttonNovo);
             this.Controls.Add(this.comboBoxAtualizarSolicitacao);
             this.Controls.Add(this.label14);
@@ -403,5 +416,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox comboBoxAtualizarSolicitacao;
         private System.Windows.Forms.Button buttonNovo;
+        private System.Windows.Forms.Button buttonXml;
     }
 }

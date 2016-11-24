@@ -109,6 +109,12 @@
   <wsdl:message name="IService1_SolicitacaoAlterar_OutputMessage">
     <wsdl:part name="parameters" element="tns:SolicitacaoAlterarResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_SolicitacaoGerarXml_InputMessage">
+    <wsdl:part name="parameters" element="tns:SolicitacaoGerarXml" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SolicitacaoGerarXml_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SolicitacaoGerarXmlResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="UsuarioCadastrar">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsuarioCadastrar" message="tns:IService1_UsuarioCadastrar_InputMessage" />
@@ -177,6 +183,10 @@
     <wsdl:operation name="SolicitacaoAlterar">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/SolicitacaoAlterar" message="tns:IService1_SolicitacaoAlterar_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/SolicitacaoAlterarResponse" message="tns:IService1_SolicitacaoAlterar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SolicitacaoGerarXml">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SolicitacaoGerarXml" message="tns:IService1_SolicitacaoGerarXml_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SolicitacaoGerarXmlResponse" message="tns:IService1_SolicitacaoGerarXml_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -327,6 +337,15 @@
     </wsdl:operation>
     <wsdl:operation name="SolicitacaoAlterar">
       <soap:operation soapAction="http://tempuri.org/IService1/SolicitacaoAlterar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SolicitacaoGerarXml">
+      <soap:operation soapAction="http://tempuri.org/IService1/SolicitacaoGerarXml" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

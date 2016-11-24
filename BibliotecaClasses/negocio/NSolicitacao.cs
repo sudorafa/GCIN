@@ -1,5 +1,6 @@
 ﻿using BibliotecaClasses.dados;
 using BibliotecaClasses.modelo;
+using BibliotecaClasses.xml;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -40,7 +41,12 @@ namespace BibliotecaClasses.negocio
                 return solicitacao;
             }
         }
-        
+
+        public void NGerarXmlSolicitacao(Solicitacao solicitacao)
+        {
+            new XSolicitacao().GerarXmlSolicitacao(solicitacao);
+        }
+
         private bool NSalvarSolicitacao(Solicitacao solicitacao)
         {
             if (solicitacao.Detalhe.Equals("") || solicitacao.Detalhe.Length == 0 || solicitacao.Detalhe == null)

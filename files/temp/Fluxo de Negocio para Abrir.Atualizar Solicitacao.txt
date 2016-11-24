@@ -31,7 +31,6 @@ Quando Atualizar Solicitação:
 	Se solicitação.Status.StatusSolicitação: "Abertura":
 		Pode: Atualizar, Cancelar, Aprovar, Reprovar
 			
-
 	Se solicitação.Status.StatusSolicitação: "Cancelado":
 	(no select colocar && solicitação.Status.StatusSolicitação != "Atualizado")
 		Pode: Atualizar;
@@ -39,5 +38,11 @@ Quando Atualizar Solicitação:
 	Se solicitação.Status.StatusSolicitação: "Em Cotação":
 		Pode: Atualizar;
 		
-	Se solicitação.Status.StatusSolicitação: "Finalizada":
+	Se solicitação.Status.StatusSolicitação: "Reprovado":
 		Pode: Atualizar;
+		
+		
+Atualizar
+Cancelar
+Reprovar Solicitação
+Aprovar para Cotação

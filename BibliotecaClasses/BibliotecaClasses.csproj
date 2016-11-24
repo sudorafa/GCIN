@@ -68,6 +68,7 @@
     <Compile Include="negocio\NProduto.cs" />
     <Compile Include="negocio\NUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="xml\XSolicitacao.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

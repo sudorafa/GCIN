@@ -63,6 +63,8 @@ namespace GUI.localhost {
         
         private System.Threading.SendOrPostCallback SolicitacaoAlterarOperationCompleted;
         
+        private System.Threading.SendOrPostCallback SolicitacaoGerarXmlOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -151,6 +153,9 @@ namespace GUI.localhost {
         
         /// <remarks/>
         public event SolicitacaoAlterarCompletedEventHandler SolicitacaoAlterarCompleted;
+        
+        /// <remarks/>
+        public event SolicitacaoGerarXmlCompletedEventHandler SolicitacaoGerarXmlCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/UsuarioCadastrar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -644,6 +649,34 @@ namespace GUI.localhost {
             if ((this.SolicitacaoAlterarCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.SolicitacaoAlterarCompleted(this, new SolicitacaoAlterarCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/SolicitacaoGerarXml", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void SolicitacaoGerarXml([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Solicitacao solicitacao) {
+            this.Invoke("SolicitacaoGerarXml", new object[] {
+                        solicitacao});
+        }
+        
+        /// <remarks/>
+        public void SolicitacaoGerarXmlAsync(Solicitacao solicitacao) {
+            this.SolicitacaoGerarXmlAsync(solicitacao, null);
+        }
+        
+        /// <remarks/>
+        public void SolicitacaoGerarXmlAsync(Solicitacao solicitacao, object userState) {
+            if ((this.SolicitacaoGerarXmlOperationCompleted == null)) {
+                this.SolicitacaoGerarXmlOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSolicitacaoGerarXmlOperationCompleted);
+            }
+            this.InvokeAsync("SolicitacaoGerarXml", new object[] {
+                        solicitacao}, this.SolicitacaoGerarXmlOperationCompleted, userState);
+        }
+        
+        private void OnSolicitacaoGerarXmlOperationCompleted(object arg) {
+            if ((this.SolicitacaoGerarXmlCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SolicitacaoGerarXmlCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1662,6 +1695,10 @@ namespace GUI.localhost {
             }
         }
     }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    public delegate void SolicitacaoGerarXmlCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
 }
 
 #pragma warning restore 1591

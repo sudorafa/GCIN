@@ -1,0 +1,17 @@
+<GCIN>
+  <solicitacao>
+    <id>1008</id>
+    <usuario>
+      <nome>Rafael Eduardo Lima</nome>
+      <perfil>Admin</perfil>
+    </usuario>
+    <data>
+      <dataAbertura>2016-11-24</dataAbertura>
+      <dataDesejada>2016-11-24</dataDesejada>
+      <dataPrevista>2016-11-24</dataPrevista>
+    </data>
+    <produto>Mouse</produto>
+    <severidade>Normal</severidade>
+    <status>Aberta</status>
+  </solicitacao>
+</GCIN>

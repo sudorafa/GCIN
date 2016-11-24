@@ -217,4 +217,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="SolicitacaoGerarXml">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="solicitacao" nillable="true" type="q23:Solicitacao" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SolicitacaoGerarXmlResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

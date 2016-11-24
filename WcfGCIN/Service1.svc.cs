@@ -98,5 +98,9 @@ namespace WcfGCIN
         {
             return new NSolicitacao().NAlterarSolicitacao(solicitacao);
         }
+        public void SolicitacaoGerarXml(Solicitacao solicitacao)
+        {
+            new NSolicitacao().NGerarXmlSolicitacao(solicitacao);
+        }
     }
 }

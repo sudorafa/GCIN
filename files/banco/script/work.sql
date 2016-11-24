@@ -34,10 +34,10 @@ inner join Perfil as pf
 	on u.idPerfil = pf.idPerfil
 where s.idSolicitacao = s.idSolicitacao and s.dataSolicitacao between '2016-11-23' and '2016-11-23' and st.statusSolicitacao = 'Abertura';
 
-select top 1 * from Stat where idSolicitacao = 1002 order by idStatus desc;
+select top 1 statusSolicitacao from Stat where statusSolicitacao <> 'Atualizado' and idSolicitacao = 1005 order by idStatus desc;
 
-select * from Stat;
-select * from Solicitacao;
+select * from Stat where idSolicitacao = 1005;
+select * from Solicitacao where idSolicitacao = 1005;
 
 --select distinct s.idSolicitacao, s.dataSolicitacao, s.dataPrecisa, s.severidade, s.detalhe, s.dataPrevistaFim, s.situacao, p.descProduto, u.idUsuario, u.nome, pf.descPerfil From Solicitacao as s inner join Produto as p on s.idProduto = p.idProduto inner join Stat as st on s.idSolicitacao = st.idSolicitacao inner join Usuario as u on st.idUsuario = u.idUsuario inner join Perfil as pf on u.idPerfil = pf.idPerfil where s.idSolicitacao = s.idSolicitacao  and st.idUsuario = 1000 and s.dataSolicitacao between '2016-11-23' and '2016-11-23'
 

@@ -59,7 +59,7 @@ namespace GUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao carregar dados do usuário na tela \n\n" + ex.Message);
+                MessageBox.Show("Erro ao carregar dados do usuário na tela \n\n" + ex.Message, "Ateção", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
 
@@ -96,6 +96,7 @@ namespace GUI
             textBoxId.Text = "";
             buttonSalvar.Text = "Salvar";
             buttonNovo.Visible = false;
+            buttonXml.Visible = false;
             comboBoxTipoFornecimento.Enabled = true;
             comboBoxProduto.Enabled = true;
             comboBoxSeveridade.Enabled = true;
@@ -129,18 +130,20 @@ namespace GUI
         private void CarregarSolicitacao(Solicitacao solicitacao)
         {
             List<Status> listSolicitacaoStatus = new List<Status>();
+            List<Solicitacao> listSolicitacao = new List<Solicitacao>();
+
             Solicitacao s = new Solicitacao();
             s.Status = new Status();
             s.Status.Usuario = new Usuario();
             s.IdSolicitacao = solicitacao.IdSolicitacao;
 
-            textBoxId.Text = solicitacao.IdSolicitacao + "";
-            textBoxStatus.Text = solicitacao.Status.StatusSolicitacao;
-
+            listSolicitacao = service1.SolicitacaoListar(s, "", "").ToList();
+            
             solicitacao.Status.Usuario = new Usuario();
-            foreach (Solicitacao solicitacaoStatus in service1.SolicitacaoListar(s, "", "").ToList())
+            foreach (Solicitacao solicitacaoStatus in listSolicitacao)
             {
                 listSolicitacaoStatus = solicitacaoStatus.ListStatus.ToList();
+                s = solicitacaoStatus;
             }
             comboBoxHistorico.Items.Clear();
             foreach (Status st in listSolicitacaoStatus)
@@ -148,6 +151,9 @@ namespace GUI
                 comboBoxHistorico.Items.Add(st.StatusSolicitacao + " - " + st.Usuario.Nome + " - " + st.DataStatus);
             }
             comboBoxHistorico.SelectedIndex = 0;
+
+            textBoxId.Text = solicitacao.IdSolicitacao + "";
+            textBoxStatus.Text = s.Situacao;
 
             comboBoxTipoFornecimento.Enabled = false;
             comboBoxProduto.Enabled = false;
@@ -160,6 +166,7 @@ namespace GUI
             dateTimePickerDataPrevistaCompra.Enabled = false;
             buttonSalvar.Text = "Atualizar";
             buttonNovo.Visible = true;
+            buttonXml.Visible = true;
         }
 
         private void SolicitacaoLista(Solicitacao solicitacao)
@@ -176,7 +183,7 @@ namespace GUI
             comboBoxProduto.Enabled = false;
             comboBoxSeveridade.Text = solicitacao.Severidade;
             comboBoxSeveridade.Enabled = false;
-            textBoxStatus.Text = solicitacao.Status.StatusSolicitacao;
+            textBoxStatus.Text = solicitacao.Situacao;
             
             comboBoxHistorico.Enabled = true;
             comboBoxHistorico.Items.Clear();
@@ -200,6 +207,7 @@ namespace GUI
             dateTimePickerDataPrevistaCompra.Enabled = false;
             buttonSalvar.Text = "Atualizar";
             buttonNovo.Visible = true;
+            buttonXml.Visible = true;
         }
 
         private void SalvarAlterarSolicitacao(string status)
@@ -262,19 +270,19 @@ namespace GUI
                     if (status.Equals("Abertura"))
                     {
                         s = new Service1().SolicitacaoCadastrar(solicitacao);
-                        MessageBox.Show("Solicitação Realizada Com Sucesso !");
+                        MessageBox.Show("Solicitação Realizada Com Sucesso !", "Ateção", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
                     else
                     {
                         s = new Service1().SolicitacaoAlterar(solicitacao);
-                        MessageBox.Show("Solicitação Atualizada Com Sucesso !");
+                        MessageBox.Show("Solicitação Atualizada Com Sucesso !", "Ateção", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
                     
                     CarregarSolicitacao(s);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message, "Ateção", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
             }
         }
@@ -314,6 +322,50 @@ namespace GUI
         private void buttonNovo_Click(object sender, EventArgs e)
         {
             CarregarSolicitacaoNova();
+        }
+
+        private void buttonXml_Click(object sender, EventArgs e)
+        {
+            int id;
+            String nome, perfil, dataAbertura, dataDesejada, dataPrevista, /*fornecimento,*/ produto, severidade, status;
+            
+            id =  Int32.Parse(textBoxId.Text);
+            nome = textBoxNome.Text;
+            perfil = textBoxPerfil.Text;
+            dataAbertura = dateTimePickerDataAbertura.Value.Date.ToString("yyyy-MM-dd");
+            dataDesejada = dateTimePickerDataDesejadaCompra.Value.Date.ToString("yyyy-MM-dd");
+            dataPrevista = dateTimePickerDataPrevistaCompra.Value.Date.ToString("yyyy-MM-dd");
+            //fornecimento = comboBoxTipoFornecimento.Text;
+            produto = comboBoxProduto.Text;
+            severidade = comboBoxSeveridade.Text;
+            status = textBoxStatus.Text;
+
+            Solicitacao solicitacao = new Solicitacao();
+            solicitacao.Produto = new Produto();
+            solicitacao.Status = new Status();
+            solicitacao.Status.Usuario = new Usuario();
+            solicitacao.Status.Usuario.Perfil = new Perfil();
+
+            solicitacao.IdSolicitacao = id;
+            solicitacao.Status.Usuario.Nome = nome;
+            solicitacao.Status.Usuario.Perfil.DescPerfil = perfil;
+            solicitacao.DataSolicitacao = dataAbertura;
+            solicitacao.DataPrecisa = dataPrevista;
+            solicitacao.DataPrevistaFim = dataPrevista;
+            //fornecimento
+            solicitacao.Produto.DescProduto = produto;
+            solicitacao.Severidade = severidade;
+            solicitacao.Situacao = status;
+
+            try
+            {
+                new Service1().SolicitacaoGerarXml(solicitacao);
+                MessageBox.Show("Xml Gerado Com Sucesso !", "Ateção", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ateção", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
         }
     }
 }

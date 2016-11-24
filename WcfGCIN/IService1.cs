@@ -65,5 +65,8 @@ namespace WcfGCIN
 
         [OperationContract]
         Solicitacao SolicitacaoAlterar(Solicitacao solicitacao);
+
+        [OperationContract]
+        void SolicitacaoGerarXml(Solicitacao solicitacao);
     }
 }
