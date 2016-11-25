@@ -12,8 +12,15 @@ namespace BibliotecaClasses.xml
 {
     public class XSolicitacao
     {
+        //Meu Note
         string caminho = "C:\\Users\\o Rafa\\Source\\Repos\\GCIN\\xml gerados\\solicitacao";
-        
+
+        //Unibratec
+        //string caminho = "C:\\Users\\PC-215\\Source\\Repos\\GCIN\\xml gerados\\solicitacao";
+
+        //Meu PC
+        //string caminho = "C:\\Users\\ORAFA-PC\\Source\\Repos\\GCIN\\xml gerados\\solicitacao";
+
         public void GerarXmlSolicitacao(Solicitacao solicitacao)
         {
             try
