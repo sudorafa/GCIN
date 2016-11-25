@@ -22,6 +22,7 @@ namespace GUI
             InitializeComponent();
             p = produto;
             this.novoProduto = new Produto();
+            novoProduto.ListaTipoFornecimento = new List<TipoFornecimento>().ToArray() ;
             ListarTipoFornecimento();
         }
 

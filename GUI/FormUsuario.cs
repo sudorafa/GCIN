@@ -104,7 +104,7 @@ namespace GUI
                 Usuario usuario = new Usuario();
                 usuario.Perfil = new Perfil();
 
-                usuario.Nome = buscar;
+                usuario.Nome = "%"+buscar+"%";
 
                 localhost.Service1 service1 = new localhost.Service1();
                 listUsuarios = service1.UsuarioListar(usuario).ToList();

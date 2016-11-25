@@ -99,7 +99,7 @@ namespace BibliotecaClasses.dados
                 }
                 if (produto.DescProduto != null && produto.DescProduto.Trim().Equals("") == false)
                 {
-                    sql += "and descProduto like %@descProduto%";
+                    sql += "and descProduto like @descProduto";
                 }
                 try
                 {

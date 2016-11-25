@@ -67,7 +67,7 @@ namespace BibliotecaClasses.dados
                 }
                 if (usuario.Nome != null && usuario.Nome.Trim().Equals("") == false)
                 {
-                    sql += "and u.nome like %@nome% ";
+                    sql += "and u.nome like @nome ";
                 }
                 if (usuario.Login != null && usuario.Login.Trim().Equals("") == false)
                 {

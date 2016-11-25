@@ -225,9 +225,15 @@ namespace GUI
                 detalheStatus = textBoxDetalhe.Text;
                 statusSolicitacao = status;
                 detalheSolicitacao = textBoxDetalhe.Text;
-                index = comboBoxProduto.SelectedIndex;
-                produtoEscolhido = listProdutos.ElementAt(index);
-                idProduto = produtoEscolhido.IdProduto;
+                try
+                {
+                    index = comboBoxProduto.SelectedIndex;
+                    produtoEscolhido = listProdutos.ElementAt(index);
+                    idProduto = produtoEscolhido.IdProduto;
+                }
+                catch (Exception Ex) {
+                    MessageBox.Show("Sem Produtos Cadastrados !\n\n"+ Ex.Message);
+                }
             }
             else
             {
