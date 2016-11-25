@@ -3,6 +3,7 @@ using BibliotecaClasses.modelo;
 using BibliotecaClasses.xml;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.ServiceModel;
@@ -62,10 +63,14 @@ namespace BibliotecaClasses.negocio
             try { 
                 conexao.abrirConexao();
 
-                sql = "select top 1 statusSolicitacao from Stat where statusSolicitacao <> 'Atualizado' and idSolicitacao = " + solicitacao.IdSolicitacao;
+                sql = "select top 1 statusSolicitacao from Stat where statusSolicitacao <> 'Atualizado' and idSolicitacao = @idSolicitacao ";
                 sql += "order by idStatus desc";
 
                 SqlCommand comando = new SqlCommand(sql, conexao.sqlConn);
+
+                comando.Parameters.Add("@idSolicitacao", SqlDbType.Int);
+                comando.Parameters["@idSolicitacao"].Value = solicitacao.IdSolicitacao;
+
                 SqlDataReader DbReader = comando.ExecuteReader();
                 while (DbReader.Read())
                 {

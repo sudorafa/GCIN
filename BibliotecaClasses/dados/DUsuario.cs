@@ -63,24 +63,46 @@ namespace BibliotecaClasses.dados
 
                 if (usuario.IdUsuario > 0)
                 {
-                    sql += "and u.idUsuario = " + usuario.IdUsuario;
+                    sql += "and u.idUsuario = @idUsuario" ;
                 }
                 if (usuario.Nome != null && usuario.Nome.Trim().Equals("") == false)
                 {
-                    sql += "and u.nome like '%" + usuario.Nome + "%'";
+                    sql += "and u.nome like %@nome% ";
                 }
                 if (usuario.Login != null && usuario.Login.Trim().Equals("") == false)
                 {
-                    sql += "and u.usuario = '" + usuario.Login + "'";
+                    sql += "and u.usuario = @usuario ";
                 }
                 if (usuario.Senha != null && usuario.Senha.Trim().Equals("") == false)
                 {
-                    sql += "and u.senha = '" + usuario.Senha + "'";
+                    sql += "and u.senha = @senha ";
                 }
 
                 try
                 {
                     SqlCommand comando = new SqlCommand(sql, conexao.sqlConn);
+
+                    if (usuario.IdUsuario > 0)
+                    {
+                        comando.Parameters.Add("@idUsuario", SqlDbType.Int);
+                        comando.Parameters["@idUsuario"].Value = usuario.IdUsuario;
+                    }
+                    if (usuario.Nome != null && usuario.Nome.Trim().Equals("") == false)
+                    {
+                        comando.Parameters.Add("@nome", SqlDbType.VarChar);
+                        comando.Parameters["@nome"].Value = usuario.Nome;
+                    }
+                    if (usuario.Login != null && usuario.Login.Trim().Equals("") == false)
+                    {
+                        comando.Parameters.Add("@usuario", SqlDbType.VarChar);
+                        comando.Parameters["@usuario"].Value = usuario.Login;
+                    }
+                    if (usuario.Senha != null && usuario.Senha.Trim().Equals("") == false)
+                    {
+                        comando.Parameters.Add("@senha", SqlDbType.VarChar);
+                        comando.Parameters["@senha"].Value = usuario.Senha;
+                    }
+
                     SqlDataReader DbReader = comando.ExecuteReader();
 
                     while (DbReader.Read())

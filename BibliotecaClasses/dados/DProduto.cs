@@ -95,15 +95,27 @@ namespace BibliotecaClasses.dados
                 string sql = "select idProduto, descProduto from Produto where idProduto = idProduto ";
                 if (produto.IdProduto > 0)
                 {
-                    sql += "and idProduto = " + produto.IdProduto;
+                    sql += "and idProduto = @idProduto ";
                 }
                 if (produto.DescProduto != null && produto.DescProduto.Trim().Equals("") == false)
                 {
-                    sql += "and descProduto like '%" + produto.DescProduto+ "%'";
+                    sql += "and descProduto like %@descProduto%";
                 }
                 try
                 {
                     SqlCommand comando = new SqlCommand(sql, conexao.sqlConn);
+
+                    if (produto.IdProduto > 0)
+                    {
+                        comando.Parameters.Add("@idProduto", SqlDbType.Int);
+                        comando.Parameters["@idProduto"].Value = produto.IdProduto;
+                    }
+                    if (produto.DescProduto != null && produto.DescProduto.Trim().Equals("") == false)
+                    {
+                        comando.Parameters.Add("@descProduto", SqlDbType.VarChar);
+                        comando.Parameters["@descProduto"].Value = produto.DescProduto;
+                    }
+
                     SqlDataReader DbReader = comando.ExecuteReader();
 
                     while (DbReader.Read())

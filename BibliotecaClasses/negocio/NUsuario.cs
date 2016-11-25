@@ -2,6 +2,7 @@
 using BibliotecaClasses.modelo;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.ServiceModel;
@@ -12,7 +13,7 @@ namespace BibliotecaClasses.negocio
 {
     public class NUsuario
     {
-
+        ConexaoBanco conexao = new ConexaoBanco();
         public void NCadastrarUsuario(Usuario usuario)
         {
             if (NSalvarUsuario(usuario) == true && NCpfBanco(usuario) == true && NLoginBanco(usuario) == true)
@@ -103,23 +104,37 @@ namespace BibliotecaClasses.negocio
             return true;
         }
 
-        private static bool NCpfBanco(Usuario usuario)
+        private bool NCpfBanco(Usuario usuario)
         {
-            ConexaoBanco conexao = new ConexaoBanco();
             conexao.abrirConexao();
             string cpfAqui = "";
             string sql = "select cpf from Usuario where cpf = cpf ";
 
             if (usuario.IdUsuario > 0)
             {
-                sql += "and idUsuario <> " + usuario.IdUsuario + " and cpf = '" + usuario.Cpf + "'";
+                sql += "and idUsuario <> @idUsuario and cpf = @cpf ";
             }
             else
             {
-                sql += "and cpf = '" + usuario.Cpf + "'";
+                sql += "and cpf = @cpf ";
             }
             
             SqlCommand comando = new SqlCommand(sql, conexao.sqlConn);
+
+            if (usuario.IdUsuario > 0)
+            {
+                comando.Parameters.Add("@idUsuario", SqlDbType.Int);
+                comando.Parameters["@idUsuario"].Value = usuario.IdUsuario;
+
+                comando.Parameters.Add("@cpf", SqlDbType.VarChar);
+                comando.Parameters["@cpf"].Value = usuario.Cpf;
+            }
+            else
+            {
+                comando.Parameters.Add("@cpf", SqlDbType.VarChar);
+                comando.Parameters["@cpf"].Value = usuario.Cpf;
+            }
+
             SqlDataReader DbReader = comando.ExecuteReader();
 
             while (DbReader.Read())
@@ -137,22 +152,39 @@ namespace BibliotecaClasses.negocio
             return true;
         }
 
-        private static bool NLoginBanco(Usuario usuario)
+        private bool NLoginBanco(Usuario usuario)
         {
-            ConexaoBanco conexao = new ConexaoBanco();
             conexao.abrirConexao();
             string usuarioAqui = "";
             string sql = "select usuario from Usuario where usuario = usuario ";
+
             if (usuario.IdUsuario > 0)
             {
-                sql += "and idUsuario <> " + usuario.IdUsuario + " and usuario = '" + usuario.Login + "'";
+                //sql += "and idUsuario <> " + usuario.IdUsuario + " and usuario = '" + usuario.Login + "'";
+                sql += "and idUsuario <> @idUsuario and usuario = @login ";
             }
             else
             {
-                sql += "and usuario = '" + usuario.Login + "'";
+                //sql += "and usuario = '" + usuario.Login + "'";
+                sql += "and usuario = @login ";
             }
 
             SqlCommand comando = new SqlCommand(sql, conexao.sqlConn);
+
+            if (usuario.IdUsuario > 0)
+            {
+                comando.Parameters.Add("@idUsuario", SqlDbType.Int);
+                comando.Parameters["@idUsuario"].Value = usuario.IdUsuario;
+
+                comando.Parameters.Add("@login", SqlDbType.VarChar);
+                comando.Parameters["@login"].Value = usuario.Login;
+            }
+            else
+            {
+                comando.Parameters.Add("@login", SqlDbType.VarChar);
+                comando.Parameters["@login"].Value = usuario.Login;
+            }
+
             SqlDataReader DbReader = comando.ExecuteReader();
 
             while (DbReader.Read())

@@ -203,9 +203,6 @@
     <None Include="Web References\localhost\Service11.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Web References\localhost\Service12.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Web References\localhost\Solicitacao.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>

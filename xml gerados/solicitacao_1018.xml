@@ -1,0 +1,17 @@
+<GCIN>
+  <solicitacao>
+    <id>1018</id>
+    <usuario>
+      <nome>Rafael Eduardo Lima</nome>
+      <perfil>Admin</perfil>
+    </usuario>
+    <data>
+      <dataAbertura>2016-11-25</dataAbertura>
+      <dataDesejada>2016-11-25</dataDesejada>
+      <dataPrevista>2016-11-25</dataPrevista>
+    </data>
+    <produto>Luz</produto>
+    <severidade>Prioritário</severidade>
+    <status>Aberta</status>
+  </solicitacao>
+</GCIN>

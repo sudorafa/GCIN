@@ -102,25 +102,25 @@ namespace BibliotecaClasses.dados
 
                 if (solicitacao.IdSolicitacao > 0)
                 {
-                    sql += "and s.idSolicitacao = " + solicitacao.IdSolicitacao;
+                    sql += "and s.idSolicitacao = @idSolicitacao ";
                     sql2 = "select st.detalheStatus, st.statusSolicitacao, st.dataStatus, u.idUsuario, u.nome from Stat as st ";
                     sql2 += "inner join Usuario as u on st.idUsuario = u.idUsuario ";
-                    sql2 += "where idSolicitacao = " + solicitacao.IdSolicitacao;
+                    sql2 += "where idSolicitacao = @idSolicitacao2 ";
                 }
                 
                 if (solicitacao.Status.Usuario.IdUsuario > 0)
                 {
-                    sql += " and st.idUsuario = " + solicitacao.Status.Usuario.IdUsuario;
+                    sql += " and st.idUsuario = @idUsuario ";
                 }
 
                 if (dataInicial != null && dataInicial.Trim().Equals("") == false)
                 {
-                    sql += " and s.dataSolicitacao between '" + dataInicial + "' and '" + dataFinal + "'";
+                    sql += " and s.dataSolicitacao between @dataInicial and @dataFinal ";
                 }   
 
                 if (solicitacao.Situacao != null && solicitacao.Situacao.Trim().Equals("") == false)
                 {
-                    sql += " and s.situacao = '" + solicitacao.Situacao + "'";
+                    sql += " and s.situacao = @situacao ";
                 }
 
                 if (solicitacao.IdSolicitacao > 0)
@@ -131,7 +131,37 @@ namespace BibliotecaClasses.dados
                 {
                     comando = new SqlCommand(sql, conexao.sqlConn);
                 }
-                    
+
+                if (solicitacao.IdSolicitacao > 0)
+                {
+                    comando.Parameters.Add("@idSolicitacao", SqlDbType.Int);
+                    comando.Parameters["@idSolicitacao"].Value = solicitacao.IdSolicitacao;
+
+                    comando.Parameters.Add("@idSolicitacao2", SqlDbType.Int);
+                    comando.Parameters["@idSolicitacao2"].Value = solicitacao.IdSolicitacao;
+                }
+
+                if (solicitacao.Status.Usuario.IdUsuario > 0)
+                {
+                    comando.Parameters.Add("@idUsuario", SqlDbType.Int);
+                    comando.Parameters["@idUsuario"].Value = solicitacao.Status.Usuario.IdUsuario;
+                }
+
+                if (dataInicial != null && dataInicial.Trim().Equals("") == false)
+                {
+                    comando.Parameters.Add("@dataInicial", SqlDbType.Date);
+                    comando.Parameters["@dataInicial"].Value = dataInicial;
+
+                    comando.Parameters.Add("@dataFinal", SqlDbType.Date);
+                    comando.Parameters["@dataFinal"].Value = dataFinal;
+                }
+
+                if (solicitacao.Situacao != null && solicitacao.Situacao.Trim().Equals("") == false)
+                {
+                    comando.Parameters.Add("@situacao", SqlDbType.VarChar);
+                    comando.Parameters["@situacao"].Value = solicitacao.Situacao;
+                }
+
                 SqlDataReader DbReader = comando.ExecuteReader();
 
                 while (DbReader.Read())
