@@ -13,7 +13,13 @@ namespace BibliotecaClasses.modelo
     {
         private int idProduto;
         private string dataCadastro, descProduto;
-        
+        private List<TipoFornecimento> listaTipoFornecimento;
+
+        public Produto()
+        {
+            this.ListaTipoFornecimento = new List<TipoFornecimento>();
+        }
+
         [DataMember(IsRequired = true)]
         public int IdProduto
         {
@@ -55,6 +61,19 @@ namespace BibliotecaClasses.modelo
                 descProduto = value;
             }
         }
-        
+
+        [DataMember(IsRequired = true)]
+        public List<TipoFornecimento> ListaTipoFornecimento
+        {
+            get
+            {
+                return listaTipoFornecimento;
+            }
+
+            set
+            {
+                listaTipoFornecimento = value;
+            }
+        }
     }
 }

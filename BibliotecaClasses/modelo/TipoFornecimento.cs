@@ -13,15 +13,7 @@ namespace BibliotecaClasses.modelo
     {
         private int idTipoFornecimento;
         private string descTipoFornecimento;
-        private Fornecedor fornecedor;
-        private Produto produto;
-
-        public TipoFornecimento()
-        {
-            this.Fornecedor = new Fornecedor();
-            this.Produto = new Produto();
-        }
-
+        
         [DataMember(IsRequired = true)]
         public int IdTipoFornecimento
         {
@@ -47,34 +39,6 @@ namespace BibliotecaClasses.modelo
             set
             {
                 descTipoFornecimento = value;
-            }
-        }
-
-        [DataMember(IsRequired = true)]
-        public Fornecedor Fornecedor
-        {
-            get
-            {
-                return fornecedor;
-            }
-
-            set
-            {
-                fornecedor = value;
-            }
-        }
-
-        [DataMember(IsRequired = true)]
-        public Produto Produto
-        {
-            get
-            {
-                return produto;
-            }
-
-            set
-            {
-                produto = value;
             }
         }
     }

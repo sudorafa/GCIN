@@ -38,13 +38,13 @@ namespace BibliotecaClasses.dados
             }
         }
 
-        public void DCadastrarProduto(Produto produto)
+        public Produto DCadastrarProduto(Produto produto)
         {
             try
             {
                 conexao.abrirConexao();
                 string sql = "insert into Produto";
-                sql += "(descProduto) values";
+                sql += "(descProduto) output Inserted.IdProduto values";
                 sql += "(@descProduto)";
 
                 SqlCommand comando = new SqlCommand(sql, conexao.sqlConn);
@@ -52,13 +52,17 @@ namespace BibliotecaClasses.dados
                 comando.Parameters.Add("@descProduto", SqlDbType.VarChar);
                 comando.Parameters["@descProduto"].Value = produto.DescProduto;
 
-                comando.ExecuteNonQuery();
+                //comando.ExecuteNonQuery();
+
+                produto.IdProduto = (int)comando.ExecuteScalar();
+
                 conexao.fecharConexao();
             }
             catch (Exception E)
             {
                 throw new FaultException("Erro ao Cadastrar Produto \n\n" + E.Message);
             }
+            return produto;
         }
 
         public void DDeletarProduto(Produto produto)

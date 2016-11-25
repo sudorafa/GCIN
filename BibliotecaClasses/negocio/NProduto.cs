@@ -10,7 +10,7 @@ namespace BibliotecaClasses.negocio
 {
     public class NProduto
     {
-        public void NCadastrarAlterarProduto(Produto produto)
+        public Produto NCadastrarAlterarProduto(Produto produto)
         {
             if (produto.IdProduto == 0)
             {
@@ -20,7 +20,7 @@ namespace BibliotecaClasses.negocio
                 }
                 else
                 {
-                    new DProduto().DCadastrarProduto(produto);
+                    return new DProduto().DCadastrarProduto(produto);
                 }
             }
             else
@@ -34,6 +34,7 @@ namespace BibliotecaClasses.negocio
                     new DProduto().DAlterarProduto(produto);
                 }
             }
+            return produto;
         }
 
         public void NDeletarProduto(Produto produto)

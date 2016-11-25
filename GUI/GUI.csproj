@@ -62,6 +62,12 @@
     <Compile Include="FormFornecedorCadastrar.Designer.cs">
       <DependentUpon>FormFornecedorCadastrar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormFornecimentosNoProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFornecimentosNoProduto.Designer.cs">
+      <DependentUpon>FormFornecimentosNoProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormFornecimentoTipo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     <EmbeddedResource Include="FormFornecedorCadastrar.resx">
       <DependentUpon>FormFornecedorCadastrar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormFornecimentosNoProduto.resx">
+      <DependentUpon>FormFornecimentosNoProduto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormFornecimentoTipo.resx">
       <DependentUpon>FormFornecimentoTipo.cs</DependentUpon>
     </EmbeddedResource>
@@ -192,6 +201,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Web References\localhost\Service11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\localhost\Service12.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Web References\localhost\Solicitacao.datasource">

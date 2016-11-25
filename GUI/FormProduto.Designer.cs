@@ -37,22 +37,21 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.listViewProduto = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBoxEspecialidades = new System.Windows.Forms.TextBox();
             this.textBoxBuscar = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.buttonVai = new System.Windows.Forms.Button();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.labelProduto = new System.Windows.Forms.Label();
+            this.buttonFornecimento = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonDeletar
             // 
-            this.buttonDeletar.Location = new System.Drawing.Point(174, 384);
+            this.buttonDeletar.Location = new System.Drawing.Point(174, 353);
             this.buttonDeletar.Name = "buttonDeletar";
             this.buttonDeletar.Size = new System.Drawing.Size(75, 23);
             this.buttonDeletar.TabIndex = 3;
@@ -62,7 +61,7 @@
             // 
             // buttonSalvar
             // 
-            this.buttonSalvar.Location = new System.Drawing.Point(255, 384);
+            this.buttonSalvar.Location = new System.Drawing.Point(255, 353);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(75, 23);
             this.buttonSalvar.TabIndex = 4;
@@ -72,7 +71,7 @@
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(336, 384);
+            this.buttonCancelar.Location = new System.Drawing.Point(336, 353);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
             this.buttonCancelar.TabIndex = 5;
@@ -136,6 +135,15 @@
             this.listViewProduto.View = System.Windows.Forms.View.Details;
             this.listViewProduto.SelectedIndexChanged += new System.EventHandler(this.listViewProduto_SelectedIndexChanged);
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ID";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Descrição";
+            this.columnHeader2.Width = 240;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -163,22 +171,6 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(160, 20);
             this.dateTimePicker1.TabIndex = 49;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(21, 354);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 13);
-            this.label6.TabIndex = 50;
-            this.label6.Text = "Especialidades";
-            // 
-            // textBoxEspecialidades
-            // 
-            this.textBoxEspecialidades.Location = new System.Drawing.Point(103, 351);
-            this.textBoxEspecialidades.Name = "textBoxEspecialidades";
-            this.textBoxEspecialidades.Size = new System.Drawing.Size(308, 20);
-            this.textBoxEspecialidades.TabIndex = 2;
-            // 
             // textBoxBuscar
             // 
             this.textBoxBuscar.Location = new System.Drawing.Point(103, 52);
@@ -205,15 +197,6 @@
             this.buttonVai.UseVisualStyleBackColor = true;
             this.buttonVai.Click += new System.EventHandler(this.buttonVai_Click);
             // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "ID";
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Descrição";
-            this.columnHeader2.Width = 240;
-            // 
             // labelProduto
             // 
             this.labelProduto.AutoSize = true;
@@ -224,17 +207,27 @@
             this.labelProduto.Text = "label8";
             this.labelProduto.Visible = false;
             // 
+            // buttonFornecimento
+            // 
+            this.buttonFornecimento.Location = new System.Drawing.Point(44, 353);
+            this.buttonFornecimento.Name = "buttonFornecimento";
+            this.buttonFornecimento.Size = new System.Drawing.Size(124, 23);
+            this.buttonFornecimento.TabIndex = 55;
+            this.buttonFornecimento.Text = "Tipo de Fornecimento";
+            this.buttonFornecimento.UseVisualStyleBackColor = true;
+            this.buttonFornecimento.Visible = false;
+            this.buttonFornecimento.Click += new System.EventHandler(this.buttonFornecimento_Click);
+            // 
             // FormProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(455, 422);
+            this.ClientSize = new System.Drawing.Size(455, 389);
+            this.Controls.Add(this.buttonFornecimento);
             this.Controls.Add(this.labelProduto);
             this.Controls.Add(this.buttonVai);
             this.Controls.Add(this.textBoxBuscar);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBoxEspecialidades);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.buttonDeletar);
@@ -268,13 +261,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBoxEspecialidades;
         private System.Windows.Forms.TextBox textBoxBuscar;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button buttonVai;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.Label labelProduto;
+        private System.Windows.Forms.Button buttonFornecimento;
     }
 }

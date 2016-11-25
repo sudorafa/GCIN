@@ -24,9 +24,10 @@ namespace GUI
             textBoxBuscar.Text = "";
             textBoxId.Text = "";
             textBoxDescricao.Text = "";
-            textBoxEspecialidades.Text = "";
             listViewProduto.Items.Clear();
+            labelProduto.Visible = false;
             textBoxBuscar.Focus();
+            buttonFornecimento.Visible = false;
         }
 
         private void buttonVai_Click(object sender, EventArgs e)
@@ -57,6 +58,7 @@ namespace GUI
         private void listViewProduto_SelectedIndexChanged(object sender, EventArgs e)
         {
             labelProduto.Visible = true;
+            buttonFornecimento.Visible = true;
             Produto produtoSelecionado;
             int index = listViewProduto.FocusedItem.Index;
             produtoSelecionado = listprodutos.ElementAt(index);
@@ -70,18 +72,18 @@ namespace GUI
 
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
-            string buscar, id, descricao, especialidades;
+            string buscar, id, descricao;
             buscar = textBoxBuscar.Text;
             id = textBoxId.Text;
             descricao = textBoxDescricao.Text;
-            especialidades = textBoxEspecialidades.Text;
-            if (buscar.Equals("") && id.Equals("") && descricao.Equals("") && especialidades.Equals(""))
+            if (buscar.Equals("") && id.Equals("") && descricao.Equals(""))
             {
                 this.Dispose();
             }
             else
             {
                 LimparTela();
+                buttonFornecimento.Visible = false;
             }
         }
 
@@ -109,10 +111,11 @@ namespace GUI
 
                 try
                 {
-                    localhost.Service1 service1 = new localhost.Service1();
-                    service1.ProdutoCadastrarAlterar(produto);
+                    Service1 service1 = new Service1();
+                    produto = service1.ProdutoCadastrarAlterar(produto);
                     MessageBox.Show("Produto Salvo com Sucesso !", "Ateção", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    LimparTela();
+                    buttonFornecimento.Visible = true;
+                    textBoxId.Text = produto.IdProduto + "";
                 }
                 catch (Exception ex)
                 {
@@ -154,6 +157,14 @@ namespace GUI
             {
                 MessageBox.Show("Escolha um Produto da Lista Para Deletar !", "Ateção", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
+        }
+
+        private void buttonFornecimento_Click(object sender, EventArgs e)
+        {
+            Produto produto = new Produto();
+            produto.IdProduto = Int32.Parse(textBoxId.Text);
+            produto.DescProduto = textBoxDescricao.Text;
+            new FormFornecimentosNoProduto(produto).Show();
         }
     }
 }

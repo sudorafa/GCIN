@@ -418,9 +418,11 @@ namespace GUI.localhost {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IService1/ProdutoCadastrarAlterar", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void ProdutoCadastrarAlterar([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Produto produto) {
-            this.Invoke("ProdutoCadastrarAlterar", new object[] {
+        [return: System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public Produto ProdutoCadastrarAlterar([System.Xml.Serialization.XmlElementAttribute(IsNullable=true)] Produto produto) {
+            object[] results = this.Invoke("ProdutoCadastrarAlterar", new object[] {
                         produto});
+            return ((Produto)(results[0]));
         }
         
         /// <remarks/>
@@ -440,7 +442,7 @@ namespace GUI.localhost {
         private void OnProdutoCadastrarAlterarOperationCompleted(object arg) {
             if ((this.ProdutoCadastrarAlterarCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.ProdutoCadastrarAlterarCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.ProdutoCadastrarAlterarCompleted(this, new ProdutoCadastrarAlterarCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1066,6 +1068,8 @@ namespace GUI.localhost {
         
         private int idProdutoField;
         
+        private TipoFornecimento[] listaTipoFornecimentoField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public string DataCadastro {
@@ -1095,6 +1099,51 @@ namespace GUI.localhost {
             }
             set {
                 this.idProdutoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
+        public TipoFornecimento[] ListaTipoFornecimento {
+            get {
+                return this.listaTipoFornecimentoField;
+            }
+            set {
+                this.listaTipoFornecimentoField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo")]
+    public partial class TipoFornecimento {
+        
+        private string descTipoFornecimentoField;
+        
+        private int idTipoFornecimentoField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string DescTipoFornecimento {
+            get {
+                return this.descTipoFornecimentoField;
+            }
+            set {
+                this.descTipoFornecimentoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int IdTipoFornecimento {
+            get {
+                return this.idTipoFornecimentoField;
+            }
+            set {
+                this.idTipoFornecimentoField = value;
             }
         }
     }
@@ -1264,217 +1313,6 @@ namespace GUI.localhost {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo")]
-    public partial class Fornecedor {
-        
-        private string bairroField;
-        
-        private string bloqueioField;
-        
-        private string cepField;
-        
-        private string cidadeField;
-        
-        private string emailField;
-        
-        private string enderecoField;
-        
-        private int idFornecedorField;
-        
-        private string nomeFornecedorField;
-        
-        private string telefoneField;
-        
-        private TipoFornecimento[] tiposFornecimentosField;
-        
-        private string ufField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string Bairro {
-            get {
-                return this.bairroField;
-            }
-            set {
-                this.bairroField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string Bloqueio {
-            get {
-                return this.bloqueioField;
-            }
-            set {
-                this.bloqueioField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string Cep {
-            get {
-                return this.cepField;
-            }
-            set {
-                this.cepField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string Cidade {
-            get {
-                return this.cidadeField;
-            }
-            set {
-                this.cidadeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string Email {
-            get {
-                return this.emailField;
-            }
-            set {
-                this.emailField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string Endereco {
-            get {
-                return this.enderecoField;
-            }
-            set {
-                this.enderecoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int IdFornecedor {
-            get {
-                return this.idFornecedorField;
-            }
-            set {
-                this.idFornecedorField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string NomeFornecedor {
-            get {
-                return this.nomeFornecedorField;
-            }
-            set {
-                this.nomeFornecedorField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string Telefone {
-            get {
-                return this.telefoneField;
-            }
-            set {
-                this.telefoneField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(IsNullable=true)]
-        public TipoFornecimento[] TiposFornecimentos {
-            get {
-                return this.tiposFornecimentosField;
-            }
-            set {
-                this.tiposFornecimentosField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string Uf {
-            get {
-                return this.ufField;
-            }
-            set {
-                this.ufField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1586.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo")]
-    public partial class TipoFornecimento {
-        
-        private string descTipoFornecimentoField;
-        
-        private Fornecedor fornecedorField;
-        
-        private int idTipoFornecimentoField;
-        
-        private Produto produtoField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public string DescTipoFornecimento {
-            get {
-                return this.descTipoFornecimentoField;
-            }
-            set {
-                this.descTipoFornecimentoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public Fornecedor Fornecedor {
-            get {
-                return this.fornecedorField;
-            }
-            set {
-                this.fornecedorField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int IdTipoFornecimento {
-            get {
-                return this.idTipoFornecimentoField;
-            }
-            set {
-                this.idTipoFornecimentoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public Produto Produto {
-            get {
-                return this.produtoField;
-            }
-            set {
-                this.produtoField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
     public delegate void UsuarioCadastrarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
     
@@ -1578,7 +1416,29 @@ namespace GUI.localhost {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
-    public delegate void ProdutoCadastrarAlterarCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+    public delegate void ProdutoCadastrarAlterarCompletedEventHandler(object sender, ProdutoCadastrarAlterarCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ProdutoCadastrarAlterarCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ProdutoCadastrarAlterarCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Produto Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Produto)(this.results[0]));
+            }
+        }
+    }
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1586.0")]

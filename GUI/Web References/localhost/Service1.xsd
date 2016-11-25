@@ -1,232 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:64214/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" />
-  <xs:element name="UsuarioCadastrar">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="usuario" nillable="true" type="q1:Usuario" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UsuarioCadastrarResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UsuarioListar">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="usuario" nillable="true" type="q2:Usuario" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UsuarioListarResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="UsuarioListarResult" nillable="true" type="q3:ArrayOfUsuario" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UsuarioAlterar">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="usuario" nillable="true" type="q4:Usuario" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UsuarioAlterarResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UsuarioDeletar">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="usuario" nillable="true" type="q5:Usuario" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UsuarioDeletarResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UsuarioLogin">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="usuario" nillable="true" type="q6:Usuario" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="UsuarioLoginResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="PerfilListar">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="PerfilListarResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="PerfilListarResult" nillable="true" type="q7:ArrayOfPerfil" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="PerfilCadastrarAlterar">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="perfil" nillable="true" type="q8:Perfil" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="PerfilCadastrarAlterarResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="PerfilDeletar">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="perfil" nillable="true" type="q9:Perfil" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="PerfilDeletarResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ProdutoListar">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="produto" nillable="true" type="q10:Produto" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ProdutoListarResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="ProdutoListarResult" nillable="true" type="q11:ArrayOfProduto" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ProdutoCadastrarAlterar">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="produto" nillable="true" type="q12:Produto" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ProdutoCadastrarAlterarResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ProdutoDeletar">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="produto" nillable="true" type="q13:Produto" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ProdutoDeletarResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="TipoFornecimentoListar">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="TipoFornecimentoListarResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="TipoFornecimentoListarResult" nillable="true" type="q14:ArrayOfTipoFornecimento" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="TipoFornecimentoCadastrarAlterar">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="tipoFornecimento" nillable="true" type="q15:TipoFornecimento" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="TipoFornecimentoCadastrarAlterarResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="TipoFornecimentoDeletar">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="tipoFornecimento" nillable="true" type="q16:TipoFornecimento" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="TipoFornecimentoDeletarResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SolicitacaoCadastrar">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="solicitacao" nillable="true" type="q17:Solicitacao" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SolicitacaoCadastrarResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="SolicitacaoCadastrarResult" nillable="true" type="q18:Solicitacao" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SolicitacaoListar">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="solicitacao" nillable="true" type="q19:Solicitacao" />
-        <xs:element minOccurs="0" name="dataInicial" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="dataFinal" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SolicitacaoListarResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="SolicitacaoListarResult" nillable="true" type="q20:ArrayOfSolicitacao" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SolicitacaoAlterar">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="solicitacao" nillable="true" type="q21:Solicitacao" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SolicitacaoAlterarResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="SolicitacaoAlterarResult" nillable="true" type="q22:Solicitacao" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SolicitacaoGerarXml">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" minOccurs="0" name="solicitacao" nillable="true" type="q23:Solicitacao" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SolicitacaoGerarXmlResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/BibliotecaClasses.modelo" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Usuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Bloqueio" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cpf" nillable="true" type="xs:string" />
+      <xs:element name="IdUsuario" type="xs:int" />
+      <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Perfil" nillable="true" type="tns:Perfil" />
+      <xs:element minOccurs="0" name="Senha" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Usuario" nillable="true" type="tns:Usuario" />
+  <xs:complexType name="Perfil">
+    <xs:sequence>
+      <xs:element name="DescPerfil" nillable="true" type="xs:string" />
+      <xs:element name="IdPerfil" type="xs:int" />
+      <xs:element name="Usuarios" nillable="true" type="tns:ArrayOfUsuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Perfil" nillable="true" type="tns:Perfil" />
+  <xs:complexType name="ArrayOfUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Usuario" nillable="true" type="tns:Usuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUsuario" nillable="true" type="tns:ArrayOfUsuario" />
+  <xs:complexType name="ArrayOfPerfil">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Perfil" nillable="true" type="tns:Perfil" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPerfil" nillable="true" type="tns:ArrayOfPerfil" />
+  <xs:complexType name="Produto">
+    <xs:sequence>
+      <xs:element name="DataCadastro" nillable="true" type="xs:string" />
+      <xs:element name="DescProduto" nillable="true" type="xs:string" />
+      <xs:element name="IdProduto" type="xs:int" />
+      <xs:element name="ListaTipoFornecimento" nillable="true" type="tns:ArrayOfTipoFornecimento" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Produto" nillable="true" type="tns:Produto" />
+  <xs:complexType name="ArrayOfTipoFornecimento">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TipoFornecimento" nillable="true" type="tns:TipoFornecimento" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTipoFornecimento" nillable="true" type="tns:ArrayOfTipoFornecimento" />
+  <xs:complexType name="TipoFornecimento">
+    <xs:sequence>
+      <xs:element name="DescTipoFornecimento" nillable="true" type="xs:string" />
+      <xs:element name="IdTipoFornecimento" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TipoFornecimento" nillable="true" type="tns:TipoFornecimento" />
+  <xs:complexType name="ArrayOfProduto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Produto" nillable="true" type="tns:Produto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProduto" nillable="true" type="tns:ArrayOfProduto" />
+  <xs:complexType name="Solicitacao">
+    <xs:sequence>
+      <xs:element name="CotacoesProdutosSolicitacoes" nillable="true" type="tns:ArrayOfCotacaoDoProduto" />
+      <xs:element name="DataPrecisa" nillable="true" type="xs:string" />
+      <xs:element name="DataPrevistaFim" nillable="true" type="xs:string" />
+      <xs:element name="DataSolicitacao" nillable="true" type="xs:string" />
+      <xs:element name="Detalhe" nillable="true" type="xs:string" />
+      <xs:element name="IdSolicitacao" type="xs:int" />
+      <xs:element name="ListStatus" nillable="true" type="tns:ArrayOfStatus" />
+      <xs:element name="Produto" nillable="true" type="tns:Produto" />
+      <xs:element name="Severidade" nillable="true" type="xs:string" />
+      <xs:element name="Situacao" nillable="true" type="xs:string" />
+      <xs:element name="Status" nillable="true" type="tns:Status" />
+      <xs:element name="Usuarios" nillable="true" type="tns:ArrayOfUsuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Solicitacao" nillable="true" type="tns:Solicitacao" />
+  <xs:complexType name="ArrayOfCotacaoDoProduto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CotacaoDoProduto" nillable="true" type="tns:CotacaoDoProduto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCotacaoDoProduto" nillable="true" type="tns:ArrayOfCotacaoDoProduto" />
+  <xs:complexType name="CotacaoDoProduto">
+    <xs:sequence>
+      <xs:element name="Cotacao" nillable="true" type="tns:Cotacao" />
+      <xs:element name="Produto" nillable="true" type="tns:Produto" />
+      <xs:element name="Solicitacao" nillable="true" type="tns:Solicitacao" />
+      <xs:element name="ValorCotado" type="xs:double" />
+      <xs:element name="Venceu" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CotacaoDoProduto" nillable="true" type="tns:CotacaoDoProduto" />
+  <xs:complexType name="Cotacao">
+    <xs:sequence>
+      <xs:element name="CotacaoProdutoSolicitacao" nillable="true" type="tns:ArrayOfCotacaoDoProduto" />
+      <xs:element name="DataCotacao" nillable="true" type="xs:string" />
+      <xs:element name="DataValidadeCotacao" nillable="true" type="xs:string" />
+      <xs:element name="IdCotacao" type="xs:int" />
+      <xs:element name="StatusCotacao" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Cotacao" nillable="true" type="tns:Cotacao" />
+  <xs:complexType name="ArrayOfStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Status" nillable="true" type="tns:Status" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStatus" nillable="true" type="tns:ArrayOfStatus" />
+  <xs:complexType name="Status">
+    <xs:sequence>
+      <xs:element name="DataStatus" nillable="true" type="xs:string" />
+      <xs:element name="DetalheStatus" nillable="true" type="xs:string" />
+      <xs:element name="StatusSolicitacao" nillable="true" type="xs:string" />
+      <xs:element name="Usuario" nillable="true" type="tns:Usuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Status" nillable="true" type="tns:Status" />
+  <xs:complexType name="ArrayOfSolicitacao">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Solicitacao" nillable="true" type="tns:Solicitacao" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSolicitacao" nillable="true" type="tns:ArrayOfSolicitacao" />
 </xs:schema>

@@ -11,7 +11,7 @@ namespace BibliotecaClasses.faixada
     {
         List<Produto> DListarProduto(Produto produto);
         void DDeletarProduto(Produto produto);
-        void DCadastrarProduto(Produto produto);
+        Produto DCadastrarProduto(Produto produto);
         void DAlterarProduto(Produto produto);
     }
 }

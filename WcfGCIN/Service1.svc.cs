@@ -61,9 +61,9 @@ namespace WcfGCIN
             return new NProduto().NListarProduto(produto);
         }
 
-        public void ProdutoCadastrarAlterar(Produto produto)
+        public Produto ProdutoCadastrarAlterar(Produto produto)
         {
-            new NProduto().NCadastrarAlterarProduto(produto);
+            return new NProduto().NCadastrarAlterarProduto(produto);
         }
 
         public void ProdutoDeletar(Produto produto)

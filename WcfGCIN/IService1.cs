@@ -43,7 +43,7 @@ namespace WcfGCIN
         List<Produto> ProdutoListar(Produto produto);
 
         [OperationContract]
-        void ProdutoCadastrarAlterar(Produto produto);
+        Produto ProdutoCadastrarAlterar(Produto produto);
 
         [OperationContract]
         void ProdutoDeletar(Produto produto);
